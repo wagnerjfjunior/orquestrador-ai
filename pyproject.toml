@@ -4,15 +4,13 @@ version = "0.1.0"
 description = "Orquestrador adaptativo (esqueleto)"
 requires-python = ">=3.11"
 dependencies = [
- "fastapi>=0.112",
-"uvicorn[standard]>=0.30",
+  "fastapi>=0.112",
+  "uvicorn[standard]>=0.30",
+  "redis>=5.0",
 ]
+
 [tool.uvicorn]
 factory = false
 host = "0.0.0.0"
 port = 8080
 reload = true
-# acrescenta a dependência ao pyproject.toml
-# --- deps extras ---
-[project.optional-dependencies]
-cache = ["redis>=5.0"]

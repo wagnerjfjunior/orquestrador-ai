@@ -14,3 +14,11 @@ factory = false
 host = "0.0.0.0"
 port = 8080
 reload = true
+
+dependencies = [
+  "fastapi>=0.112",
+  "uvicorn[standard]>=0.30",
+  "redis>=5.0",
+  "httpx>=0.27",
+  "pydantic-settings>=2.4",
+]

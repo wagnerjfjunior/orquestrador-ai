@@ -1,0 +1,16 @@
+# render.yaml
+services:
+  - type: web
+    name: orquestrador-ai
+    env: docker
+    plan: free
+    region: oregon
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: LOG_LEVEL
+        value: INFO
+      - key: OPENAI_API_KEY
+        sync: false   # configure no dashboard/secret
+      - key: GEMINI_API_KEY
+        sync: false

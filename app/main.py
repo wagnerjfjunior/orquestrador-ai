@@ -1,6 +1,7 @@
 # app/main.py
 from typing import Dict, Any, List
 import time
+
 from fastapi import FastAPI, Body, HTTPException
 from app.observability import TraceMiddleware, logger
 from app.metrics import setup_metrics, record_ask
@@ -17,7 +18,7 @@ app = FastAPI(
 # --- Middlewares e métricas ---
 # 1) Instrumenta métricas primeiro (fica "mais interno")
 setup_metrics(app)
-# 2) Adiciona o TraceMiddleware por último (fica "mais externo")
+# 2) TraceMiddleware por último (o MAIS externo) — garante X-Request-ID na resposta
 app.add_middleware(TraceMiddleware)
 
 # --- Rotas básicas ---

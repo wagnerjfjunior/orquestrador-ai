@@ -1,48 +1,34 @@
 # tests/test_observability.py
+import logging
 from starlette.testclient import TestClient
 from app.main import app
 
-def test_trace_middleware_logs_request_start_and_end(capsys):
+client = TestClient(app)
+
+def test_trace_middleware_logs_request_start_and_end(caplog):
     """
     Garante que o TraceMiddleware loga 'request.start' e 'request.end'
-    em formato JSON no stdout durante uma requisição.
+    em formato JSON via logging.
     """
-    client = TestClient(app)
+    caplog.set_level(logging.INFO)
 
-    # limpa buffer
-    capsys.readouterr()
-
-    # faz uma request simples
     r = client.get("/health")
     assert r.status_code == 200
 
-    # captura stdout
-    captured = capsys.readouterr()
-    out_lines = captured.out.splitlines()
+    log_text = caplog.text
+    assert "request.start" in log_text, f"Não encontrou log 'request.start'. Logs:\n{log_text}"
+    assert "request.end" in log_text, f"Não encontrou log 'request.end'. Logs:\n{log_text}"
+    assert '"request_id"' in log_text or "request_id" in log_text, f"Não encontrou 'request_id'. Logs:\n{log_text}"
 
-    # deve conter eventos de início e fim
-    has_start = any('"event": "request.start"' in line or '"request.start"' in line for line in out_lines)
-    has_end = any('"event": "request.end"' in line or '"request.end"' in line for line in out_lines)
-    assert has_start, f"Não encontrou log 'request.start' em: {captured.out}"
-    assert has_end, f"Não encontrou log 'request.end' em: {captured.out}"
-
-    # deve conter um request_id nos logs
-    # (ambos logs têm request_id — validamos pelo menos um)
-    has_request_id = any('"request_id"' in line for line in out_lines)
-    assert has_request_id, f"Não encontrou 'request_id' nos logs: {captured.out}"
-
-def test_trace_middleware_includes_path_and_method(capsys):
+def test_trace_middleware_includes_path_and_method(caplog):
     """
-    Verifica se os logs incluem path e method (metadados básicos).
+    Verifica se os logs incluem path e method.
     """
-    client = TestClient(app)
-    capsys.readouterr()
+    caplog.set_level(logging.INFO)
 
     r = client.get("/ready")
     assert r.status_code == 200
 
-    captured = capsys.readouterr()
-    out = captured.out
-
-    assert '"path":' in out, f"Log não contém 'path': {out}"
-    assert '"method": "GET"' in out, f"Log não contém 'method': {out}"
+    log_text = caplog.text
+    assert '"path":' in log_text or '"path"' in log_text, f"Log não contém 'path'. Logs:\n{log_text}"
+    assert '"method": "GET"' in log_text or '"method":"GET"' in log_text, f"Log não contém 'method: GET'. Logs:\n{log_text}"

@@ -54,6 +54,7 @@ def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
 
     if name == "openai":
         if not openai_configured():
+            # mantém mensagem específica esperada pelo teste
             raise HTTPException(status_code=503, detail="OPENAI_API_KEY não configurada.")
         return ask_openai(prompt)
 
@@ -88,19 +89,33 @@ def ask(provider: str = "echo", payload: dict = Body(...), use_fallback: bool = 
     chain = _fallback_chain(provider)
 
     last_error: Exception | None = None
+    is_auto = (provider or "").lower() == "auto"
+
     for idx, p in enumerate(chain):
         logger.info("ask.try_provider", provider=p)
 
-        # Se provider explícito veio, _fallback_chain() retorna só um item.
-        # Se provider=auto e use_fallback=False, só tenta o primeiro.
+        # Se provider explícito: chama direto _provider_call (deixa ele decidir a msg/erro)
+        if not is_auto:
+            try:
+                resp = _provider_call(p, prompt)
+                logger.info("ask.provider_success", provider=p)
+                return resp
+            except HTTPException as http_exc:
+                logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
+                raise http_exc
+            except RuntimeError as runtime_err:
+                logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
+                raise HTTPException(status_code=502, detail=str(runtime_err))
+
+        # provider=auto:
+        # respeita use_fallback=false (só tenta o primeiro)
         if not use_fallback and idx > 0:
             break
 
-        # Pula não configurado (mas registra)
+        # auto: se não configurado, pula para o próximo (mantém msg genérica)
         if not _provider_is_configured(p):
             logger.info("ask.provider_not_configured", provider=p)
             last_error = HTTPException(status_code=503, detail=f"Provider não configurado: {p}")
-            # Se não é auto (logo chain==[p]), sairá do loop e retornará 503
             continue
 
         try:
@@ -110,15 +125,15 @@ def ask(provider: str = "echo", payload: dict = Body(...), use_fallback: bool = 
         except HTTPException as http_exc:
             logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
             last_error = http_exc
-            if len(chain) == 1 or not use_fallback:
+            if not use_fallback:
                 raise http_exc
         except RuntimeError as runtime_err:
             logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
             last_error = runtime_err
-            if len(chain) == 1 or not use_fallback:
+            if not use_fallback:
                 raise HTTPException(status_code=502, detail=str(runtime_err))
 
-    # Todos falharam
+    # auto e todos falharam
     if isinstance(last_error, HTTPException):
         raise last_error
     detail = str(last_error) if last_error else "Falha ao atender requisição em todos os provedores."

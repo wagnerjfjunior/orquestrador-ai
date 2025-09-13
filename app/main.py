@@ -4,6 +4,7 @@ import os
 import json
 import uuid
 from typing import Literal, Optional
+import hashlib
 
 import httpx
 from fastapi import FastAPI, Body, Query, Response
@@ -19,9 +20,14 @@ GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
 def make_trace_id() -> str:
     return uuid.uuid4().hex[:12]
 
+def stable_hash(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:20]
+
 def cache_key(provider: str, prompt: str, model: Optional[str]) -> str:
-    m = model or ""
-    return f"ask:{provider}:{m}:{hash(prompt)}"
+    p = (provider or "").strip().lower()
+    m = (model or "").strip().lower()
+    ph = stable_hash(prompt or "")
+    return f"ask:{p}:{m}:{ph}"
 
 async def chat_gemini(prompt: str, model: str = "gemini-1.5-flash-latest") -> str:
     if not settings.gemini_api_key:
@@ -42,7 +48,6 @@ async def chat_openai(prompt: str, model: str = "gpt-4o-mini") -> str:
     api_key = settings.openai_api_key
     if not api_key:
         return "[openai] missing OPENAI_API_KEY or SDK not available"
-    # uso via REST para evitar SDKs extras
     url = "https://api.openai.com/v1/chat/completions"
     headers = {"Authorization": f"Bearer {api_key}"}
     payload = {
@@ -115,7 +120,7 @@ async def ask(
     else:
         answer = "[error] unknown provider"
 
-    # salva cache (somente se houver resposta)
+    # salva cache
     if ttl and answer and not answer.startswith("[error]"):
         cache_set(key, answer, ttl)
 

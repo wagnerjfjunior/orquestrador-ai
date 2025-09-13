@@ -15,8 +15,10 @@ app = FastAPI(
 )
 
 # --- Middlewares e métricas ---
-app.add_middleware(TraceMiddleware)
+# 1) Instrumenta métricas primeiro (fica "mais interno")
 setup_metrics(app)
+# 2) Adiciona o TraceMiddleware por último (fica "mais externo")
+app.add_middleware(TraceMiddleware)
 
 # --- Rotas básicas ---
 @app.get("/", tags=["infra"])

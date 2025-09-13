@@ -2,24 +2,62 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop", "feature/**", "fix/**" ]
   pull_request:
+    branches: [ "main", "develop" ]
 
 jobs:
   test:
+    name: Lint & Tests (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+
+    env:
+      # Garante que não usamos chaves reais no CI
+      OPENAI_API_KEY: ""
+      GEMINI_API_KEY: ""
+      # Faz o Python preferir stdout sem buffer — logs mais legíveis
+      PYTHONUNBUFFERED: "1"
+      # Garante que possamos importar o pacote local
+      PYTHONPATH: "."
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
 
-      - name: Install deps
+      - name: Show Python version
+        run: python -V
+
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          # Se houver requirements.txt, usa; senão instala mínimo e modo dev local
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          # Dependências mínimas para o projeto e CI
           pip install -e .
-          pip install pytest
+          pip install pytest ruff flake8
+
+      - name: Ruff (lint)
+        run: |
+          # Se houver config (ruff.toml/pyproject), ela será respeitada
+          ruff check .
+
+      - name: Flake8 (style)
+        run: |
+          # Ajuste output mínimo; personalize ignore/max-line-length em setup.cfg/pyproject se quiser
+          flake8 .
 
       - name: Run tests
-        run: pytest -q
+        run: |
+          pytest -q

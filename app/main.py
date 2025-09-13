@@ -2,10 +2,13 @@
 from fastapi import FastAPI, Body, HTTPException
 from app.observability import TraceMiddleware, logger
 from app.metrics import setup_metrics
+from app.config import settings
+from app.openai_client import ask_openai, is_configured as openai_configured
+from app.gemini_client import ask_gemini, is_configured as gemini_configured
 
 app = FastAPI(
     title="orquestrador-ai",
-    version="0.1.0",
+    version=settings.APP_VERSION,
     description="Orquestrador multi-IA com observabilidade e métricas",
 )
 
@@ -38,21 +41,50 @@ def ask(provider: str = "echo", payload: dict = Body(...)):
     """
     Endpoint principal do orquestrador.
 
-    Para os testes:
-      - provider=echo deve devolver o próprio prompt em 'answer'
-      Exemplo:
-        POST /ask?provider=echo
-        { "prompt": "ping" }
-        -> { "provider": "echo", "answer": "ping" }
+    Exemplos:
+      - provider=echo
+        { "prompt": "ping" } -> { "provider": "echo", "answer": "ping" }
+
+      - provider=openai
+        { "prompt": "Olá!" } -> { "provider": "openai", "model": "...", "answer": "...", "usage": {...} }
+
+      - provider=gemini
+        { "prompt": "Olá!" } -> { "provider": "gemini", "model": "...", "answer": "...", "usage": {...} }
     """
     prompt = payload.get("prompt")
     if prompt is None:
         raise HTTPException(status_code=400, detail="Campo 'prompt' é obrigatório no corpo JSON.")
 
+    provider = (provider or "").lower()
+
+    # ECHO (para testes/diagnóstico)
     if provider == "echo":
         logger.info("ask.echo", prompt=prompt)
-        # 'answer' é obrigatório para o teste; 'output' mantido por compatibilidade
+        # 'answer' é obrigatório para os testes; 'output' mantido por compatibilidade
         return {"provider": "echo", "answer": prompt, "output": prompt}
 
-    # Providers reais (openai, gemini, etc.) entram aqui posteriormente
+    # OPENAI
+    if provider == "openai":
+        if not openai_configured():
+            raise HTTPException(status_code=503, detail="OPENAI_API_KEY não configurada.")
+        try:
+            resp = ask_openai(prompt)
+            # resp já vem normalizado: {provider, model, answer, usage}
+            return resp
+        except RuntimeError as e:
+            # erro do provedor → 502 Bad Gateway
+            raise HTTPException(status_code=502, detail=str(e)) from e
+
+    # GEMINI
+    if provider == "gemini":
+        if not gemini_configured():
+            raise HTTPException(status_code=503, detail="GEMINI_API_KEY não configurada.")
+        try:
+            resp = ask_gemini(prompt)
+            # resp já vem normalizado: {provider, model, answer, usage}
+            return resp
+        except RuntimeError as e:
+            raise HTTPException(status_code=502, detail=str(e)) from e
+
+    # Provider inválido
     raise HTTPException(status_code=400, detail=f"Provider não suportado: {provider}")

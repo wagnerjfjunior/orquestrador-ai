@@ -1,5 +1,8 @@
+# app/metrics.py
 from prometheus_fastapi_instrumentator import Instrumentator
-from fastapi import FastAPI
 
-def setup_metrics(app: FastAPI) -> None:
-    Instrumentator().instrument(app).expose(app, endpoint="/metrics")
+def setup_metrics(app):
+    """
+    Expõe métricas em /metrics e instrumenta rotas automaticamente.
+    """
+    Instrumentator().instrument(app).expose(app, include_in_schema=False, endpoint="/metrics")

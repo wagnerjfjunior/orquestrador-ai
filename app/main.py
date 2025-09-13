@@ -3,7 +3,7 @@ from typing import Dict, Any, List
 import time
 
 from fastapi import FastAPI, Body, HTTPException
-from app.observability import TraceMiddleware, logger
+from app.observability import TraceMiddleware, RequestIDMiddleware, logger
 from app.metrics import setup_metrics, record_ask
 from app.config import settings
 from app.openai_client import ask_openai, is_configured as openai_configured
@@ -16,10 +16,12 @@ app = FastAPI(
 )
 
 # --- Middlewares e métricas ---
-# 1) Instrumenta métricas primeiro (fica "mais interno")
+# 1) Métricas primeiro (mais interno)
 setup_metrics(app)
-# 2) TraceMiddleware por último (o MAIS externo) — garante X-Request-ID na resposta
+# 2) Tracing no meio
 app.add_middleware(TraceMiddleware)
+# 3) RequestID MAIS externo (último a escrever na resposta)
+app.add_middleware(RequestIDMiddleware)
 
 # --- Rotas básicas ---
 @app.get("/", tags=["infra"])

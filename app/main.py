@@ -1,8 +1,9 @@
 # app/main.py
 from typing import Dict, Any, List
+import time
 from fastapi import FastAPI, Body, HTTPException
 from app.observability import TraceMiddleware, logger
-from app.metrics import setup_metrics
+from app.metrics import setup_metrics, record_ask
 from app.config import settings
 from app.openai_client import ask_openai, is_configured as openai_configured
 from app.gemini_client import ask_gemini, is_configured as gemini_configured
@@ -54,7 +55,7 @@ def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
 
     if name == "openai":
         if not openai_configured():
-            # mantém mensagem específica esperada pelo teste
+            # mensagem específica esperada nos testes
             raise HTTPException(status_code=503, detail="OPENAI_API_KEY não configurada.")
         return ask_openai(prompt)
 
@@ -87,47 +88,57 @@ def ask(provider: str = "echo", payload: dict = Body(...), use_fallback: bool = 
         raise HTTPException(status_code=400, detail="Campo 'prompt' é obrigatório no corpo JSON.")
 
     chain = _fallback_chain(provider)
-
-    last_error: Exception | None = None
     is_auto = (provider or "").lower() == "auto"
 
-    for idx, p in enumerate(chain):
-        logger.info("ask.try_provider", provider=p)
+    start = time.perf_counter()
+    last_error: Exception | None = None
 
-        # Se provider explícito: chama direto _provider_call (deixa ele decidir a msg/erro)
-        if not is_auto:
-            try:
-                resp = _provider_call(p, prompt)
-                logger.info("ask.provider_success", provider=p)
-                return resp
-            except HTTPException as http_exc:
-                logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
-                raise http_exc
-            except RuntimeError as runtime_err:
-                logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
-                raise HTTPException(status_code=502, detail=str(runtime_err))
-
-        # provider=auto:
-        # respeita use_fallback=false (só tenta o primeiro)
-        if not use_fallback and idx > 0:
-            break
-
-        # auto: se não configurado, pula para o próximo (mantém msg genérica)
-        if not _provider_is_configured(p):
-            logger.info("ask.provider_not_configured", provider=p)
-            last_error = HTTPException(status_code=503, detail=f"Provider não configurado: {p}")
-            continue
-
+    # Provider explícito: sem fallback, registra métricas direto
+    if not is_auto:
+        p = chain[0]
         try:
             resp = _provider_call(p, prompt)
-            logger.info("ask.provider_success", provider=p)
+            duration_ms = (time.perf_counter() - start) * 1000
+            record_ask(p, "success", duration_ms)
             return resp
         except HTTPException as http_exc:
+            duration_ms = (time.perf_counter() - start) * 1000
+            record_ask(p, "error", duration_ms)
+            logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
+            raise http_exc
+        except RuntimeError as runtime_err:
+            duration_ms = (time.perf_counter() - start) * 1000
+            record_ask(p, "error", duration_ms)
+            logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
+            raise HTTPException(status_code=502, detail=str(runtime_err))
+
+    # provider=auto: tenta cadeia com fallback
+    for idx, p in enumerate(chain):
+        try:
+            if not use_fallback and idx > 0:
+                break
+
+            if not _provider_is_configured(p):
+                logger.info("ask.provider_not_configured", provider=p)
+                last_error = HTTPException(status_code=503, detail=f"Provider não configurado: {p}")
+                continue
+
+            resp = _provider_call(p, prompt)
+            duration_ms = (time.perf_counter() - start) * 1000
+            record_ask(p, "success", duration_ms)
+            logger.info("ask.provider_success", provider=p)
+            return resp
+
+        except HTTPException as http_exc:
+            duration_ms = (time.perf_counter() - start) * 1000
+            record_ask(p, "error", duration_ms)
             logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
             last_error = http_exc
             if not use_fallback:
                 raise http_exc
         except RuntimeError as runtime_err:
+            duration_ms = (time.perf_counter() - start) * 1000
+            record_ask(p, "error", duration_ms)
             logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
             last_error = runtime_err
             if not use_fallback:

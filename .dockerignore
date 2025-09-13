@@ -1,0 +1,20 @@
+.git
+.github
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.egg-info
+*.eggs
+.env
+.env.*
+.mypy_cache
+.pytest_cache
+.pytype
+coverage.*
+dist
+build
+.cache
+# tests   # (descomente se NÃO quiser copiar testes p/ imagem)

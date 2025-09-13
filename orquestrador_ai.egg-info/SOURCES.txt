@@ -1,7 +1,11 @@
 README.md
 pyproject.toml
 app/__init__.py
+app/cache.py
+app/config.py
+app/gemini_client.py
 app/main.py
+app/openai_client.py
 orquestrador_ai.egg-info/PKG-INFO
 orquestrador_ai.egg-info/SOURCES.txt
 orquestrador_ai.egg-info/dependency_links.txt

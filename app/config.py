@@ -1,10 +1,31 @@
+from functools import lru_cache
+from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 class Settings(BaseSettings):
-    openai_api_key: str | None = None
-    gemini_api_key: str | None = None
-    redis_url: str | None = None
+    # Metadados do app
+    app_name: str = "Orquestrador AI"
+    version: str = "0.1.0"
 
-    model_config = SettingsConfigDict(env_file=".env", case_sensitive=False)
+    # Chaves/API
+    openai_api_key: Optional[str] = None
+    gemini_api_key: Optional[str] = None
 
-settings = Settings()
+    # Redis
+    redis_url: Optional[str] = None
+
+    # Config de leitura de env (.env local e variáveis do ambiente)
+    model_config = SettingsConfigDict(
+        env_prefix="",          # não exige prefixo (usa nomes exatos)
+        env_file=".env",        # útil em dev local
+        case_sensitive=False    # permite OPENAI_API_KEY ou openai_api_key
+    )
+
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+
+settings = get_settings()

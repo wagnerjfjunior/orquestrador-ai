@@ -1,7 +1,8 @@
 # app/metrics.py
-from prometheus_fastapi_instrumentator import Instrumentator
-from prometheus_client import Counter, Histogram
 from typing import Optional
+
+from prometheus_client import Counter, Histogram
+from prometheus_fastapi_instrumentator import Instrumentator
 
 # Contador de requisições do /ask por provider e status (success|error)
 ASK_REQUESTS_TOTAL = Counter(

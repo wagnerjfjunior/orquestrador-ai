@@ -1,12 +1,12 @@
 # CONFIG SNAPSHOT
 
-- Generated at: **2025-09-14 12:11:51 **
+- Generated at: **2025-09-14 12:42:39 **
 
 - Root: `/Users/wagnerjfjunior/orquestrador-ai`
 
-- Files: **34**
+- Files: **36**
 
-- Total config lines: **2012**
+- Total config lines: **2185**
 
 
 ---
@@ -15,38 +15,40 @@
 
 - [ 1] `.env.example` — 29 lines — mtime 2025-09-13 07:55:28 — sha256 `274aceefe36c…`
 - [ 2] `.github/workflows/ci.yml` — 39 lines — mtime 2025-09-13 19:22:11 — sha256 `1741b400f725…`
-- [ 3] `.gitignore` — 10 lines — mtime 2025-09-12 01:56:56 — sha256 `b746016476e6…`
-- [ 4] `app/__init__.py` — 2 lines — mtime 2025-09-13 15:30:17 — sha256 `f0fb5e1d3cbe…`
-- [ 5] `app/cache.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `0a8edfe8a856…`
-- [ 6] `app/config.py` — 62 lines — mtime 2025-09-13 18:33:31 — sha256 `ffa9c871ab06…`
-- [ 7] `app/gemini_client.py` — 93 lines — mtime 2025-09-13 18:33:31 — sha256 `d5e2e34bf8cf…`
-- [ 8] `app/judge.py` — 71 lines — mtime 2025-09-14 11:27:38 — sha256 `874ade3ba271…`
-- [ 9] `app/main.py` — 239 lines — mtime 2025-09-14 11:40:33 — sha256 `e77349199271…`
-- [10] `app/metrics.py` — 44 lines — mtime 2025-09-13 18:33:31 — sha256 `672d96010d9c…`
-- [11] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
-- [12] `app/openai_client.py` — 128 lines — mtime 2025-09-13 18:33:31 — sha256 `0aa4158cb39c…`
-- [13] `app/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `f7539c2a2673…`
-- [14] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
-- [15] `app/utils/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `d22081dab42b…`
-- [16] `CONFIG_SNAPSHOT.manifest.json` — 207 lines — mtime 2025-09-14 12:07:57 — sha256 `d4f8692cf60a…`
-- [17] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
-- [18] `Dockerfile` — 27 lines — mtime 2025-09-13 16:37:38 — sha256 `5dc22d6e9ce9…`
-- [19] `Makefile` — 42 lines — mtime 2025-09-13 16:38:26 — sha256 `2b0fac71f475…`
-- [20] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
-- [21] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
-- [22] `ruff.toml` — 19 lines — mtime 2025-09-13 18:38:03 — sha256 `13e62274b996…`
-- [23] `tests/test_ask_providers.py` — 78 lines — mtime 2025-09-13 18:33:31 — sha256 `a894b30cfd10…`
-- [24] `tests/test_basic.py` — 22 lines — mtime 2025-09-13 18:33:31 — sha256 `552f7a87700f…`
-- [25] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
-- [26] `tests/test_duel_openai_only.py` — 25 lines — mtime 2025-09-14 11:43:21 — sha256 `440c8d4b1b3b…`
-- [27] `tests/test_fallback.py` — 53 lines — mtime 2025-09-13 18:33:31 — sha256 `5cc63c636101…`
-- [28] `tests/test_metrics.py` — 21 lines — mtime 2025-09-13 18:33:31 — sha256 `856e3ec90817…`
-- [29] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-13 18:33:31 — sha256 `850ce9f5c170…`
-- [30] `tests/test_observability.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `53d2b047fd81…`
-- [31] `tests/test_openai_client.py` — 53 lines — mtime 2025-09-13 18:33:31 — sha256 `a15c6d5bdb31…`
-- [32] `tests/test_request_id.py` — 20 lines — mtime 2025-09-13 18:33:31 — sha256 `2ebc4c965dc3…`
-- [33] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
-- [34] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-14 12:04:40 — sha256 `6407d9d7f76f…`
+- [ 3] `.github/workflows/snapshot.yml` — 21 lines — mtime 2025-09-14 12:15:11 — sha256 `73f13efc7425…`
+- [ 4] `.gitignore` — 10 lines — mtime 2025-09-12 01:56:56 — sha256 `b746016476e6…`
+- [ 5] `app/__init__.py` — 2 lines — mtime 2025-09-13 15:30:17 — sha256 `f0fb5e1d3cbe…`
+- [ 6] `app/cache.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `0a8edfe8a856…`
+- [ 7] `app/config.py` — 62 lines — mtime 2025-09-13 18:33:31 — sha256 `ffa9c871ab06…`
+- [ 8] `app/gemini_client.py` — 93 lines — mtime 2025-09-13 18:33:31 — sha256 `d5e2e34bf8cf…`
+- [ 9] `app/judge.py` — 71 lines — mtime 2025-09-14 11:27:38 — sha256 `874ade3ba271…`
+- [10] `app/main.py` — 239 lines — mtime 2025-09-14 11:40:33 — sha256 `e77349199271…`
+- [11] `app/metrics.py` — 44 lines — mtime 2025-09-13 18:33:31 — sha256 `672d96010d9c…`
+- [12] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
+- [13] `app/openai_client.py` — 128 lines — mtime 2025-09-13 18:33:31 — sha256 `0aa4158cb39c…`
+- [14] `app/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `f7539c2a2673…`
+- [15] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
+- [16] `app/utils/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `d22081dab42b…`
+- [17] `CONFIG_SNAPSHOT.manifest.json` — 225 lines — mtime 2025-09-14 12:34:51 — sha256 `579ac4ffcddb…`
+- [18] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
+- [19] `Dockerfile` — 27 lines — mtime 2025-09-13 16:37:38 — sha256 `5dc22d6e9ce9…`
+- [20] `Makefile` — 42 lines — mtime 2025-09-13 16:38:26 — sha256 `2b0fac71f475…`
+- [21] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
+- [22] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
+- [23] `ruff.toml` — 19 lines — mtime 2025-09-13 18:38:03 — sha256 `13e62274b996…`
+- [24] `tests/test_ask_providers.py` — 78 lines — mtime 2025-09-13 18:33:31 — sha256 `a894b30cfd10…`
+- [25] `tests/test_basic.py` — 22 lines — mtime 2025-09-13 18:33:31 — sha256 `552f7a87700f…`
+- [26] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
+- [27] `tests/test_duel_openai_only.py` — 25 lines — mtime 2025-09-14 11:43:21 — sha256 `440c8d4b1b3b…`
+- [28] `tests/test_fallback.py` — 53 lines — mtime 2025-09-13 18:33:31 — sha256 `5cc63c636101…`
+- [29] `tests/test_metrics.py` — 21 lines — mtime 2025-09-13 18:33:31 — sha256 `856e3ec90817…`
+- [30] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-13 18:33:31 — sha256 `850ce9f5c170…`
+- [31] `tests/test_observability.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `53d2b047fd81…`
+- [32] `tests/test_openai_client.py` — 53 lines — mtime 2025-09-13 18:33:31 — sha256 `a15c6d5bdb31…`
+- [33] `tests/test_request_id.py` — 20 lines — mtime 2025-09-13 18:33:31 — sha256 `2ebc4c965dc3…`
+- [34] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
+- [35] `tools/guard_update.py` — 134 lines — mtime 2025-09-14 12:41:05 — sha256 `ad8e6b859128…`
+- [36] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-14 12:04:40 — sha256 `6407d9d7f76f…`
 
 ---
 
@@ -132,7 +134,35 @@ jobs:
         run: pytest -q
 ```
 
-## [3] .gitignore
+## [3] .github/workflows/snapshot.yml
+- Last modified: **2025-09-14 12:15:11**
+- Lines: **21**
+- SHA-256: `73f13efc74257069dcb4e3a8680af67d50367be462658b750527ff9dc7ddf703`
+
+```yaml
+name: Snapshot Guard
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install --upgrade pip
+      - run: python tools/snapshot_configs.py
+      - name: Ensure snapshot is staged
+        run: |
+          git diff --exit-code CONFIG_SNAPSHOT.md CONFIG_SNAPSHOT.manifest.json || {
+            echo "::error::Snapshot not up to date. Run tools/snapshot_configs.py and commit the result."
+            exit 1
+          }
+```
+
+## [4] .gitignore
 - Last modified: **2025-09-12 01:56:56**
 - Lines: **10**
 - SHA-256: `b746016476e67e3218ae3f64849efa8088943b6fc34283a3dba598d296379793`
@@ -150,7 +180,7 @@ __pycache__/
 .DS_Store
 ```
 
-## [4] app/__init__.py
+## [5] app/__init__.py
 - Last modified: **2025-09-13 15:30:17**
 - Lines: **2**
 - SHA-256: `f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f`
@@ -160,7 +190,7 @@ __pycache__/
 # Torna 'utils' um pacote Python.
 ```
 
-## [5] app/cache.py
+## [6] app/cache.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **34**
 - SHA-256: `0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475`
@@ -202,7 +232,7 @@ def cache_set(key: str, value: str, ttl_seconds: int = 300) -> None:
         pass
 ```
 
-## [6] app/config.py
+## [7] app/config.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **62**
 - SHA-256: `ffa9c871ab06afa64e73084b2412d151470e59dd2c4089ac614ee6a2eec4b1d6`
@@ -272,7 +302,7 @@ def get_settings() -> Settings:
 settings = get_settings()
 ```
 
-## [7] app/gemini_client.py
+## [8] app/gemini_client.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **93**
 - SHA-256: `d5e2e34bf8cf3534cb68e468bd91adbcb8d6212d8b57307b31cf5a23d5f232ed`
@@ -373,7 +403,7 @@ def ask_gemini(
         raise RuntimeError("Erro inesperado ao chamar o Gemini.") from e
 ```
 
-## [8] app/judge.py
+## [9] app/judge.py
 - Last modified: **2025-09-14 11:27:38**
 - Lines: **71**
 - SHA-256: `874ade3ba27169a304737fa60913fdb1e3068b4328a6d87c0ab1ee791c19794d`
@@ -452,7 +482,7 @@ def judge_answers(question: str, answer_a: str, answer_b: str) -> Dict[str, Any]
     return {"provider": "heuristic", "winner": winner, "reason": "Resposta mais completa (comprimento)."}
 ```
 
-## [9] app/main.py
+## [10] app/main.py
 - Last modified: **2025-09-14 11:40:33**
 - Lines: **239**
 - SHA-256: `e7734919927199deec1f1a0ff82840a8347034f4eea8c7ffa6ff39b236fa1745`
@@ -699,7 +729,7 @@ def duel(payload: dict = Body(...)):
     return _ask_duel(prompt)
 ```
 
-## [10] app/metrics.py
+## [11] app/metrics.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **44**
 - SHA-256: `672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c`
@@ -751,7 +781,7 @@ def record_ask(provider: str, status: str, duration_ms: Optional[float] = None) 
         ASK_LATENCY_SECONDS.labels(provider=p, status=s).observe(duration_ms / 1000.0)
 ```
 
-## [11] app/observability.py
+## [12] app/observability.py
 - Last modified: **2025-09-14 11:32:26**
 - Lines: **111**
 - SHA-256: `5a5528e1c8ab181c8bdc64133f5ebf08f502ee930d15dc116eabe9ed7e8fb297`
@@ -870,7 +900,7 @@ class RequestIDMiddleware(BaseHTTPMiddleware):
 __all__ = ["logger", "TraceMiddleware", "RequestIDMiddleware"]
 ```
 
-## [12] app/openai_client.py
+## [13] app/openai_client.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **128**
 - SHA-256: `0aa4158cb39c9fb4c2bc841891b8177a552bb21b153dc6222405c23e4d27a5cd`
@@ -1006,7 +1036,7 @@ def ask_openai(
         raise RuntimeError("Erro inesperado ao chamar a OpenAI.") from e
 ```
 
-## [13] app/retry.py
+## [14] app/retry.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **42**
 - SHA-256: `f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b`
@@ -1056,7 +1086,7 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [14] app/utils/__init__.py
+## [15] app/utils/__init__.py
 - Last modified: **2025-09-13 15:31:19**
 - Lines: **2**
 - SHA-256: `f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f`
@@ -1066,7 +1096,7 @@ def retry(
 # Torna 'utils' um pacote Python.
 ```
 
-## [15] app/utils/retry.py
+## [16] app/utils/retry.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **42**
 - SHA-256: `d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c`
@@ -1116,17 +1146,17 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [16] CONFIG_SNAPSHOT.manifest.json
-- Last modified: **2025-09-14 12:07:57**
-- Lines: **207**
-- SHA-256: `d4f8692cf60a54f109135fecac59a79a29770887efaacd9e3b7c4fb7f831765c`
+## [17] CONFIG_SNAPSHOT.manifest.json
+- Last modified: **2025-09-14 12:34:51**
+- Lines: **225**
+- SHA-256: `579ac4ffcddbe4071532d463ba88b222e15ab2f3d20933720e4805499be5ce38`
 
 ```json
 {
-  "generated_at": "2025-09-14 12:07:57 ",
+  "generated_at": "2025-09-14 12:34:51 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
-  "file_count": 33,
-  "total_lines": 1805,
+  "file_count": 36,
+  "total_lines": 2171,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -1140,6 +1170,12 @@ def retry(
       "mtime": "2025-09-13 19:22:11",
       "lines": 39,
       "sha256": "1741b400f7258048fbd5d71c4f9ddbd48860a00fe2da21a7f8b8232db8055ec5"
+    },
+    {
+      "path": ".github/workflows/snapshot.yml",
+      "mtime": "2025-09-14 12:15:11",
+      "lines": 21,
+      "sha256": "73f13efc74257069dcb4e3a8680af67d50367be462658b750527ff9dc7ddf703"
     },
     {
       "path": ".gitignore",
@@ -1218,6 +1254,12 @@ def retry(
       "mtime": "2025-09-13 18:33:31",
       "lines": 42,
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
+    },
+    {
+      "path": "CONFIG_SNAPSHOT.manifest.json",
+      "mtime": "2025-09-14 12:11:51",
+      "lines": 213,
+      "sha256": "f987a596644485fb89cd59d1d39c46433590f585561b6a73292eeb25e3c20b8f"
     },
     {
       "path": "cy.yml",
@@ -1322,6 +1364,12 @@ def retry(
       "sha256": "f96698342a6fa9152826a1d9e66d5acba5590c19ed5735b0137ddc68bc89db2b"
     },
     {
+      "path": "tools/guard_update.py",
+      "mtime": "2025-09-14 12:21:07",
+      "lines": 132,
+      "sha256": "a8375d1b3e64b5f9e4cc8c5793f33a710a0574a62e30aae18d50517615a8ee56"
+    },
+    {
       "path": "tools/snapshot_configs.py",
       "mtime": "2025-09-14 12:04:40",
       "lines": 290,
@@ -1331,7 +1379,7 @@ def retry(
 }
 ```
 
-## [17] cy.yml
+## [18] cy.yml
 - Last modified: **2025-09-13 15:38:40**
 - Lines: **63**
 - SHA-256: `9daf109266413c593e79e83e307681f1bc2533105d6fe072cb680e42068115ee`
@@ -1402,7 +1450,7 @@ jobs:
           pytest -q
 ```
 
-## [18] Dockerfile
+## [19] Dockerfile
 - Last modified: **2025-09-13 16:37:38**
 - Lines: **27**
 - SHA-256: `5dc22d6e9ce98b3471ee6c36b3a68fc9776bb34aa909aea118fe32659ec182d3`
@@ -1437,7 +1485,7 @@ ENV LOG_LEVEL=INFO \
 CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
 ```
 
-## [19] Makefile
+## [20] Makefile
 - Last modified: **2025-09-13 16:38:26**
 - Lines: **42**
 - SHA-256: `2b0fac71f475fec513c9d68944302b988395b27ce6d32189cd85a4072287cdac`
@@ -1487,7 +1535,7 @@ docker-run:
 	docker run --rm -p 8000:8000 -e PORT=8000 $(IMAGE)
 ```
 
-## [20] pyproject.toml
+## [21] pyproject.toml
 - Last modified: **2025-09-12 23:43:45**
 - Lines: **22**
 - SHA-256: `d8c205569aa1662debd668a45c32f50780aff2e6daf30fe611f3ca155461bf93`
@@ -1517,7 +1565,7 @@ port = 8080
 reload = true
 ```
 
-## [21] render.yaml
+## [22] render.yaml
 - Last modified: **2025-09-13 17:51:23**
 - Lines: **16**
 - SHA-256: `ea92f0fb004c850d21ff2c2e5cca496accdcbda2cc8b7eb11ab9c4f483748420`
@@ -1541,7 +1589,7 @@ services:
         sync: false
 ```
 
-## [22] ruff.toml
+## [23] ruff.toml
 - Last modified: **2025-09-13 18:38:03**
 - Lines: **19**
 - SHA-256: `13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c`
@@ -1568,7 +1616,7 @@ per-file-ignores = { "tests/**" = ["F401", "E501"] }
 known-first-party = ["app"]
 ```
 
-## [23] tests/test_ask_providers.py
+## [24] tests/test_ask_providers.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **78**
 - SHA-256: `a894b30cfd10bfaf9e99a5650d528919007f253297fc6aaebafe3adb0108e4bc`
@@ -1654,7 +1702,7 @@ def test_ask_gemini_provider_error(monkeypatch):
     assert "erro" in r.json()["detail"].lower() or "limit" in r.json()["detail"].lower()
 ```
 
-## [24] tests/test_basic.py
+## [25] tests/test_basic.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **22**
 - SHA-256: `552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a`
@@ -1684,7 +1732,7 @@ def test_ask_echo():
     assert data["answer"] == "ping"
 ```
 
-## [25] tests/test_duel_no_providers.py
+## [26] tests/test_duel_no_providers.py
 - Last modified: **2025-09-14 11:42:30**
 - Lines: **18**
 - SHA-256: `dbbf7419d36344394b3bc7c5a9f406c0847f7b236843b1f01e2b155dad732052`
@@ -1710,7 +1758,7 @@ def test_duel_returns_502_when_no_providers():
     assert "gemini" in body["detail"]["responses"]
 ```
 
-## [26] tests/test_duel_openai_only.py
+## [27] tests/test_duel_openai_only.py
 - Last modified: **2025-09-14 11:43:21**
 - Lines: **25**
 - SHA-256: `440c8d4b1b3baf3ce17815d30dfd5cdf086d8367bd7ea585ff84db0b092af149`
@@ -1743,7 +1791,7 @@ def test_duel_openai_only_ok():
     assert body["verdict"]["winner"] in ("openai", "tie")
 ```
 
-## [27] tests/test_fallback.py
+## [28] tests/test_fallback.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **53**
 - SHA-256: `5cc63c636101c4c61d763710421c005964aa921721c03ae2da607406a35c99cd`
@@ -1804,7 +1852,7 @@ def test_fallback_todos_falham(monkeypatch):
     assert "não configurado" in r.json()["detail"].lower()
 ```
 
-## [28] tests/test_metrics.py
+## [29] tests/test_metrics.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **21**
 - SHA-256: `856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784`
@@ -1833,7 +1881,7 @@ def test_metrics_exposes_ask_counters():
     assert 'ask_requests_total{provider="echo",status="success"}' in text, f"Contador não encontrado em /metrics:\n{text}"
 ```
 
-## [29] tests/test_metrics_error_counter.py
+## [30] tests/test_metrics_error_counter.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **38**
 - SHA-256: `850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a`
@@ -1879,7 +1927,7 @@ def test_error_counter_increments_on_openai_503():
     assert after == before + 1, f"Esperava {before}+1, obtive {after}"
 ```
 
-## [30] tests/test_observability.py
+## [31] tests/test_observability.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **34**
 - SHA-256: `53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145`
@@ -1921,7 +1969,7 @@ def test_x_request_id_propagation_on_ready():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [31] tests/test_openai_client.py
+## [32] tests/test_openai_client.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **53**
 - SHA-256: `a15c6d5bdb31ebb1d5d5da138b90433be4c5a0d46b57b3a57d40fd6c346dd478`
@@ -1982,7 +2030,7 @@ def test_ask_openai_mock(monkeypatch):
     assert result["usage"]["total_tokens"] == 15
 ```
 
-## [32] tests/test_request_id.py
+## [33] tests/test_request_id.py
 - Last modified: **2025-09-13 18:33:31**
 - Lines: **20**
 - SHA-256: `2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452`
@@ -2010,7 +2058,7 @@ def test_request_id_is_propagated_from_request_to_response():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [33] tests/test_request_id_header.py
+## [34] tests/test_request_id_header.py
 - Last modified: **2025-09-14 11:44:44**
 - Lines: **16**
 - SHA-256: `f96698342a6fa9152826a1d9e66d5acba5590c19ed5735b0137ddc68bc89db2b`
@@ -2034,7 +2082,148 @@ def test_request_id_is_propagated_from_request_to_response():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [34] tools/snapshot_configs.py
+## [35] tools/guard_update.py
+- Last modified: **2025-09-14 12:41:05**
+- Lines: **134**
+- SHA-256: `ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738`
+
+```python
+#!/usr/bin/env python3
+# =============================================================================
+# File: tools/guard_update.py
+# Version: 2025-09-14 13:45:00 -03 (America/Sao_Paulo)
+# Purpose:
+#   Garante que uma NOVA versão de arquivo (temp) não "encolha" nem perca
+#   funções/classes públicas da versão ATUAL. Uso principal:
+#   - Pre-commit/CI antes de aceitar substituição integral.
+# Rules:
+#   - NOVO.num_linhas >= ATUAL.num_linhas  (a menos que --allow-shrink)
+#   - NOVO mantém TODAS funções/classes "públicas" (sem prefixo "_")
+#   - NOVO preserva o bloco de header (primeiros comentários consecutivos)
+# Exit codes:
+#   0 = ok ; 1 = erro de regra ; 2 = erro de execução (I/O, parsing, etc.)
+# =============================================================================
+
+from __future__ import annotations
+
+import argparse
+import ast
+import sys
+from pathlib import Path
+from typing import Set, Tuple
+
+
+def read_text(p: Path) -> str:
+    try:
+        return p.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return p.read_text(encoding="latin-1")
+
+
+def header_block(text: str) -> str:
+    lines = text.splitlines()
+    hdr = []
+    for ln in lines:
+        if ln.strip().startswith("#"):
+            hdr.append(ln)
+        else:
+            break
+    return "\n".join(hdr).strip()
+
+
+def public_symbols_py(text: str) -> Tuple[Set[str], Set[str]]:
+    """
+    Retorna (funções_públicas, classes_públicas) a partir do AST.
+    Definição de "público": nome não inicia com "_".
+    """
+    funcs: Set[str] = set()
+    klass: Set[str] = set()
+    try:
+        tree = ast.parse(text)
+    except SyntaxError:
+        return funcs, klass
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.FunctionDef):
+            name = node.name
+            if not name.startswith("_"):
+                funcs.add(name)
+        elif isinstance(node, ast.AsyncFunctionDef):
+            name = node.name
+            if not name.startswith("_"):
+                funcs.add(name)
+        elif isinstance(node, ast.ClassDef):
+            name = node.name
+            if not name.startswith("_"):
+                klass.add(name)
+    return funcs, klass
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Guarda contra encolhimento/perda de símbolos ao substituir arquivo.")
+    ap.add_argument("--current", required=True, help="Caminho do arquivo ATUAL (no repo).")
+    ap.add_argument("--new", required=True, help="Caminho do arquivo NOVO (temp).")
+    ap.add_argument("--allow-shrink", dest="allow_shrink", action="store_true",
+                    help="Permite diminuir linhas (NÃO recomendado).")
+    ap.add_argument("--lang", default="py", choices=["py", "any"], help="Heurística de símbolos (py=AST).")
+    args = ap.parse_args()
+
+    cur = Path(args.current)
+    new = Path(args.new)
+
+    if not cur.exists():
+        print(f"[guard] current file not found: {cur}", file=sys.stderr)
+        return 2
+    if not new.exists():
+        print(f"[guard] new file not found: {new}", file=sys.stderr)
+        return 2
+
+    cur_text = read_text(cur)
+    new_text = read_text(new)
+
+    cur_lines = cur_text.count("\n") + (0 if cur_text.endswith("\n") else 1)
+    new_lines = new_text.count("\n") + (0 if new_text.endswith("\n") else 1)
+
+    # Regra 1: não encolher (corrigido: usar args.allow_shrink)
+    if not args.allow_shrink and new_lines < cur_lines:
+        print(f"[guard][ERROR] line count decreased: {cur_lines} -> {new_lines} in {cur}", file=sys.stderr)
+        return 1
+
+    # Regra 2: manter header
+    cur_hdr = header_block(cur_text)
+    new_hdr = header_block(new_text)
+    if cur_hdr and cur_hdr not in new_text:
+        print(f"[guard][ERROR] header block missing or altered in {new}", file=sys.stderr)
+        return 1
+
+    # Regra 3: manter símbolos públicos (para .py)
+    if args.lang == "py":
+        cur_funcs, cur_classes = public_symbols_py(cur_text)
+        new_funcs, new_classes = public_symbols_py(new_text)
+
+        missing_funcs = sorted(cur_funcs - new_funcs)
+        missing_classes = sorted(cur_classes - new_classes)
+
+        if missing_funcs or missing_classes:
+            if missing_funcs:
+                print(f"[guard][ERROR] missing public functions in {new}: {', '.join(missing_funcs)}", file=sys.stderr)
+            if missing_classes:
+                print(f"[guard][ERROR] missing public classes in {new}: {', '.join(missing_classes)}", file=sys.stderr)
+            return 1
+
+    print(f"[guard][OK] {cur} -> {new} (lines {cur_lines}->{new_lines})")
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except KeyboardInterrupt:
+        print("\n[aborted] interrupted by user", file=sys.stderr)
+        raise
+```
+
+## [36] tools/snapshot_configs.py
 - Last modified: **2025-09-14 12:04:40**
 - Lines: **290**
 - SHA-256: `6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2`

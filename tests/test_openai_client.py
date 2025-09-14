@@ -1,5 +1,6 @@
 # tests/test_openai_client.py
 import pytest
+
 from app import openai_client
 
 

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-09-14 12:11:51 ",
+  "generated_at": "2025-09-14 12:42:39 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
-  "file_count": 34,
-  "total_lines": 2012,
+  "file_count": 36,
+  "total_lines": 2185,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -16,6 +16,12 @@
       "mtime": "2025-09-13 19:22:11",
       "lines": 39,
       "sha256": "1741b400f7258048fbd5d71c4f9ddbd48860a00fe2da21a7f8b8232db8055ec5"
+    },
+    {
+      "path": ".github/workflows/snapshot.yml",
+      "mtime": "2025-09-14 12:15:11",
+      "lines": 21,
+      "sha256": "73f13efc74257069dcb4e3a8680af67d50367be462658b750527ff9dc7ddf703"
     },
     {
       "path": ".gitignore",
@@ -97,9 +103,9 @@
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-14 12:07:57",
-      "lines": 207,
-      "sha256": "d4f8692cf60a54f109135fecac59a79a29770887efaacd9e3b7c4fb7f831765c"
+      "mtime": "2025-09-14 12:34:51",
+      "lines": 225,
+      "sha256": "579ac4ffcddbe4071532d463ba88b222e15ab2f3d20933720e4805499be5ce38"
     },
     {
       "path": "cy.yml",
@@ -202,6 +208,12 @@
       "mtime": "2025-09-14 11:44:44",
       "lines": 16,
       "sha256": "f96698342a6fa9152826a1d9e66d5acba5590c19ed5735b0137ddc68bc89db2b"
+    },
+    {
+      "path": "tools/guard_update.py",
+      "mtime": "2025-09-14 12:41:05",
+      "lines": 134,
+      "sha256": "ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738"
     },
     {
       "path": "tools/snapshot_configs.py",

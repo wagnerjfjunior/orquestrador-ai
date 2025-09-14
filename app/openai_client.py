@@ -1,11 +1,13 @@
 # app/openai_client.py
 from __future__ import annotations
 
-from typing import Optional, Dict, Any, Callable
-from openai import OpenAI, APIConnectionError, APIStatusError, RateLimitError, AuthenticationError
+from typing import Any, Callable, Dict, Optional
+
+from openai import APIConnectionError, APIStatusError, AuthenticationError, OpenAI, RateLimitError
+
 from app.config import settings
 from app.observability import logger
-from app.utils.retry import retry, RetryExceededError
+from app.utils.retry import RetryExceededError, retry
 
 
 def is_configured() -> bool:

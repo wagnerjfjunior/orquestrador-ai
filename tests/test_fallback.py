@@ -1,6 +1,7 @@
 # tests/test_fallback.py
 import pytest
 from starlette.testclient import TestClient
+
 from app.main import app
 
 client = TestClient(app)

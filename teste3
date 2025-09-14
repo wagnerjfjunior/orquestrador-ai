@@ -1,0 +1,137 @@
+.......FFFF..F.........                                                  [100%]
+=================================== FAILURES ===================================
+___________________ test_duel_returns_502_when_no_providers ____________________
+
+    def test_duel_returns_502_when_no_providers():
+        # Nenhum provider “configurado”
+        m.openai_configured = lambda: False
+        m.gemini_configured = lambda: False
+    
+        resp = client.post("/duel", json={"prompt": "qual a capital da França?"})
+        assert resp.status_code == 502
+        body = resp.json()
+        assert body["detail"]["mode"] == "duel"
+        assert body["detail"]["verdict"]["winner"] == "none"
+>       assert "openai" in body["detail"]["responses"]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'responses'
+
+tests/test_duel_no_providers.py:17: KeyError
+___________________________ test_duel_openai_only_ok ___________________________
+
+    def test_duel_openai_only_ok():
+        # Só OpenAI “configurado”
+        m.openai_configured = lambda: True
+        m.gemini_configured = lambda: False
+    
+        # Mock do provider
+        def _fake_provider_call(name, prompt):
+            assert name == "openai"
+            return {"provider": "openai", "answer": "Paris é a capital da França."}
+    
+        m._provider_call = _fake_provider_call
+    
+        resp = client.post("/duel", json={"prompt": "qual a capital da França?"})
+        assert resp.status_code == 200
+>       body = resp.json()
+               ^^^^^^^^^^^
+
+tests/test_duel_openai_only.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.13/site-packages/httpx/_models.py:832: in json
+    return jsonlib.loads(self.content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py:346: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x100cb30e0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py:363: JSONDecodeError
+_________________ test_fallback_openai_falha_e_gemini_sucesso __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11852b680>
+
+    def test_fallback_openai_falha_e_gemini_sucesso(monkeypatch):
+        # Cadeia padrão no settings costuma ser ["openai", "gemini"] — assumimos isso.
+        monkeypatch.setattr("app.main.openai_configured", lambda: True)
+        monkeypatch.setattr("app.main.gemini_configured", lambda: True)
+    
+        def boom(prompt):
+            raise RuntimeError("Erro simulado no OpenAI")
+    
+        def ok(prompt):
+            return {"provider": "gemini", "model": "gemini-1.5-flash", "answer": "ok gemini", "usage": {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None}}
+    
+        monkeypatch.setattr("app.main.ask_openai", lambda prompt: boom(prompt))
+        monkeypatch.setattr("app.main.ask_gemini", lambda prompt: ok(prompt))
+    
+        r = client.post("/ask?provider=auto", json={"prompt": "hi"})
+        assert r.status_code == 200
+        data = r.json()
+>       assert data["provider"] == "gemini"
+E       AssertionError: assert 'openai' == 'gemini'
+E         
+E         - gemini
+E         + openai
+
+tests/test_fallback.py:27: AssertionError
+________________ test_fallback_provider_explicito_sem_fallback _________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1185a3b50>
+
+    def test_fallback_provider_explicito_sem_fallback(monkeypatch):
+        # Se use_fallback=false, não deve tentar o próximo
+        monkeypatch.setattr("app.main.openai_configured", lambda: True)
+    
+        def boom(prompt):
+            raise RuntimeError("Erro simulado no OpenAI")
+    
+        monkeypatch.setattr("app.main.ask_openai", lambda prompt: boom(prompt))
+    
+        r = client.post("/ask?provider=openai&use_fallback=false", json={"prompt": "hi"})
+>       assert r.status_code == 502
+E       assert 200 == 502
+E        +  where 200 = <Response [200 OK]>.status_code
+
+tests/test_fallback.py:41: AssertionError
+_________________ test_error_counter_increments_on_openai_503 __________________
+
+    def test_error_counter_increments_on_openai_503():
+        # 1) Lê valor atual do contador de erros do openai
+        before = _scrape_error_counter()
+    
+        # 2) Dispara um 503: provider=openai sem OPENAI_API_KEY
+        payload = {"prompt": "ping"}
+        r = client.post("/ask?provider=openai", json=payload)
+>       assert r.status_code == 503
+E       assert 200 == 503
+E        +  where 200 = <Response [200 OK]>.status_code
+
+tests/test_metrics_error_counter.py:34: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_duel_no_providers.py::test_duel_returns_502_when_no_providers
+FAILED tests/test_duel_openai_only.py::test_duel_openai_only_ok - json.decode...
+FAILED tests/test_fallback.py::test_fallback_openai_falha_e_gemini_sucesso - ...
+FAILED tests/test_fallback.py::test_fallback_provider_explicito_sem_fallback
+FAILED tests/test_metrics_error_counter.py::test_error_counter_increments_on_openai_503
+5 failed, 18 passed in 0.86s

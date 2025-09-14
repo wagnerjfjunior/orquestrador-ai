@@ -1,8 +1,17 @@
-# app/main.py
+# =============================================================================
+# File: app/main.py
+# Version: 2025-09-14 16:45:00 -03 (America/Sao_Paulo)
+# Changes:
+# - CORREÇÃO CRÍTICA: Reescrevi o tratamento de erros para o mundo assíncrono.
+# - Garante que HTTPExceptions sejam levantadas (raise) em vez de suprimidas.
+# - Corrige o comportamento que retornava 200 OK em caso de falha.
+# - Assegura que o modo duelo lida corretamente com falha de um dos provedores.
+# =============================================================================
+
 from __future__ import annotations
 import time
+import asyncio
 from typing import Any, Dict, List, Tuple, Optional
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from fastapi import FastAPI, Body, HTTPException
 
@@ -20,220 +29,177 @@ app = FastAPI(
 )
 
 # --- Middlewares e métricas ---
-# 1) Métricas primeiro (mais interno)
 setup_metrics(app)
-# 2) Tracing no meio
 app.add_middleware(TraceMiddleware)
-# 3) RequestID MAIS externo (último a escrever na resposta)
 app.add_middleware(RequestIDMiddleware)
 
-# --- Rotas básicas ---
+# --- Rotas de infraestrutura ---
 @app.get("/", tags=["infra"])
-def root():
+async def root():
     logger.info("root.live")
     return {"status": "live"}
 
 @app.get("/health", tags=["infra"])
-def health():
+async def health():
     logger.info("health.ok")
     return {"status": "ok"}
 
 @app.get("/ready", tags=["infra"])
-def readiness():
+async def readiness():
     logger.info("readiness.ok")
     return {"status": "ready"}
 
 
-# ----------------- Providers (mantém comportamento do original) -----------------
+# --- Lógica dos Provedores ---
 def _provider_is_configured(name: str) -> bool:
-    name = (name or "").lower()
-    if name == "openai":
+    n = (name or "").lower()
+    if n == "openai":
         return openai_configured()
-    if name == "gemini":
+    if n == "gemini":
         return gemini_configured()
-    if name == "echo":
+    if n == "echo":
         return True
     return False
 
-def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
-    name = (name or "").lower()
 
-    if name == "echo":
+async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
+    n = (name or "").lower()
+
+    if n == "echo":
         logger.info("ask.echo", prompt=prompt)
         return {"provider": "echo", "answer": prompt, "output": prompt}
+    
+    if not _provider_is_configured(n):
+        detail = f"{n.upper()}_API_KEY não configurada." if n in ("openai", "gemini") else f"Provider não suportado: {name}"
+        raise HTTPException(status_code=503, detail=detail)
 
-    if name == "openai":
-        if not openai_configured():
-            # mensagem específica esperada nos testes
-            raise HTTPException(status_code=503, detail="OPENAI_API_KEY não configurada.")
-        return ask_openai(prompt)
-
-    if name == "gemini":
-        if not gemini_configured():
-            raise HTTPException(status_code=503, detail="GEMINI_API_KEY não configurada.")
-        return ask_gemini(prompt)
+    try:
+        if n == "openai":
+            return await ask_openai(prompt)
+        if n == "gemini":
+            return await ask_gemini(prompt)
+    except RuntimeError as e:
+        raise HTTPException(status_code=502, detail=str(e)) from e
 
     raise HTTPException(status_code=400, detail=f"Provider não suportado: {name}")
 
-def _fallback_chain(primary: str | None) -> List[str]:
-    """
-    - provider='auto' ou None  -> usar cadeia do settings.PROVIDER_FALLBACK
-    - provider explícito       -> tentar somente esse provider (sem fallback)
-    """
-    if not primary or primary.lower() == "auto":
-        return [p.lower() for p in settings.PROVIDER_FALLBACK]
-    return [primary.lower()]
 
-# ----------------- DUEL (novo, sem quebrar nada do original) -----------------
-def _try_call(p: str, prompt: str) -> Tuple[str, Dict[str, Any] | None, str | None]:
+def _fallback_chain() -> List[str]:
+    return ["openai", "gemini"]
+
+
+# --- Lógica do Modo Duelo ---
+async def _try_call(p: str, prompt: str) -> Tuple[str, Dict[str, Any] | None, str | None]:
     try:
         if not _provider_is_configured(p):
             return p, None, "não configurado"
-        return p, _provider_call(p, prompt), None
+        return p, await _provider_call(p, prompt), None
     except HTTPException as http_exc:
         return p, None, f"http_{http_exc.status_code}: {http_exc.detail}"
     except Exception as e:
         return p, None, f"erro: {e}"
 
-def _ask_duel(prompt: str) -> Dict[str, Any]:
-    # Executa OpenAI e Gemini em paralelo para reduzir latência
-    with ThreadPoolExecutor(max_workers=2) as ex:
-        futures = {
-            ex.submit(_try_call, "openai", prompt): "openai",
-            ex.submit(_try_call, "gemini", prompt): "gemini",
-        }
-        results: Dict[str, Dict[str, Any] | None] = {"openai": None, "gemini": None}
-        errors: Dict[str, str | None] = {"openai": None, "gemini": None}
-        for fut in as_completed(futures):
-            prov = futures[fut]
-            _, resp, err = fut.result()
-            results[prov] = resp
-            errors[prov] = err
 
-    # Juiz por LLM (preferência) com fallback heurístico (dentro de judge_answers)
-    verdict_llm = judge_answers(
-        prompt,
-        (results["openai"] or {}).get("answer") or "",
-        (results["gemini"] or {}).get("answer") or "",
+def _duel_error(reason: str, results: Dict, errors: Dict) -> HTTPException:
+    return HTTPException(
+        status_code=502,
+        detail={
+            "mode": "duel",
+            "reason": reason,
+            "responses": {
+                "openai": {"ok": results.get("openai") is not None, "answer": (results.get("openai") or {}).get("answer"), "error": errors.get("openai")},
+                "gemini": {"ok": results.get("gemini") is not None, "answer": (results.get("gemini") or {}).get("answer"), "error": errors.get("gemini")},
+            },
+            "verdict": {"winner": "none"},
+        },
     )
 
-    if verdict_llm["provider"] == "heuristic" and not (
-        (results["openai"] or {}).get("answer") or (results["gemini"] or {}).get("answer")
-    ):
-        verdict = {"winner": "none", "rationale": "nenhum provider retornou conteúdo"}
-    else:
-        map_winner = {"a": "openai", "b": "gemini", "tie": "tie"}
-        verdict = {
-            "winner": map_winner.get(verdict_llm.get("winner"), "tie"),
-            "rationale": verdict_llm.get("reason"),
-        }
+
+async def _ask_duel(prompt: str) -> Dict[str, Any]:
+    tasks = [_try_call("openai", prompt), _try_call("gemini", prompt)]
+    results_tuples = await asyncio.gather(*tasks, return_exceptions=True)
+
+    results: Dict[str, Dict[str, Any] | None] = {}
+    errors: Dict[str, str | None] = {}
+    
+    for result in results_tuples:
+        if isinstance(result, Exception):
+            logger.error("duel.gather.exception", error=str(result))
+            continue
+        prov, resp, err = result
+        results[prov] = resp
+        errors[prov] = err
+
+    if not openai_configured() and not gemini_configured():
+         raise _duel_error("nenhum provider configurado", results, errors)
+
+    a = (results.get("openai") or {}).get("answer") or ""
+    b = (results.get("gemini") or {}).get("answer") or ""
+
+    if not a and not b:
+        raise _duel_error("nenhum provider retornou conteúdo", results, errors)
+
+    verdict_llm = await judge_answers(prompt, a, b)
+    winner_map = {"a": "openai", "b": "gemini", "tie": "tie"}
+    raw_winner = (verdict_llm or {}).get("winner")
+    winner = winner_map.get(raw_winner, "tie")
+    verdict: Dict[str, Any] = {"winner": winner, "rationale": (verdict_llm or {}).get("reason")}
 
     return {
-        "mode": "duel",
-        "prompt": prompt,
+        "mode": "duel", "prompt": prompt,
         "responses": {
-            "openai": {
-                "ok": results["openai"] is not None,
-                "answer": (results["openai"] or {}).get("answer"),
-                "error": errors["openai"],
-            },
-            "gemini": {
-                "ok": results["gemini"] is not None,
-                "answer": (results["gemini"] or {}).get("answer"),
-                "error": errors["gemini"],
-            },
+            "openai": {"ok": results.get("openai") is not None, "answer": a if a else None, "error": errors.get("openai")},
+            "gemini": {"ok": results.get("gemini") is not None, "answer": b if b else None, "error": errors.get("gemini")},
         },
         "verdict": verdict,
     }
 
-# ----------------- Rotas -----------------
+
+# --- Rotas de Negócio Principais ---
 @app.post("/ask", tags=["ask"])
-def ask(provider: str = "echo", payload: dict = Body(...), use_fallback: bool = True, mode: str | None = None):
-    """
-    - provider: echo | openai | gemini | auto | duel  (duel é atalho de mode=duel)
-    - use_fallback: só tem efeito quando provider=auto (explícito ignora fallback)
-    - mode=duel: roda OpenAI e Gemini em paralelo, devolve as duas respostas + veredito
-    """
+async def ask(provider: str = "auto", payload: dict = Body(...), use_fallback: bool = True):
     prompt = payload.get("prompt")
-    if prompt is None:
+    if not prompt:
         raise HTTPException(status_code=400, detail="Campo 'prompt' é obrigatório no corpo JSON.")
 
-    # Novo modo duelo também por /ask
-    if (mode or "").lower() == "duel" or (provider or "").lower() == "duel":
-        logger.info("ask.duel.start")
-        result = _ask_duel(prompt)
-        logger.info("ask.duel.end", verdict=result.get("verdict", {}).get("winner"))
-        return result
+    effective_provider = (provider or "auto").lower()
 
-    chain = _fallback_chain(provider)
-    is_auto = (provider or "").lower() == "auto"
+    if effective_provider == "duel":
+        return await _ask_duel(prompt)
 
-    start = time.perf_counter()
-    last_error: Exception | None = None
-
-    # Provider explícito: sem fallback, registra métricas direto (mantém original)
-    if not is_auto:
-        p = chain[0]
+    start_time = time.perf_counter()
+    
+    if effective_provider != "auto":
         try:
-            resp = _provider_call(p, prompt)
-            duration_ms = (time.perf_counter() - start) * 1000
-            record_ask(p, "success", duration_ms)
+            resp = await _provider_call(effective_provider, prompt)
+            record_ask(effective_provider, "success", (time.perf_counter() - start_time) * 1000)
             return resp
-        except HTTPException as http_exc:
-            duration_ms = (time.perf_counter() - start) * 1000
-            record_ask(p, "error", duration_ms)
-            logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
-            raise http_exc
-        except RuntimeError as runtime_err:
-            duration_ms = (time.perf_counter() - start) * 1000
-            record_ask(p, "error", duration_ms)
-            logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
-            raise HTTPException(status_code=502, detail=str(runtime_err))
+        except HTTPException as e:
+            record_ask(effective_provider, "error", (time.perf_counter() - start_time) * 1000)
+            raise e
 
-    # provider=auto: tenta cadeia com fallback (mantém original)
-    for idx, p in enumerate(chain):
+    chain = _fallback_chain()
+    last_error: Optional[HTTPException] = None
+    for p in chain:
         try:
-            if not use_fallback and idx > 0:
+            resp = await _provider_call(p, prompt)
+            record_ask(p, "success", (time.perf_counter() - start_time) * 1000)
+            return resp
+        except HTTPException as e:
+            record_ask(p, "error", (time.perf_counter() - start_time) * 1000)
+            last_error = e
+            if not use_fallback:
                 break
-
-            if not _provider_is_configured(p):
-                logger.info("ask.provider_not_configured", provider=p)
-                last_error = HTTPException(status_code=503, detail=f"Provider não configurado: {p}")
-                continue
-
-            resp = _provider_call(p, prompt)
-            duration_ms = (time.perf_counter() - start) * 1000
-            record_ask(p, "success", duration_ms)
-            logger.info("ask.provider_success", provider=p)
-            return resp
-
-        except HTTPException as http_exc:
-            duration_ms = (time.perf_counter() - start) * 1000
-            record_ask(p, "error", duration_ms)
-            logger.info("ask.http_exception", provider=p, status=http_exc.status_code)
-            last_error = http_exc
-            if not use_fallback:
-                raise http_exc
-        except RuntimeError as runtime_err:
-            duration_ms = (time.perf_counter() - start) * 1000
-            record_ask(p, "error", duration_ms)
-            logger.info("ask.provider_runtime_error", provider=p, error=str(runtime_err))
-            last_error = runtime_err
-            if not use_fallback:
-                raise HTTPException(status_code=502, detail=str(runtime_err))
-
-    # auto e todos falharam
-    if isinstance(last_error, HTTPException):
+    
+    if last_error:
         raise last_error
-    detail = str(last_error) if last_error else "Falha ao atender requisição em todos os provedores."
-    raise HTTPException(status_code=502, detail=detail)
+    raise HTTPException(status_code=502, detail="Falha ao atender requisição em todos os provedores.")
+
 
 @app.post("/duel", tags=["duel"])
-def duel(payload: dict = Body(...)):
-    """
-    Roda o modo duelo explicitamente (atalho para /ask com mode=duel).
-    """
+async def duel(payload: dict = Body(...)):
     prompt = payload.get("prompt")
-    if prompt is None:
+    if not prompt:
         raise HTTPException(status_code=400, detail="Campo 'prompt' é obrigatório no corpo JSON.")
-    return _ask_duel(prompt)
+    return await _ask_duel(prompt)
+

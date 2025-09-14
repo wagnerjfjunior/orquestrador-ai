@@ -1,6 +1,6 @@
 # CONFIG SNAPSHOT
 
-- Generated at: **2025-09-14 17:21:00 **
+- Generated at: **2025-09-14 17:22:42 **
 
 - Root: `/Users/wagnerjfjunior/orquestrador-ai`
 
@@ -29,7 +29,7 @@
 - [14] `app/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `f7539c2a2673…`
 - [15] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
 - [16] `app/utils/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `d22081dab42b…`
-- [17] `CONFIG_SNAPSHOT.manifest.json` — 225 lines — mtime 2025-09-14 17:20:47 — sha256 `4301b1facb78…`
+- [17] `CONFIG_SNAPSHOT.manifest.json` — 225 lines — mtime 2025-09-14 17:21:00 — sha256 `48ae3dd7a70c…`
 - [18] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
 - [19] `Dockerfile` — 27 lines — mtime 2025-09-13 16:37:38 — sha256 `5dc22d6e9ce9…`
 - [20] `Makefile` — 42 lines — mtime 2025-09-13 16:38:26 — sha256 `2b0fac71f475…`
@@ -1086,13 +1086,13 @@ def retry(
 ```
 
 ## [17] CONFIG_SNAPSHOT.manifest.json
-- Last modified: **2025-09-14 17:20:47**
+- Last modified: **2025-09-14 17:21:00**
 - Lines: **225**
-- SHA-256: `4301b1facb788f1886085f482d63d3182614330928fb488da560f398228acdbc`
+- SHA-256: `48ae3dd7a70cc9a14303a6a7c8bdc93c5de4ded6c98eed6b0433cc5576559fdc`
 
 ```json
 {
-  "generated_at": "2025-09-14 17:20:47 ",
+  "generated_at": "2025-09-14 17:21:00 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
   "file_count": 36,
   "total_lines": 2134,
@@ -1196,9 +1196,9 @@ def retry(
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-14 17:00:33",
+      "mtime": "2025-09-14 17:20:47",
       "lines": 225,
-      "sha256": "a799cbf4e99c767514c46664803c4dba9b1691de8535102b9ffd5107567c1530"
+      "sha256": "4301b1facb788f1886085f482d63d3182614330928fb488da560f398228acdbc"
     },
     {
       "path": "cy.yml",

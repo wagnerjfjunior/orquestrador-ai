@@ -1,0 +1,213 @@
+{
+  "generated_at": "2025-09-14 12:11:51 ",
+  "root": "/Users/wagnerjfjunior/orquestrador-ai",
+  "file_count": 34,
+  "total_lines": 2012,
+  "hash_algorithm": "sha256",
+  "files": [
+    {
+      "path": ".env.example",
+      "mtime": "2025-09-13 07:55:28",
+      "lines": 29,
+      "sha256": "274aceefe36cbb2cf0840ec4f8ccc31f8ccc89a5909c6a2da3560dc705a88d2c"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mtime": "2025-09-13 19:22:11",
+      "lines": 39,
+      "sha256": "1741b400f7258048fbd5d71c4f9ddbd48860a00fe2da21a7f8b8232db8055ec5"
+    },
+    {
+      "path": ".gitignore",
+      "mtime": "2025-09-12 01:56:56",
+      "lines": 10,
+      "sha256": "b746016476e67e3218ae3f64849efa8088943b6fc34283a3dba598d296379793"
+    },
+    {
+      "path": "app/__init__.py",
+      "mtime": "2025-09-13 15:30:17",
+      "lines": 2,
+      "sha256": "f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f"
+    },
+    {
+      "path": "app/cache.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 34,
+      "sha256": "0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475"
+    },
+    {
+      "path": "app/config.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 62,
+      "sha256": "ffa9c871ab06afa64e73084b2412d151470e59dd2c4089ac614ee6a2eec4b1d6"
+    },
+    {
+      "path": "app/gemini_client.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 93,
+      "sha256": "d5e2e34bf8cf3534cb68e468bd91adbcb8d6212d8b57307b31cf5a23d5f232ed"
+    },
+    {
+      "path": "app/judge.py",
+      "mtime": "2025-09-14 11:27:38",
+      "lines": 71,
+      "sha256": "874ade3ba27169a304737fa60913fdb1e3068b4328a6d87c0ab1ee791c19794d"
+    },
+    {
+      "path": "app/main.py",
+      "mtime": "2025-09-14 11:40:33",
+      "lines": 239,
+      "sha256": "e7734919927199deec1f1a0ff82840a8347034f4eea8c7ffa6ff39b236fa1745"
+    },
+    {
+      "path": "app/metrics.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 44,
+      "sha256": "672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c"
+    },
+    {
+      "path": "app/observability.py",
+      "mtime": "2025-09-14 11:32:26",
+      "lines": 111,
+      "sha256": "5a5528e1c8ab181c8bdc64133f5ebf08f502ee930d15dc116eabe9ed7e8fb297"
+    },
+    {
+      "path": "app/openai_client.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 128,
+      "sha256": "0aa4158cb39c9fb4c2bc841891b8177a552bb21b153dc6222405c23e4d27a5cd"
+    },
+    {
+      "path": "app/retry.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 42,
+      "sha256": "f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b"
+    },
+    {
+      "path": "app/utils/__init__.py",
+      "mtime": "2025-09-13 15:31:19",
+      "lines": 2,
+      "sha256": "f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f"
+    },
+    {
+      "path": "app/utils/retry.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 42,
+      "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
+    },
+    {
+      "path": "CONFIG_SNAPSHOT.manifest.json",
+      "mtime": "2025-09-14 12:07:57",
+      "lines": 207,
+      "sha256": "d4f8692cf60a54f109135fecac59a79a29770887efaacd9e3b7c4fb7f831765c"
+    },
+    {
+      "path": "cy.yml",
+      "mtime": "2025-09-13 15:38:40",
+      "lines": 63,
+      "sha256": "9daf109266413c593e79e83e307681f1bc2533105d6fe072cb680e42068115ee"
+    },
+    {
+      "path": "Dockerfile",
+      "mtime": "2025-09-13 16:37:38",
+      "lines": 27,
+      "sha256": "5dc22d6e9ce98b3471ee6c36b3a68fc9776bb34aa909aea118fe32659ec182d3"
+    },
+    {
+      "path": "Makefile",
+      "mtime": "2025-09-13 16:38:26",
+      "lines": 42,
+      "sha256": "2b0fac71f475fec513c9d68944302b988395b27ce6d32189cd85a4072287cdac"
+    },
+    {
+      "path": "pyproject.toml",
+      "mtime": "2025-09-12 23:43:45",
+      "lines": 22,
+      "sha256": "d8c205569aa1662debd668a45c32f50780aff2e6daf30fe611f3ca155461bf93"
+    },
+    {
+      "path": "render.yaml",
+      "mtime": "2025-09-13 17:51:23",
+      "lines": 16,
+      "sha256": "ea92f0fb004c850d21ff2c2e5cca496accdcbda2cc8b7eb11ab9c4f483748420"
+    },
+    {
+      "path": "ruff.toml",
+      "mtime": "2025-09-13 18:38:03",
+      "lines": 19,
+      "sha256": "13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c"
+    },
+    {
+      "path": "tests/test_ask_providers.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 78,
+      "sha256": "a894b30cfd10bfaf9e99a5650d528919007f253297fc6aaebafe3adb0108e4bc"
+    },
+    {
+      "path": "tests/test_basic.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 22,
+      "sha256": "552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a"
+    },
+    {
+      "path": "tests/test_duel_no_providers.py",
+      "mtime": "2025-09-14 11:42:30",
+      "lines": 18,
+      "sha256": "dbbf7419d36344394b3bc7c5a9f406c0847f7b236843b1f01e2b155dad732052"
+    },
+    {
+      "path": "tests/test_duel_openai_only.py",
+      "mtime": "2025-09-14 11:43:21",
+      "lines": 25,
+      "sha256": "440c8d4b1b3baf3ce17815d30dfd5cdf086d8367bd7ea585ff84db0b092af149"
+    },
+    {
+      "path": "tests/test_fallback.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 53,
+      "sha256": "5cc63c636101c4c61d763710421c005964aa921721c03ae2da607406a35c99cd"
+    },
+    {
+      "path": "tests/test_metrics.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 21,
+      "sha256": "856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784"
+    },
+    {
+      "path": "tests/test_metrics_error_counter.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 38,
+      "sha256": "850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a"
+    },
+    {
+      "path": "tests/test_observability.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 34,
+      "sha256": "53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145"
+    },
+    {
+      "path": "tests/test_openai_client.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 53,
+      "sha256": "a15c6d5bdb31ebb1d5d5da138b90433be4c5a0d46b57b3a57d40fd6c346dd478"
+    },
+    {
+      "path": "tests/test_request_id.py",
+      "mtime": "2025-09-13 18:33:31",
+      "lines": 20,
+      "sha256": "2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452"
+    },
+    {
+      "path": "tests/test_request_id_header.py",
+      "mtime": "2025-09-14 11:44:44",
+      "lines": 16,
+      "sha256": "f96698342a6fa9152826a1d9e66d5acba5590c19ed5735b0137ddc68bc89db2b"
+    },
+    {
+      "path": "tools/snapshot_configs.py",
+      "mtime": "2025-09-14 12:04:40",
+      "lines": 290,
+      "sha256": "6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2"
+    }
+  ]
+}

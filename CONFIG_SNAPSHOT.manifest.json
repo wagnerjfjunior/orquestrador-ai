@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-09-14 12:42:39 ",
+  "generated_at": "2025-09-14 17:21:00 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
   "file_count": 36,
-  "total_lines": 2185,
+  "total_lines": 2134,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -49,9 +49,9 @@
     },
     {
       "path": "app/gemini_client.py",
-      "mtime": "2025-09-13 18:33:31",
-      "lines": 93,
-      "sha256": "d5e2e34bf8cf3534cb68e468bd91adbcb8d6212d8b57307b31cf5a23d5f232ed"
+      "mtime": "2025-09-14 16:13:34",
+      "lines": 83,
+      "sha256": "a75beba70841a25a6daeef509521a3aae94b746189590c890d0ae9db93b91843"
     },
     {
       "path": "app/judge.py",
@@ -61,9 +61,9 @@
     },
     {
       "path": "app/main.py",
-      "mtime": "2025-09-14 11:40:33",
-      "lines": 239,
-      "sha256": "e7734919927199deec1f1a0ff82840a8347034f4eea8c7ffa6ff39b236fa1745"
+      "mtime": "2025-09-14 16:18:50",
+      "lines": 205,
+      "sha256": "560ecf5cacee15411d2fccfba1e10b974cf16fb4b4e122645474004da1031714"
     },
     {
       "path": "app/metrics.py",
@@ -79,9 +79,9 @@
     },
     {
       "path": "app/openai_client.py",
-      "mtime": "2025-09-13 18:33:31",
-      "lines": 128,
-      "sha256": "0aa4158cb39c9fb4c2bc841891b8177a552bb21b153dc6222405c23e4d27a5cd"
+      "mtime": "2025-09-14 16:00:55",
+      "lines": 114,
+      "sha256": "8526780b124e3f7a168702fe71762412b0513bce96727071e8598ff16a6d4be7"
     },
     {
       "path": "app/retry.py",
@@ -103,9 +103,9 @@
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-14 12:34:51",
+      "mtime": "2025-09-14 17:20:47",
       "lines": 225,
-      "sha256": "579ac4ffcddbe4071532d463ba88b222e15ab2f3d20933720e4805499be5ce38"
+      "sha256": "4301b1facb788f1886085f482d63d3182614330928fb488da560f398228acdbc"
     },
     {
       "path": "cy.yml",
@@ -145,9 +145,9 @@
     },
     {
       "path": "tests/test_ask_providers.py",
-      "mtime": "2025-09-13 18:33:31",
-      "lines": 78,
-      "sha256": "a894b30cfd10bfaf9e99a5650d528919007f253297fc6aaebafe3adb0108e4bc"
+      "mtime": "2025-09-14 16:23:19",
+      "lines": 71,
+      "sha256": "c46e4fb6e9cb402bd467eee5bb009603e0d1eb65394e421301770e25dd08981a"
     },
     {
       "path": "tests/test_basic.py",
@@ -163,15 +163,15 @@
     },
     {
       "path": "tests/test_duel_openai_only.py",
-      "mtime": "2025-09-14 11:43:21",
-      "lines": 25,
-      "sha256": "440c8d4b1b3baf3ce17815d30dfd5cdf086d8367bd7ea585ff84db0b092af149"
+      "mtime": "2025-09-14 16:24:10",
+      "lines": 36,
+      "sha256": "daabf14d47d900829188e01b110cd52087b2b607566e63d9bc63c5b0e08dea79"
     },
     {
       "path": "tests/test_fallback.py",
-      "mtime": "2025-09-13 18:33:31",
-      "lines": 53,
-      "sha256": "5cc63c636101c4c61d763710421c005964aa921721c03ae2da607406a35c99cd"
+      "mtime": "2025-09-14 16:31:51",
+      "lines": 57,
+      "sha256": "8635780c76ceab5bf3dee8cc6925fefe03c4138a4701c9be0f7f61c1ccba8f4d"
     },
     {
       "path": "tests/test_metrics.py",
@@ -193,9 +193,9 @@
     },
     {
       "path": "tests/test_openai_client.py",
-      "mtime": "2025-09-13 18:33:31",
-      "lines": 53,
-      "sha256": "a15c6d5bdb31ebb1d5d5da138b90433be4c5a0d46b57b3a57d40fd6c346dd478"
+      "mtime": "2025-09-14 16:58:04",
+      "lines": 52,
+      "sha256": "672c43b1e2b6b573e190b75f88338f9d03a7ea2175e51229a2cdef1b8ab5bdc6"
     },
     {
       "path": "tests/test_request_id.py",

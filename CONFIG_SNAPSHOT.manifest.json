@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-09-19 18:21:31 ",
+  "generated_at": "2025-09-19 18:22:10 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
   "file_count": 58,
-  "total_lines": 4518,
+  "total_lines": 4650,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -217,9 +217,9 @@
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-14 17:22:42",
-      "lines": 225,
-      "sha256": "c90dfb2de77eb1ed8fe3dcca2a1116900348337471de23c7034c5c41611f120a"
+      "mtime": "2025-09-19 18:21:31",
+      "lines": 357,
+      "sha256": "4d86bb5ea6f91f16b2a9faa8b0b8fd78784d07f154bd62d1d62d6d0cab515377"
     },
     {
       "path": "cy.yml",

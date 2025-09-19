@@ -1,83 +1,137 @@
-# =============================================================================
-# File: app/gemini_client.py
-# Version: 2025-09-14 16:25:00 -03 (America/Sao_Paulo)
-# Changes:
-# - CORREÇÃO CRÍTICA: Corrigido SyntaxError ('{' was never closed) no dicionário de retorno.
-# - Refatorado para ser totalmente assíncrono.
-# - Utiliza `await gmodel.generate_content_async` para a chamada de API.
-# =============================================================================
+# ==============================
+# app/gemini_client.py
+# Propósito:
+# - Cliente Gemini (Google Generative AI)
+# - Compatível com os testes: precisa retornar dict completo
+#   {"provider":"gemini","model":<modelo>,"answer":<texto>,"usage":{}}
+# - Expor: is_configured(), ask_gemini(), judge()
+#
+# Alterações nesta revisão:
+# - ask_gemini retorna dict completo (não só {"answer": ...})
+# - Mantido judge() síncrono como o judge.py espera
+# ==============================
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+import os
+import asyncio
+from typing import Dict, Any, Optional
 
 import google.generativeai as genai
 
-from app.config import settings
-from app.observability import logger
+
+# --------------------------------------------
+# Config
+# --------------------------------------------
+_GEMINI_API_KEY: Optional[str] = os.getenv("GEMINI_API_KEY") or None
+_DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+
+if _GEMINI_API_KEY:
+    genai.configure(api_key=_GEMINI_API_KEY)
 
 
 def is_configured() -> bool:
-    """
-    Retorna True se houver GEMINI_API_KEY configurada.
-    """
-    return bool(settings.GEMINI_API_KEY)
+    """Retorna True se a GEMINI_API_KEY estiver disponível."""
+    return bool(_GEMINI_API_KEY)
 
 
-def _build_model(model_name: str):
-    """
-    Configura a SDK com API key e retorna a instância do modelo.
-    """
-    if not settings.GEMINI_API_KEY:
-        raise RuntimeError("GEMINI_API_KEY não configurada.")
-    genai.configure(api_key=settings.GEMINI_API_KEY)
-    return genai.GenerativeModel(model_name)
+# --------------------------------------------
+# Helpers (sync) para chamar a API do Gemini
+# --------------------------------------------
+def _gemini_generate_sync(
+    prompt: str,
+    *,
+    model: str = _DEFAULT_MODEL,
+    temperature: float = 0.2,
+) -> str:
+    mdl = genai.GenerativeModel(model)
+    resp = mdl.generate_content(
+        prompt,
+        generation_config={"temperature": temperature},
+    )
+    text = getattr(resp, "text", None)
+    if not text and hasattr(resp, "candidates") and resp.candidates:
+        text = getattr(resp.candidates[0], "content", None)
+        if hasattr(text, "parts") and text.parts:
+            text = "".join(getattr(p, "text", "") for p in text.parts)
+        elif text is None:
+            text = ""
+    return (text or "").strip()
 
 
+def _gemini_generate_with_system_sync(
+    system: str,
+    user: str,
+    *,
+    model: str = _DEFAULT_MODEL,
+    temperature: float = 0.0,
+) -> str:
+    composed = (
+        f"[SYSTEM]\n{system.strip()}\n\n"
+        f"[USER]\n{user.strip()}\n"
+        "IMPORTANTE: Responda ESTRITAMENTE com um ÚNICO objeto JSON válido (RFC 8259) "
+        "sem markdown e sem texto fora do JSON."
+    )
+    mdl = genai.GenerativeModel(model)
+    resp = mdl.generate_content(
+        composed,
+        generation_config={"temperature": temperature},
+    )
+    text = getattr(resp, "text", None)
+    return (text or "").strip()
+
+
+# --------------------------------------------
+# API Async usada pelo app
+# --------------------------------------------
 async def ask_gemini(
     prompt: str,
-    model: Optional[str] = None,
-    timeout: Optional[float] = None,  # mantido para simetria
-    **extra: Any,
+    *,
+    model: str = _DEFAULT_MODEL,
+    temperature: float = 0.2,
+    timeout: float = 25.0,
 ) -> Dict[str, Any]:
     """
-    Envia um prompt ao Gemini de forma assíncrona e retorna resposta normalizada.
+    Gera uma resposta com o Gemini e retorna no formato esperado:
+      { "provider":"gemini", "model":..., "answer":..., "usage":{} }
     """
-    mdl = model or settings.GEMINI_MODEL
-    tmo = timeout or settings.PROVIDER_TIMEOUT
-
-    logger.info("provider.gemini.request.async", model=mdl, timeout=tmo)
+    if not is_configured():
+        raise RuntimeError("GEMINI_API_KEY não configurada")
 
     try:
-        gmodel = _build_model(mdl)
-
-        generation_config = extra.get("generation_config")
-        safety_settings = extra.get("safety_settings")
-
-        resp = await gmodel.generate_content_async(
-            prompt,
-            generation_config=generation_config,
-            safety_settings=safety_settings,
+        text = await asyncio.wait_for(
+            asyncio.to_thread(_gemini_generate_sync, prompt, model=model, temperature=temperature),
+            timeout=timeout,
         )
-
-        content = (getattr(resp, "text", "") or "").strip()
-        usage = {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None}
-
-        logger.info("provider.gemini.success.async", model=mdl)
-
-        # DICIONÁRIO DE RETORNO CORRIGIDO
         return {
             "provider": "gemini",
-            "model": mdl,
-            "answer": content,
-            "usage": usage,
+            "model": model,
+            "answer": text,
+            "usage": {},
         }
-    except genai.types.generation_types.BlockedPromptException as e:
-        logger.info("provider.gemini.blocked_prompt", error=str(e))
-        raise RuntimeError("Prompt bloqueado pela política do Gemini.") from e
-    except genai.types.generation_types.StopCandidateException as e:
-        logger.info("provider.gemini.stop_candidate", error=str(e))
-        raise RuntimeError("Geração interrompida pelo Gemini.") from e
-    except Exception as e:
-        logger.info("provider.gemini.unexpected_error", error=str(e))
-        raise RuntimeError("Erro inesperado ao chamar o Gemini.") from e
+    except asyncio.TimeoutError as te:
+        raise RuntimeError("Timeout ao chamar Gemini.") from te
+    except Exception:
+        raise
 
+
+# --------------------------------------------
+# Função 'judge' usada pelo módulo judge.py
+# --------------------------------------------
+def judge(
+    system: str,
+    user: str,
+    *,
+    force_json: bool = True,
+    temperature: float = 0.0,
+    timeout: float = 20.0,
+) -> str:
+    if not is_configured():
+        raise RuntimeError("GEMINI_API_KEY não configurada")
+    return _gemini_generate_with_system_sync(
+        system=system,
+        user=user,
+        model=_DEFAULT_MODEL,
+        temperature=temperature,
+    )
+# Alias para compatibilidade com o orquestrador:
+ask = ask_gemini

@@ -53,4 +53,12 @@ Inclui logs estruturados, fallback automático entre provedores e testes de inte
   { "prompt": "olá" }
 
 
+  # Orquestrador-AI Automation Bundle
+
+## 1) Configure env
+```bash
+cp .env.example .env
+# edite .env e cole suas chaves
+
+
 

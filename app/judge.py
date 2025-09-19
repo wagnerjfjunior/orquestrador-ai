@@ -131,12 +131,67 @@ def contribution_ratio(final_answer: str, sources: Dict[str, str]) -> Dict[str, 
 
     s = sum(sims.values())
     if s <= 0:
-        return {k: 0.0 for k in sims.keys()}
+        # sem qualquer sobreposição -> distribuir uniformemente
+        n = max(1, len(sims))
+        return {k: round(1.0 / n, 4) for k in sims.keys()}
     return {k: round(v / s, 4) for k, v in sims.items()}
+
 
 __all__ = [
     "jaccard",
     "choose_winner_len",
     "collab_fuse",
     "contribution_ratio",
+    "judge_answers",
 ]
+
+# --- append-only: judge_answers (compat com os testes) ---
+
+def judge_answers(*args):
+    """
+    Compat:
+      - judge_answers(openai, gemini)
+      - judge_answers(prompt, openai, gemini)
+
+    Retorna: {"winner": "A"|"B"|"tie", "reason": "..."}
+    """
+    if len(args) == 2:
+        openai_answer, gemini_answer = args
+    elif len(args) == 3:
+        _prompt, openai_answer, gemini_answer = args
+    else:
+        raise TypeError("judge_answers expects (openai, gemini) or (prompt, openai, gemini)")
+
+    oa = (openai_answer or "").strip()
+    ga = (gemini_answer or "").strip()
+
+    if oa and not ga:
+        return {"winner": "A", "reason": "Only OpenAI answer present."}
+    if ga and not oa:
+        return {"winner": "B", "reason": "Only Gemini answer present."}
+    if not oa and not ga:
+        return {"winner": "tie", "reason": "Both answers are empty."}
+
+    def _score(t: str) -> float:
+        base = min(len(t), 400) / 400.0
+        bonus = 0.05 if (t.endswith(".") or t.endswith("!") or t.endswith("?")) else 0.0
+        s = base + bonus
+        return 0.0 if s < 0 else (1.0 if s > 1.0 else s)
+
+    so = _score(oa)
+    sg = _score(ga)
+
+    if abs(so - sg) <= 0.02:
+        if len(oa) == len(ga):
+            return {"winner": "tie", "reason": "Tie by score and length."}
+        return (
+            {"winner": "A", "reason": "Scores close; OpenAI slightly longer."}
+            if len(oa) > len(ga)
+            else {"winner": "B", "reason": "Scores close; Gemini slightly longer."}
+        )
+
+    return (
+        {"winner": "A", "reason": "Heuristic favored OpenAI answer."}
+        if so > sg
+        else {"winner": "B", "reason": "Heuristic favored Gemini answer."}
+    )

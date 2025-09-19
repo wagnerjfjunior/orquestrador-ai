@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  orquestrador-ai:
+    image: orquestrador-ai:qa-green
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Carrega as chaves em runtime (NÃO bake no build)
+    env_file:
+      - .env
+    environment:
+      # Permite override por .env, mantém defaults seguros:
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.0-flash}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      APP_VERSION: ${APP_VERSION:-2025-09-18+strategy}
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped

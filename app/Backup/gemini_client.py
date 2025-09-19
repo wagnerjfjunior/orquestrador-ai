@@ -1,14 +1,5 @@
 # ==============================
 # app/gemini_client.py
-# Propósito:
-# - Cliente Gemini (Google Generative AI)
-# - Compatível com os testes: precisa retornar dict completo
-#   {"provider":"gemini","model":<modelo>,"answer":<texto>,"usage":{}}
-# - Expor: is_configured(), ask_gemini(), judge()
-#
-# Alterações nesta revisão:
-# - ask_gemini retorna dict completo (não só {"answer": ...})
-# - Mantido judge() síncrono como o judge.py espera
 # ==============================
 from __future__ import annotations
 
@@ -43,15 +34,22 @@ def _gemini_generate_sync(
     model: str = _DEFAULT_MODEL,
     temperature: float = 0.2,
 ) -> str:
+    """
+    Chamada síncrona ao Gemini. Usada dentro de asyncio.to_thread().
+    Retorna apenas o texto.
+    """
     mdl = genai.GenerativeModel(model)
     resp = mdl.generate_content(
         prompt,
         generation_config={"temperature": temperature},
     )
+    # Alguns retornos podem vir em 'candidates' ou diretamente em 'text'
     text = getattr(resp, "text", None)
     if not text and hasattr(resp, "candidates") and resp.candidates:
+        # fallback defensivo
         text = getattr(resp.candidates[0], "content", None)
         if hasattr(text, "parts") and text.parts:
+            # junta partes de texto se necessário
             text = "".join(getattr(p, "text", "") for p in text.parts)
         elif text is None:
             text = ""
@@ -65,6 +63,12 @@ def _gemini_generate_with_system_sync(
     model: str = _DEFAULT_MODEL,
     temperature: float = 0.0,
 ) -> str:
+    """
+    Chamada síncrona ao Gemini com um 'system' informal (injetado no texto).
+    Retorna texto cru (string).
+    """
+    # Como a SDK exposta aqui não usa o campo system_instruction,
+    # injetamos o 'system' antes do 'user' para orientar o modelo.
     composed = (
         f"[SYSTEM]\n{system.strip()}\n\n"
         f"[USER]\n{user.strip()}\n"
@@ -91,26 +95,23 @@ async def ask_gemini(
     timeout: float = 25.0,
 ) -> Dict[str, Any]:
     """
-    Gera uma resposta com o Gemini e retorna no formato esperado:
-      { "provider":"gemini", "model":..., "answer":..., "usage":{} }
+    Gera uma resposta com o Gemini e retorna no formato:
+      { "answer": "<texto>" }
+    Lança exceção se não estiver configurado.
     """
     if not is_configured():
-        raise RuntimeError("GEMINI_API_KEY não configurada")
+        raise RuntimeError("Gemini não configurado. Defina GEMINI_API_KEY.")
 
     try:
         text = await asyncio.wait_for(
             asyncio.to_thread(_gemini_generate_sync, prompt, model=model, temperature=temperature),
             timeout=timeout,
         )
-        return {
-            "provider": "gemini",
-            "model": model,
-            "answer": text,
-            "usage": {},
-        }
+        return {"answer": text}
     except asyncio.TimeoutError as te:
         raise RuntimeError("Timeout ao chamar Gemini.") from te
-    except Exception:
+    except Exception as e:
+        # Propaga a exceção para o handler do app
         raise
 
 
@@ -125,13 +126,26 @@ def judge(
     temperature: float = 0.0,
     timeout: float = 20.0,
 ) -> str:
+    """
+    Julga duas respostas conforme instruções do 'system' e 'user'.
+    Retorna TEXTO cru (string). Quem extrai JSON é o judge.py.
+
+    Observação: aqui mantemos síncrono (como o judge.py espera).
+    O timeout é melhor tratado pelo chamador (judge.py) se necessário.
+    """
     if not is_configured():
-        raise RuntimeError("GEMINI_API_KEY não configurada")
-    return _gemini_generate_with_system_sync(
-        system=system,
-        user=user,
-        model=_DEFAULT_MODEL,
-        temperature=temperature,
-    )
-# Alias para compatibilidade com o orquestrador:
-ask = ask_gemini
+        raise RuntimeError("Gemini não configurado. Defina GEMINI_API_KEY.")
+
+    # O Gemini SDK é síncrono; esta função permanece síncrona.
+    # Se precisar de timeout rígido síncrono, pode-se usar threads/sinais,
+    # mas o orquestrador já trata exceções do juiz e aplica fallback.
+    try:
+        return _gemini_generate_with_system_sync(
+            system=system,
+            user=user,
+            model=_DEFAULT_MODEL,
+            temperature=temperature,
+        )
+    except Exception:
+        # Deixa o judge.py lidar com parsing/fallback
+        raise

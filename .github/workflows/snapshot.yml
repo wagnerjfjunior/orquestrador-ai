@@ -1,0 +1,21 @@
+name: Snapshot Guard
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install --upgrade pip
+      - run: python tools/snapshot_configs.py
+      - name: Ensure snapshot is staged
+        run: |
+          git diff --exit-code CONFIG_SNAPSHOT.md CONFIG_SNAPSHOT.manifest.json || {
+            echo "::error::Snapshot not up to date. Run tools/snapshot_configs.py and commit the result."
+            exit 1
+          }
+

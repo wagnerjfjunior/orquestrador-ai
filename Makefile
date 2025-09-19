@@ -1,42 +1,37 @@
-PYTHON ?= python
-PIP ?= pip
+SHELL := /bin/bash
 
-.PHONY: install
-install:
-	$(PYTHON) -m pip install --upgrade pip
-	if [ -f requirements.txt ]; then $(PIP) install -r requirements.txt; fi
-	$(PIP) install -e .
-	$(PIP) install pytest ruff flake8 "uvicorn[standard]"
+.PHONY: help up down logs rebuild restart lint env-check run-local
 
-.PHONY: lint
-lint:
-	ruff check .
-	flake8 .
+help:
+	@echo "Targets:"
+	@echo "  make up        - Build & start container (docker compose)"
+	@echo "  make down      - Stop container"
+	@echo "  make logs      - Tail logs"
+	@echo "  make rebuild   - Force rebuild image and start"
+	@echo "  make restart   - Restart service"
+	@echo "  make env-check - Validate .env keys are present"
+	@echo "  make run-local - Run uvicorn locally on :8001"
 
-.PHONY: fmt
-fmt:
-	ruff check . --fix
+up:
+	docker compose up -d --build
 
-.PHONY: test
-test:
-	pytest -q
+down:
+	docker compose down
 
-.PHONY: run
-run:
-	uvicorn app.main:app --host 0.0.0.0 --port $${PORT:-8000}
+logs:
+	docker compose logs -f --tail=200
 
-.PHONY: clean
-clean:
-	find . -name "__pycache__" -type d -exec rm -rf {} + || true
-	find . -name "*.pyc" -type f -delete || true
-	rm -rf .pytest_cache .mypy_cache .pytype dist build *.egg-info || true
+rebuild:
+	docker compose build --no-cache
+	docker compose up -d
 
-IMAGE ?= orquestrador-ai:latest
+restart:
+	docker compose restart
 
-.PHONY: docker-build
-docker-build:
-	docker build -t $(IMAGE) .
+env-check:
+	@python scripts/env_check.py
 
-.PHONY: docker-run
-docker-run:
-	docker run --rm -p 8000:8000 -e PORT=8000 $(IMAGE)
+run-local:
+	@source .venv/bin/activate && \
+	 uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
+

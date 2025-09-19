@@ -1,10 +1,9 @@
 # tests/test_observability.py
-from starlette.testclient import TestClient
 from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.testclient import TestClient
 
 from app.main import app
-from app.observability import logger, TraceMiddleware, RequestIDMiddleware
-
+from app.observability import RequestIDMiddleware, TraceMiddleware, logger
 
 client = TestClient(app)
 

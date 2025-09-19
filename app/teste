@@ -1,0 +1,262 @@
+okPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % docker build -t orquestrador-ai .
+[+] Building 1.6s (10/10) FINISHED                               docker:default
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 664B                                       0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim        1.4s
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 254B                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.11-slim@sha256:a0939570b38cddeb  0.0s
+ => => resolve docker.io/library/python:3.11-slim@sha256:a0939570b38cddeb  0.0s
+ => [internal] load build context                                          0.0s
+ => => transferring context: 4.03kB                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                              0.0s
+ => CACHED [3/5] RUN apt-get update && apt-get install -y --no-install-re  0.0s
+ => CACHED [4/5] COPY . /app                                               0.0s
+ => CACHED [5/5] RUN python -m pip install --upgrade pip &&     if [ -f r  0.0s
+ => exporting to image                                                     0.0s
+ => => exporting layers                                                    0.0s
+ => => exporting manifest sha256:a7cbd463ba936a95ad38472c4abb4c008c01a483  0.0s
+ => => exporting config sha256:6d119684c0bda88a8275b0c34babe995069cc03697  0.0s
+ => => exporting attestation manifest sha256:79dde63fed8763223ef57898d1a5  0.0s
+ => => exporting manifest list sha256:c262e8c0c3480f5f953df1bf756713d12de  0.0s
+ => => naming to docker.io/library/orquestrador-ai:latest                  0.0s
+ => => unpacking to docker.io/library/orquestrador-ai:latest               0.0s
+
+ 3 warnings found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 27)
+ - SecretsUsedInArgOrEnv: Do not use ARG or ENV instructions for sensitive data (ENV "OPENAI_API_KEY") (line 22)
+ - SecretsUsedInArgOrEnv: Do not use ARG or ENV instructions for sensitive data (ENV "GEMINI_API_KEY") (line 22)
+
+View build details: docker-desktop://dashboard/build/default/default/0quztt19ad3c24si44m4ih8lx
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % docker run --rm -p 8000:8000 --env-file .env orquestrador-ai
+Traceback (most recent call last):
+  File "/usr/local/bin/uvicorn", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 413, in main
+    run(
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1004, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/app/main.py", line 135
+    ```
+    ^
+SyntaxError: invalid syntax
+wagnerjfjunior@MacBookPro-Wagner orquestrador-ai % 
+
+
+
+
+
+# =============================================================================
+# File: app/main.py
+# Version: 2025-09-14 22:00:00 -03 (America/Sao_Paulo)
+# Changes:
+# - A rota /ask agora aceita o parâmetro de consulta `?strategy=...`
+# - Orquestra os novos fluxos `crossvote` e `refine_once_crossvote`.
+# - Integra os novos módulos `refine.py` e a lógica avançada do `judge.py`.
+# - Implementa o fallback de segurança e o limite de chamadas de IA.
+# =============================================================================
+from __future__ import annotations
+import asyncio
+from typing import Any, Dict, List, Optional, Tuple
+
+from fastapi import FastAPI, Body, HTTPException, Query
+
+from app.config import settings
+from app.metrics import setup_metrics
+from app.observability import RequestIDMiddleware, TraceMiddleware, logger
+from app.openai_client import ask_openai as ask_openai_async, is_configured as openai_configured
+from app.gemini_client import ask_gemini as ask_gemini_async, is_configured as gemini_configured
+from app.judge import judge_answers
+from app.refine import refine_answers
+
+app = FastAPI(
+    title="orquestrador-ai",
+    version=settings.APP_VERSION,
+    description="Orquestrador multi-IA com estratégias avançadas de deliberação.",
+)
+
+# --- Middlewares e métricas ---
+setup_metrics(app)
+app.add_middleware(TraceMiddleware)
+app.add_middleware(RequestIDMiddleware)
+
+# --- Rotas infra ---
+@app.get("/", tags=["infra"])
+async def root():
+    return {"status": "live"}
+
+@app.get("/health", tags=["infra"])
+async def health():
+    return {"status": "ok"}
+
+# --- Lógica de Chamada dos Provedores ---
+async def _try_call(provider_name: str, prompt: str) -> Tuple[str, Dict[str, Any] | None, str | None]:
+    """Tenta chamar um provider e captura qualquer erro, retornando um resultado estruturado."""
+    try:
+        if provider_name == "openai":
+            if not openai_configured(): raise RuntimeError("OpenAI não configurado.")
+            resp = await ask_openai_async(prompt)
+        elif provider_name == "gemini":
+            if not gemini_configured(): raise RuntimeError("Gemini não configurado.")
+            resp = await ask_gemini_async(prompt)
+        else:
+            raise RuntimeError(f"Provider desconhecido: {provider_name}")
+        return provider_name, resp, None
+    except Exception as e:
+        logger.error(f"provider.{provider_name}.failed", error=str(e))
+        return provider_name, None, str(e)
+
+# --- Rota de Geração Principal ---
+@app.post("/ask", tags=["ask"])
+async def ask(
+    payload: dict = Body(...),
+    strategy: Optional[str] = Query(settings.DEFAULT_STRATEGY, enum=settings.ALLOWED_STRATEGIES)
+):
+    prompt = payload.get("prompt")
+    if not prompt:
+        raise HTTPException(status_code=400, detail="Campo 'prompt' é obrigatório.")
+
+    logger.info("ask.start", strategy=strategy)
+    
+    # Validação de segurança
+    if not openai_configured() or not gemini_configured():
+        raise HTTPException(status_code=503, detail="Ambos os providers (OpenAI e Gemini) devem estar configurados.")
+
+    # Contador de chamadas para o guardrail de custo
+    call_count = 0
+
+    try:
+        # --- ETAPA 1: GERAÇÃO INICIAL ---
+        initial_results = await asyncio.gather(
+            _try_call("openai", prompt),
+            _try_call("gemini", prompt)
+        )
+        call_count += 2
+        
+        results: Dict[str, Dict[str, Any] | None] = {}
+        errors: Dict[str, str | None] = {}
+        for p_name, resp, err in initial_results:
+            results[p_name] = resp
+            errors[p_name] = err
+
+        openai_answer = (results.get("openai") or {}).get("answer") or ""
+        gemini_answer = (results.get("gemini") or {}).get("answer") or ""
+
+        if not openai_answer or not gemini_answer:
+            raise HTTPException(status_code=502, detail={"reason": "Falha na geração inicial.", "errors": errors})
+        
+        answer_a, answer_b = openai_answer, gemini_answer
+
+        # --- ETAPA 2: REFINAMENTO (Se a estratégia exigir) ---
+        if strategy == "refine_once_crossvote":
+            if call_count + 2 > settings.MAX_CALLS_PER_REQUEST:
+                logger.warning("refine.skipped", reason="MAX_CALLS_PER_REQUEST atingido.")
+            else:
+                answer_a, answer_b = await refine_answers(prompt, openai_answer, gemini_answer)
+                call_count += 2
+
+        # --- ETAPA 3: JULGAMENTO ---
+        # A estratégia 'refine_once_crossvote' também usa 'crossvote' para o julgamento final.
+        judge_strategy = "crossvote" if strategy in ["crossvote", "refine_once_crossvote"] else "heuristic"
+        
+        if call_count + 2 > settings.MAX_CALLS_PER_REQUEST and judge_strategy == "crossvote":
+             logger.warning("judge.downgraded", reason="MAX_CALLS_PER_REQUEST atingido, usando heurística.")
+             judge_strategy = "heuristic"
+
+        verdict_result = await judge_answers(prompt, answer_a, answer_b, strategy=judge_strategy)
+
+        # --- ETAPA 4: RESULTADO FINAL ---
+        final_result = {
+            "strategy_used": strategy,
+            "prompt": prompt,
+            "final_responses": { "openai": answer_a, "gemini": answer_b },
+            "verdict": verdict_result
+        }
+
+        logger.info("ask.end", strategy=strategy, winner=verdict_result.get("winner"))
+        return final_result
+
+    except Exception as e:
+        # Fallback de segurança para qualquer erro inesperado no fluxo
+        logger.error("ask.pipeline.failed", error=str(e), strategy=strategy)
+        raise HTTPException(status_code=500, detail=f"Ocorreu um erro interno na estratégia '{strategy}': {e}")
+```
+
+### **Próximos Passos (Validação da Sprint)**
+
+Agora que a nossa base de código está completa com as novas funcionalidades, o próximo passo é testar.
+
+1.  **Reconstrua e Execute o Docker:**
+    ```bash
+    docker build -t orquestrador-ai .
+    docker run --rm -p 8000:8000 --env-file .env orquestrador-ai
+    ```
+2.  **Teste as Novas Estratégias:**
+    * Abra um novo terminal e experimente cada um dos novos modos!
+
+    **Teste do Voto Cruzado (`crossvote`):**
+    ```bash
+    curl -X POST "http://localhost:8000/ask?strategy=crossvote" \
+         -H "Content-Type: application/json" \
+         -d '{"prompt": "Explique o conceito de Entropia em Termodinâmica de forma simples."}' | jq
+    ```
+
+    **Teste do Refinamento e Voto Cruzado (`refine_once_crossvote`):**
+    ```bash
+    curl -X POST "http://localhost:8000/ask?strategy=refine_once_crossvote" \
+         -H "Content-Type: application/json" \
+         -d '{"prompt": "Crie um plano de marketing de 3 passos para o lançamento de um novo café gourmet."}' | jq
+    
+

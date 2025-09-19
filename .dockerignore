@@ -1,20 +1,27 @@
-.git
-.github
-.venv
-__pycache__
+# Venvs e caches
+.venv/
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Git & IDE
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs e artefatos
 *.log
-*.egg-info
-*.eggs
+dist/
+build/
+.eggs/
+*.egg-info/
+
+# Env (NUNCA bake secrets)
 .env
-.env.*
-.mypy_cache
-.pytest_cache
-.pytype
-coverage.*
-dist
-build
-.cache
-# tests   # (descomente se NÃO quiser copiar testes p/ imagem)
+.env.local
+

@@ -1,6 +1,8 @@
 # tests/test_metrics_error_counter.py
 import re
+
 from starlette.testclient import TestClient
+
 from app.main import app
 
 client = TestClient(app)

@@ -1,12 +1,12 @@
 # CONFIG SNAPSHOT
 
-- Generated at: **2025-09-19 20:09:50 **
+- Generated at: **2025-09-19 23:38:32 **
 
 - Root: `/Users/wagnerjfjunior/orquestrador-ai`
 
 - Files: **58**
 
-- Total config lines: **4784**
+- Total config lines: **4866**
 
 
 ---
@@ -14,63 +14,63 @@
 ## Index
 
 - [ 1] `.env.example` — 29 lines — mtime 2025-09-13 07:55:28 — sha256 `274aceefe36c…`
-- [ 2] `.github/workflows/ci.yml` — 39 lines — mtime 2025-09-13 19:22:11 — sha256 `1741b400f725…`
-- [ 3] `.github/workflows/snapshot.yml` — 21 lines — mtime 2025-09-14 12:15:11 — sha256 `73f13efc7425…`
+- [ 2] `.github/workflows/ci.yml` — 39 lines — mtime 2025-09-19 20:21:09 — sha256 `1741b400f725…`
+- [ 3] `.github/workflows/snapshot.yml` — 21 lines — mtime 2025-09-19 20:21:09 — sha256 `73f13efc7425…`
 - [ 4] `.gitignore` — 10 lines — mtime 2025-09-12 01:56:56 — sha256 `b746016476e6…`
 - [ 5] `app/__init__.py` — 2 lines — mtime 2025-09-13 15:30:17 — sha256 `f0fb5e1d3cbe…`
-- [ 6] `app/Backup/__init__.py` — 2 lines — mtime 2025-09-13 15:30:17 — sha256 `f0fb5e1d3cbe…`
-- [ 7] `app/Backup/cache.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `0a8edfe8a856…`
-- [ 8] `app/Backup/config.py` — 55 lines — mtime 2025-09-14 22:32:07 — sha256 `22a4fba6490e…`
-- [ 9] `app/Backup/gemini_client.py` — 151 lines — mtime 2025-09-16 15:07:23 — sha256 `c975f06e6230…`
-- [10] `app/Backup/gemini_client_2.py` — 212 lines — mtime 2025-09-17 22:22:34 — sha256 `821db00a1106…`
-- [11] `app/Backup/judge2.py` — 275 lines — mtime 2025-09-16 22:23:00 — sha256 `211c7fae7fd7…`
-- [12] `app/Backup/judge_demo.py` — 50 lines — mtime 2025-09-16 22:47:58 — sha256 `842672934882…`
-- [13] `app/Backup/main2.py` — 352 lines — mtime 2025-09-17 00:04:54 — sha256 `dd74323913ed…`
-- [14] `app/Backup/metrics.py` — 44 lines — mtime 2025-09-13 18:33:31 — sha256 `672d96010d9c…`
-- [15] `app/Backup/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
-- [16] `app/Backup/openai_client.py` — 126 lines — mtime 2025-09-16 19:33:40 — sha256 `4c38d9b76bc2…`
-- [17] `app/Backup/openai_client_2.py` — 207 lines — mtime 2025-09-17 22:21:11 — sha256 `48418182a29c…`
-- [18] `app/Backup/refine.py` — 108 lines — mtime 2025-09-14 22:46:57 — sha256 `96a3ef2b9bd0…`
-- [19] `app/Backup/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `f7539c2a2673…`
-- [20] `app/Backup/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
-- [21] `app/Backup/utils/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `d22081dab42b…`
-- [22] `app/cache.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `0a8edfe8a856…`
-- [23] `app/config.py` — 55 lines — mtime 2025-09-14 22:32:07 — sha256 `22a4fba6490e…`
-- [24] `app/gemini_client.py` — 137 lines — mtime 2025-09-18 00:36:21 — sha256 `c99c87dee7b0…`
-- [25] `app/judge.py` — 197 lines — mtime 2025-09-19 18:35:47 — sha256 `e77e53a63d74…`
-- [26] `app/judge_demo.py` — 50 lines — mtime 2025-09-16 22:47:58 — sha256 `842672934882…`
-- [27] `app/main.py` — 367 lines — mtime 2025-09-19 20:07:06 — sha256 `33396ef57801…`
-- [28] `app/metrics.py` — 44 lines — mtime 2025-09-13 18:33:31 — sha256 `672d96010d9c…`
+- [ 6] `app/Backup/__init__.py` — 2 lines — mtime 2025-09-19 20:21:09 — sha256 `f0fb5e1d3cbe…`
+- [ 7] `app/Backup/cache.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `0a8edfe8a856…`
+- [ 8] `app/Backup/config.py` — 55 lines — mtime 2025-09-19 20:21:09 — sha256 `22a4fba6490e…`
+- [ 9] `app/Backup/gemini_client.py` — 151 lines — mtime 2025-09-19 20:21:09 — sha256 `c975f06e6230…`
+- [10] `app/Backup/gemini_client_2.py` — 212 lines — mtime 2025-09-19 20:21:09 — sha256 `821db00a1106…`
+- [11] `app/Backup/judge2.py` — 275 lines — mtime 2025-09-19 20:21:09 — sha256 `211c7fae7fd7…`
+- [12] `app/Backup/judge_demo.py` — 50 lines — mtime 2025-09-19 20:21:09 — sha256 `842672934882…`
+- [13] `app/Backup/main2.py` — 352 lines — mtime 2025-09-19 20:21:09 — sha256 `dd74323913ed…`
+- [14] `app/Backup/metrics.py` — 44 lines — mtime 2025-09-19 20:21:09 — sha256 `672d96010d9c…`
+- [15] `app/Backup/observability.py` — 111 lines — mtime 2025-09-19 20:21:09 — sha256 `5a5528e1c8ab…`
+- [16] `app/Backup/openai_client.py` — 126 lines — mtime 2025-09-19 20:21:09 — sha256 `4c38d9b76bc2…`
+- [17] `app/Backup/openai_client_2.py` — 207 lines — mtime 2025-09-19 20:21:09 — sha256 `48418182a29c…`
+- [18] `app/Backup/refine.py` — 108 lines — mtime 2025-09-19 20:21:09 — sha256 `96a3ef2b9bd0…`
+- [19] `app/Backup/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
+- [20] `app/Backup/utils/__init__.py` — 2 lines — mtime 2025-09-19 20:21:09 — sha256 `f0fb5e1d3cbe…`
+- [21] `app/Backup/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
+- [22] `app/cache.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `0a8edfe8a856…`
+- [23] `app/config.py` — 55 lines — mtime 2025-09-19 20:21:09 — sha256 `22a4fba6490e…`
+- [24] `app/gemini_client.py` — 137 lines — mtime 2025-09-19 20:21:09 — sha256 `c99c87dee7b0…`
+- [25] `app/judge.py` — 197 lines — mtime 2025-09-19 20:21:09 — sha256 `e77e53a63d74…`
+- [26] `app/judge_demo.py` — 50 lines — mtime 2025-09-19 20:21:09 — sha256 `842672934882…`
+- [27] `app/main.py` — 449 lines — mtime 2025-09-19 23:25:22 — sha256 `90830283dd0c…`
+- [28] `app/metrics.py` — 44 lines — mtime 2025-09-19 20:21:09 — sha256 `672d96010d9c…`
 - [29] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
-- [30] `app/openai_client.py` — 98 lines — mtime 2025-09-18 00:38:13 — sha256 `355119a65b23…`
-- [31] `app/refine.py` — 108 lines — mtime 2025-09-14 22:46:57 — sha256 `96a3ef2b9bd0…`
-- [32] `app/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `f7539c2a2673…`
-- [33] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 00:40:30 — sha256 `7105937ac375…`
+- [30] `app/openai_client.py` — 98 lines — mtime 2025-09-19 20:21:09 — sha256 `355119a65b23…`
+- [31] `app/refine.py` — 108 lines — mtime 2025-09-19 20:21:09 — sha256 `96a3ef2b9bd0…`
+- [32] `app/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
+- [33] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 20:21:09 — sha256 `7105937ac375…`
 - [34] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
-- [35] `app/utils/retry.py` — 42 lines — mtime 2025-09-13 18:33:31 — sha256 `d22081dab42b…`
-- [36] `CONFIG_SNAPSHOT.manifest.json` — 357 lines — mtime 2025-09-19 18:22:10 — sha256 `71293e82f4bd…`
+- [35] `app/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
+- [36] `CONFIG_SNAPSHOT.manifest.json` — 357 lines — mtime 2025-09-19 20:21:09 — sha256 `a9828d4a5101…`
 - [37] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
-- [38] `docker-compose.yml` — 25 lines — mtime 2025-09-18 22:33:13 — sha256 `937416bb3b64…`
-- [39] `Dockerfile` — 35 lines — mtime 2025-09-18 22:32:38 — sha256 `4ab5260777a2…`
-- [40] `Makefile` — 37 lines — mtime 2025-09-18 14:11:18 — sha256 `d3bb861aa5ec…`
+- [38] `docker-compose.yml` — 25 lines — mtime 2025-09-19 20:21:09 — sha256 `937416bb3b64…`
+- [39] `Dockerfile` — 35 lines — mtime 2025-09-19 20:21:09 — sha256 `4ab5260777a2…`
+- [40] `Makefile` — 37 lines — mtime 2025-09-19 20:21:09 — sha256 `d3bb861aa5ec…`
 - [41] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
 - [42] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
-- [43] `ruff.toml` — 19 lines — mtime 2025-09-13 18:38:03 — sha256 `13e62274b996…`
-- [44] `scripts/env_check.py` — 13 lines — mtime 2025-09-18 14:14:54 — sha256 `78000965530a…`
-- [45] `tests/test_ask_providers.py` — 71 lines — mtime 2025-09-14 16:23:19 — sha256 `c46e4fb6e9cb…`
-- [46] `tests/test_basic.py` — 22 lines — mtime 2025-09-13 18:33:31 — sha256 `552f7a87700f…`
+- [43] `ruff.toml` — 19 lines — mtime 2025-09-19 20:21:09 — sha256 `13e62274b996…`
+- [44] `scripts/env_check.py` — 13 lines — mtime 2025-09-19 20:21:09 — sha256 `78000965530a…`
+- [45] `tests/test_ask_providers.py` — 71 lines — mtime 2025-09-19 20:21:09 — sha256 `c46e4fb6e9cb…`
+- [46] `tests/test_basic.py` — 22 lines — mtime 2025-09-19 20:21:09 — sha256 `552f7a87700f…`
 - [47] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
-- [48] `tests/test_duel_openai_only.py` — 36 lines — mtime 2025-09-14 16:24:10 — sha256 `daabf14d47d9…`
-- [49] `tests/test_fallback.py` — 57 lines — mtime 2025-09-14 16:31:51 — sha256 `8635780c76ce…`
-- [50] `tests/test_judge.py` — 45 lines — mtime 2025-09-16 22:49:15 — sha256 `faf5e4c0061f…`
-- [51] `tests/test_metrics.py` — 21 lines — mtime 2025-09-13 18:33:31 — sha256 `856e3ec90817…`
-- [52] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-13 18:33:31 — sha256 `850ce9f5c170…`
-- [53] `tests/test_observability.py` — 34 lines — mtime 2025-09-13 18:33:31 — sha256 `53d2b047fd81…`
-- [54] `tests/test_openai_client.py` — 52 lines — mtime 2025-09-14 16:58:04 — sha256 `672c43b1e2b6…`
-- [55] `tests/test_request_id.py` — 20 lines — mtime 2025-09-13 18:33:31 — sha256 `2ebc4c965dc3…`
+- [48] `tests/test_duel_openai_only.py` — 36 lines — mtime 2025-09-19 20:21:09 — sha256 `daabf14d47d9…`
+- [49] `tests/test_fallback.py` — 57 lines — mtime 2025-09-19 20:21:09 — sha256 `8635780c76ce…`
+- [50] `tests/test_judge.py` — 45 lines — mtime 2025-09-19 20:21:09 — sha256 `faf5e4c0061f…`
+- [51] `tests/test_metrics.py` — 21 lines — mtime 2025-09-19 20:21:09 — sha256 `856e3ec90817…`
+- [52] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-19 20:21:09 — sha256 `850ce9f5c170…`
+- [53] `tests/test_observability.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `53d2b047fd81…`
+- [54] `tests/test_openai_client.py` — 52 lines — mtime 2025-09-19 20:21:09 — sha256 `672c43b1e2b6…`
+- [55] `tests/test_request_id.py` — 20 lines — mtime 2025-09-19 20:21:09 — sha256 `2ebc4c965dc3…`
 - [56] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
-- [57] `tools/guard_update.py` — 134 lines — mtime 2025-09-14 12:41:05 — sha256 `ad8e6b859128…`
-- [58] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-14 12:04:40 — sha256 `6407d9d7f76f…`
+- [57] `tools/guard_update.py` — 134 lines — mtime 2025-09-19 20:21:09 — sha256 `ad8e6b859128…`
+- [58] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-19 20:21:09 — sha256 `6407d9d7f76f…`
 
 ---
 
@@ -111,7 +111,7 @@ METRICS_PATH=/metrics
 ```
 
 ## [2] .github/workflows/ci.yml
-- Last modified: **2025-09-13 19:22:11**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **39**
 - SHA-256: `1741b400f7258048fbd5d71c4f9ddbd48860a00fe2da21a7f8b8232db8055ec5`
 
@@ -157,7 +157,7 @@ jobs:
 ```
 
 ## [3] .github/workflows/snapshot.yml
-- Last modified: **2025-09-14 12:15:11**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **21**
 - SHA-256: `73f13efc74257069dcb4e3a8680af67d50367be462658b750527ff9dc7ddf703`
 
@@ -213,7 +213,7 @@ __pycache__/
 ```
 
 ## [6] app/Backup/__init__.py
-- Last modified: **2025-09-13 15:30:17**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **2**
 - SHA-256: `f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f`
 
@@ -223,7 +223,7 @@ __pycache__/
 ```
 
 ## [7] app/Backup/cache.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **34**
 - SHA-256: `0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475`
 
@@ -265,7 +265,7 @@ def cache_set(key: str, value: str, ttl_seconds: int = 300) -> None:
 ```
 
 ## [8] app/Backup/config.py
-- Last modified: **2025-09-14 22:32:07**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **55**
 - SHA-256: `22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411`
 
@@ -327,7 +327,7 @@ settings = get_settings()
 ```
 
 ## [9] app/Backup/gemini_client.py
-- Last modified: **2025-09-16 15:07:23**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **151**
 - SHA-256: `c975f06e623095504043590f72a56543d641603abdaacd0ba939f6f1f08acad8`
 
@@ -486,7 +486,7 @@ def judge(
 ```
 
 ## [10] app/Backup/gemini_client_2.py
-- Last modified: **2025-09-17 22:22:34**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **212**
 - SHA-256: `821db00a11060035201bc150bd54867b11d9bbfc4a8a2927f8cc7b6c3b549b25`
 
@@ -705,7 +705,7 @@ async def ask(prompt: str, *, model: Optional[str] = None):
 ```
 
 ## [11] app/Backup/judge2.py
-- Last modified: **2025-09-16 22:23:00**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **275**
 - SHA-256: `211c7fae7fd7d1057178f985452b9539f8f124a64d7840ee58256b4d5863dc40`
 
@@ -988,7 +988,7 @@ def safe_extract_json(text: str) -> Dict:
 ```
 
 ## [12] app/Backup/judge_demo.py
-- Last modified: **2025-09-16 22:47:58**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **50**
 - SHA-256: `8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4`
 
@@ -1046,7 +1046,7 @@ if __name__ == "__main__":
 ```
 
 ## [13] app/Backup/main2.py
-- Last modified: **2025-09-17 00:04:54**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **352**
 - SHA-256: `dd74323913eddd255fc2ed7c68da5a2c3d091b8c0433e7245c815ad678ceaf55`
 
@@ -1406,7 +1406,7 @@ async def duel(req: Request):
 ```
 
 ## [14] app/Backup/metrics.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **44**
 - SHA-256: `672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c`
 
@@ -1458,7 +1458,7 @@ def record_ask(provider: str, status: str, duration_ms: Optional[float] = None) 
 ```
 
 ## [15] app/Backup/observability.py
-- Last modified: **2025-09-14 11:32:26**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **111**
 - SHA-256: `5a5528e1c8ab181c8bdc64133f5ebf08f502ee930d15dc116eabe9ed7e8fb297`
 
@@ -1577,7 +1577,7 @@ __all__ = ["logger", "TraceMiddleware", "RequestIDMiddleware"]
 ```
 
 ## [16] app/Backup/openai_client.py
-- Last modified: **2025-09-16 19:33:40**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **126**
 - SHA-256: `4c38d9b76bc20fe675a7c15c7eca0de4e60fffa41a3f03f354bb172c82234ecb`
 
@@ -1711,7 +1711,7 @@ def judge(
 ```
 
 ## [17] app/Backup/openai_client_2.py
-- Last modified: **2025-09-17 22:21:11**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **207**
 - SHA-256: `48418182a29c4c6a57ffbce6f4b34ec9da6b965ab2324f1b50a965733cfaa625`
 
@@ -1925,7 +1925,7 @@ async def ask(prompt: str, *, model: Optional[str] = None):
 ```
 
 ## [18] app/Backup/refine.py
-- Last modified: **2025-09-14 22:46:57**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **108**
 - SHA-256: `96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532`
 
@@ -2041,7 +2041,7 @@ Agora que o ficheiro local está corrigido, precisamos de "tirar uma nova fotogr
 ```
 
 ## [19] app/Backup/retry.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b`
 
@@ -2091,7 +2091,7 @@ def retry(
 ```
 
 ## [20] app/Backup/utils/__init__.py
-- Last modified: **2025-09-13 15:31:19**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **2**
 - SHA-256: `f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f`
 
@@ -2101,7 +2101,7 @@ def retry(
 ```
 
 ## [21] app/Backup/utils/retry.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c`
 
@@ -2151,7 +2151,7 @@ def retry(
 ```
 
 ## [22] app/cache.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **34**
 - SHA-256: `0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475`
 
@@ -2193,7 +2193,7 @@ def cache_set(key: str, value: str, ttl_seconds: int = 300) -> None:
 ```
 
 ## [23] app/config.py
-- Last modified: **2025-09-14 22:32:07**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **55**
 - SHA-256: `22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411`
 
@@ -2255,7 +2255,7 @@ settings = get_settings()
 ```
 
 ## [24] app/gemini_client.py
-- Last modified: **2025-09-18 00:36:21**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **137**
 - SHA-256: `c99c87dee7b09b51d1c81ba3a96070adcb31b58366c907980f9972724ccb5ff8`
 
@@ -2400,7 +2400,7 @@ ask = ask_gemini
 ```
 
 ## [25] app/judge.py
-- Last modified: **2025-09-19 18:35:47**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **197**
 - SHA-256: `e77e53a63d74fd215fdaee89ede2847f09198dcd85185787b419850d4bf2fd50`
 
@@ -2605,7 +2605,7 @@ def judge_answers(*args):
 ```
 
 ## [26] app/judge_demo.py
-- Last modified: **2025-09-16 22:47:58**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **50**
 - SHA-256: `8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4`
 
@@ -2663,9 +2663,9 @@ if __name__ == "__main__":
 ```
 
 ## [27] app/main.py
-- Last modified: **2025-09-19 20:07:06**
-- Lines: **367**
-- SHA-256: `33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329`
+- Last modified: **2025-09-19 23:25:22**
+- Lines: **449**
+- SHA-256: `90830283dd0ced26164638f0345651609b4914b14188d78c7b48481f7e91da43`
 
 ```python
 # app/main.py
@@ -2713,9 +2713,33 @@ app = FastAPI(title="Integração_Gem_GPT", version=APP_VERSION)
 @app.middleware("http")
 async def request_id_middleware(request: Request, call_next):
     req_id = request.headers.get("X-Request-ID") or request.headers.get("x-request-id") or uuid.uuid4().hex
-    response = await call_next(request)
+    start = time.perf_counter()
+    try:
+        response = await call_next(request)
+    finally:
+        elapsed_ms = (time.perf_counter() - start) * 1000.0
+        # métrica por rota (usa path literal, estável para nossos testes)
+        route = request.url.path
+        _http_metrics_record(route, elapsed_ms)
+        # log estruturado (se ligado)
+        if OBS_JSON_LOGS:
+            try:
+                log_event = {
+                    "ts": int(time.time()),
+                    "level": "INFO",
+                    "msg": "http_request",
+                    "method": request.method,
+                    "path": route,
+                    "status": getattr(response, "status_code", None),
+                    "latency_ms": round(elapsed_ms, 2),
+                    "request_id": req_id,
+                }
+                logger.info(json.dumps(log_event, ensure_ascii=False))
+            except Exception:
+                pass
     response.headers["X-Request-ID"] = req_id
     return response
+
 
 # =============================================================================
 # Métricas (Prometheus-like)
@@ -2730,6 +2754,10 @@ _METRICS: Dict[str, int] = {
     "ask_provider_error_openai": 0,
     "ask_provider_error_gemini": 0,
     "ask_provider_error_echo": 0,
+    "ask_provider_timeout_openai": 0,
+    "ask_provider_timeout_gemini": 0,
+    "ask_provider_timeout_echo": 0,
+
 }
 
 def _inc(key: str) -> None:
@@ -2738,6 +2766,19 @@ def _inc(key: str) -> None:
 def _metrics_record(provider: str, ok: bool) -> None:
     key = f'ask_requests_{"success" if ok else "error"}_{provider}'
     _inc(key)
+
+# Métricas HTTP (por rota)
+_HTTP_METRICS = {
+    "http_requests_total": {},               # route -> count
+    "http_request_latency_ms_sum": {},       # route -> sum
+    "http_request_latency_ms_count": {},     # route -> count
+}
+
+def _http_metrics_record(route: str, latency_ms: float):
+    r = route or "unknown"
+    _HTTP_METRICS["http_requests_total"][r] = _HTTP_METRICS["http_requests_total"].get(r, 0) + 1
+    _HTTP_METRICS["http_request_latency_ms_sum"][r] = _HTTP_METRICS["http_request_latency_ms_sum"].get(r, 0.0) + float(latency_ms)
+    _HTTP_METRICS["http_request_latency_ms_count"][r] = _HTTP_METRICS["http_request_latency_ms_count"].get(r, 0) + 1
 
 # =============================================================================
 # Helpers
@@ -2884,6 +2925,30 @@ async def metrics() -> PlainTextResponse:
         val = _METRICS.get(key, 0)
         lines.append(f'ask_provider_errors{{provider="{prov}"}} {val}')
     return PlainTextResponse("\n".join(lines) + "\n")
+
+        # ---- Sprint 2: HTTP metrics ----
+    lines.append('# HELP http_requests_total Número de requisições HTTP por rota')
+    lines.append('# TYPE http_requests_total counter')
+    for route, val in _HTTP_METRICS["http_requests_total"].items():
+        lines.append(f'http_requests_total{{route="{route}"}} {val}')
+
+    lines.append('# HELP http_request_latency_ms_sum Soma das latências (ms) por rota')
+    lines.append('# TYPE http_request_latency_ms_sum counter')
+    for route, val in _HTTP_METRICS["http_request_latency_ms_sum"].items():
+        lines.append(f'http_request_latency_ms_sum{{route="{route}"}} {val}')
+
+    lines.append('# HELP http_request_latency_ms_count Contagem de amostras de latência por rota')
+    lines.append('# TYPE http_request_latency_ms_count counter')
+    for route, val in _HTTP_METRICS["http_request_latency_ms_count"].items():
+        lines.append(f'http_request_latency_ms_count{{route="{route}"}} {val}')
+
+    lines.append('# HELP ask_provider_timeouts Número de timeouts por provider')
+    lines.append('# TYPE ask_provider_timeouts counter')
+    for prov in ("openai", "gemini", "echo"):
+        key = f"ask_provider_timeout_{prov}"
+        val = _METRICS.get(key, 0)
+        lines.append(f'ask_provider_timeouts{{provider="{prov}"}} {val}')
+
 
 # =============================================================================
 # /ask
@@ -3035,10 +3100,26 @@ async def duel_post(payload: DuelPayload):
         "verdict": {"winner": norm_winner, "reason": reason},
     }
     return JSONResponse(body)
+
+
+    # --- Sprint 2: Observability ---
+import logging, json
+
+def _env_bool(name: str, default: bool = True) -> bool:
+    v = os.getenv(name)
+    if v is None:
+        return default
+    return str(v).strip().lower() not in {"0", "false", "no", "off"}
+
+OBS_JSON_LOGS = _env_bool("OBS_JSON_LOGS", True)
+
+if OBS_JSON_LOGS:
+    logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("orquestrador")
 ```
 
 ## [28] app/metrics.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **44**
 - SHA-256: `672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c`
 
@@ -3209,7 +3290,7 @@ __all__ = ["logger", "TraceMiddleware", "RequestIDMiddleware"]
 ```
 
 ## [30] app/openai_client.py
-- Last modified: **2025-09-18 00:38:13**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **98**
 - SHA-256: `355119a65b23160b60deadc66b0cb10984b420483a564896a396ac6abf2f7a8e`
 
@@ -3315,7 +3396,7 @@ ask = ask_openai
 ```
 
 ## [31] app/refine.py
-- Last modified: **2025-09-14 22:46:57**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **108**
 - SHA-256: `96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532`
 
@@ -3431,7 +3512,7 @@ Agora que o ficheiro local está corrigido, precisamos de "tirar uma nova fotogr
 ```
 
 ## [32] app/retry.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b`
 
@@ -3481,7 +3562,7 @@ def retry(
 ```
 
 ## [33] app/semerro.judge.backup.py
-- Last modified: **2025-09-19 00:40:30**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **142**
 - SHA-256: `7105937ac375d6adc27c1cd13d9d220b4665e7e4d0ed0735bd9082d8faebc878`
 
@@ -3641,7 +3722,7 @@ __all__ = [
 ```
 
 ## [35] app/utils/retry.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c`
 
@@ -3691,16 +3772,16 @@ def retry(
 ```
 
 ## [36] CONFIG_SNAPSHOT.manifest.json
-- Last modified: **2025-09-19 18:22:10**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **357**
-- SHA-256: `71293e82f4bd1317874685cf35057c52dff2f2f85e8bceb6b7ae1f8042be3e61`
+- SHA-256: `a9828d4a5101ad6e69fb5b52cfbe6d3b452707c9be97aceafdb510ecb8199ca8`
 
 ```json
 {
-  "generated_at": "2025-09-19 18:22:10 ",
+  "generated_at": "2025-09-19 20:09:50 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
   "file_count": 58,
-  "total_lines": 4650,
+  "total_lines": 4784,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -3849,9 +3930,9 @@ def retry(
     },
     {
       "path": "app/judge.py",
-      "mtime": "2025-09-19 18:17:30",
-      "lines": 142,
-      "sha256": "7105937ac375d6adc27c1cd13d9d220b4665e7e4d0ed0735bd9082d8faebc878"
+      "mtime": "2025-09-19 18:35:47",
+      "lines": 197,
+      "sha256": "e77e53a63d74fd215fdaee89ede2847f09198dcd85185787b419850d4bf2fd50"
     },
     {
       "path": "app/judge_demo.py",
@@ -3861,9 +3942,9 @@ def retry(
     },
     {
       "path": "app/main.py",
-      "mtime": "2025-09-19 00:05:09",
-      "lines": 288,
-      "sha256": "3903e57517cd198513ded1d1d02892eb0ab05cb5e3425d38b7d1f187e05a828c"
+      "mtime": "2025-09-19 20:07:06",
+      "lines": 367,
+      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
     },
     {
       "path": "app/metrics.py",
@@ -3915,9 +3996,9 @@ def retry(
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-19 18:21:31",
+      "mtime": "2025-09-19 18:22:10",
       "lines": 357,
-      "sha256": "4d86bb5ea6f91f16b2a9faa8b0b8fd78784d07f154bd62d1d62d6d0cab515377"
+      "sha256": "71293e82f4bd1317874685cf35057c52dff2f2f85e8bceb6b7ae1f8042be3e61"
     },
     {
       "path": "cy.yml",
@@ -4127,7 +4208,7 @@ jobs:
 ```
 
 ## [38] docker-compose.yml
-- Last modified: **2025-09-18 22:33:13**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **25**
 - SHA-256: `937416bb3b64472059414e039e9f9357e577c3fb2814c672a5390b94c7a6580a`
 
@@ -4160,7 +4241,7 @@ services:
 ```
 
 ## [39] Dockerfile
-- Last modified: **2025-09-18 22:32:38**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **35**
 - SHA-256: `4ab5260777a26e771ac4822ff165c2a648d23e0e9d061298be35ba0acb62f19d`
 
@@ -4203,7 +4284,7 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
 ## [40] Makefile
-- Last modified: **2025-09-18 14:11:18**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **37**
 - SHA-256: `d3bb861aa5ece9bffd865de72ae7cb12db5884c5e5eb8c9996bd1f877a804a17`
 
@@ -4301,7 +4382,7 @@ services:
 ```
 
 ## [43] ruff.toml
-- Last modified: **2025-09-13 18:38:03**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **19**
 - SHA-256: `13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c`
 
@@ -4328,7 +4409,7 @@ known-first-party = ["app"]
 ```
 
 ## [44] scripts/env_check.py
-- Last modified: **2025-09-18 14:14:54**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **13**
 - SHA-256: `78000965530a1ca2c61b1769524a4f0068190c1f7d62a4b5ab63873813dcc159`
 
@@ -4349,7 +4430,7 @@ for k in required + ["OPENAI_MODEL", "GEMINI_MODEL", "LOG_LEVEL"]:
 ```
 
 ## [45] tests/test_ask_providers.py
-- Last modified: **2025-09-14 16:23:19**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **71**
 - SHA-256: `c46e4fb6e9cb402bd467eee5bb009603e0d1eb65394e421301770e25dd08981a`
 
@@ -4428,7 +4509,7 @@ def test_ask_gemini_provider_error(monkeypatch):
 ```
 
 ## [46] tests/test_basic.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **22**
 - SHA-256: `552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a`
 
@@ -4484,7 +4565,7 @@ def test_duel_returns_502_when_no_providers():
 ```
 
 ## [48] tests/test_duel_openai_only.py
-- Last modified: **2025-09-14 16:24:10**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **36**
 - SHA-256: `daabf14d47d900829188e01b110cd52087b2b607566e63d9bc63c5b0e08dea79`
 
@@ -4528,7 +4609,7 @@ def test_duel_openai_only_ok(monkeypatch):
 ```
 
 ## [49] tests/test_fallback.py
-- Last modified: **2025-09-14 16:31:51**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **57**
 - SHA-256: `8635780c76ceab5bf3dee8cc6925fefe03c4138a4701c9be0f7f61c1ccba8f4d`
 
@@ -4593,7 +4674,7 @@ def test_fallback_todos_falham(monkeypatch):
 ```
 
 ## [50] tests/test_judge.py
-- Last modified: **2025-09-16 22:49:15**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **45**
 - SHA-256: `faf5e4c0061f5a65d0f71f1e144ffdf8693d8353d6fd095459cf8521700da150`
 
@@ -4646,7 +4727,7 @@ def test_judge_returns_valid_winner_key():
 ```
 
 ## [51] tests/test_metrics.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **21**
 - SHA-256: `856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784`
 
@@ -4675,7 +4756,7 @@ def test_metrics_exposes_ask_counters():
 ```
 
 ## [52] tests/test_metrics_error_counter.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **38**
 - SHA-256: `850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a`
 
@@ -4721,7 +4802,7 @@ def test_error_counter_increments_on_openai_503():
 ```
 
 ## [53] tests/test_observability.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **34**
 - SHA-256: `53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145`
 
@@ -4763,7 +4844,7 @@ def test_x_request_id_propagation_on_ready():
 ```
 
 ## [54] tests/test_openai_client.py
-- Last modified: **2025-09-14 16:58:04**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **52**
 - SHA-256: `672c43b1e2b6b573e190b75f88338f9d03a7ea2175e51229a2cdef1b8ab5bdc6`
 
@@ -4822,7 +4903,7 @@ async def test_ask_openai_mock(monkeypatch):
 ```
 
 ## [55] tests/test_request_id.py
-- Last modified: **2025-09-13 18:33:31**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **20**
 - SHA-256: `2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452`
 
@@ -4874,7 +4955,7 @@ def test_request_id_is_propagated_from_request_to_response():
 ```
 
 ## [57] tools/guard_update.py
-- Last modified: **2025-09-14 12:41:05**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **134**
 - SHA-256: `ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738`
 
@@ -5015,7 +5096,7 @@ if __name__ == "__main__":
 ```
 
 ## [58] tools/snapshot_configs.py
-- Last modified: **2025-09-14 12:04:40**
+- Last modified: **2025-09-19 20:21:09**
 - Lines: **290**
 - SHA-256: `6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2`
 

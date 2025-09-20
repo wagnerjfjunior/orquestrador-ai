@@ -1,12 +1,12 @@
 # CONFIG SNAPSHOT
 
-- Generated at: **2025-09-20 10:27:12 **
+- Generated at: **2025-09-20 11:09:22 **
 
 - Root: `/Users/wagnerjfjunior/orquestrador-ai`
 
 - Files: **61**
 
-- Total config lines: **5290**
+- Total config lines: **5361**
 
 
 ---
@@ -40,7 +40,7 @@
 - [25] `app/gemini_client.py` — 137 lines — mtime 2025-09-19 20:21:09 — sha256 `c99c87dee7b0…`
 - [26] `app/judge.py` — 197 lines — mtime 2025-09-19 20:21:09 — sha256 `e77e53a63d74…`
 - [27] `app/judge_demo.py` — 50 lines — mtime 2025-09-19 20:21:09 — sha256 `842672934882…`
-- [28] `app/main.py` — 419 lines — mtime 2025-09-20 10:26:45 — sha256 `42db1da818fe…`
+- [28] `app/main.py` — 478 lines — mtime 2025-09-20 11:04:35 — sha256 `23fef10b0352…`
 - [29] `app/metrics.py` — 44 lines — mtime 2025-09-19 20:21:09 — sha256 `672d96010d9c…`
 - [30] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
 - [31] `app/openai_client.py` — 98 lines — mtime 2025-09-19 20:21:09 — sha256 `355119a65b23…`
@@ -51,7 +51,7 @@
 - [36] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 20:21:09 — sha256 `7105937ac375…`
 - [37] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
 - [38] `app/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
-- [39] `CONFIG_SNAPSHOT.manifest.json` — 363 lines — mtime 2025-09-20 01:00:05 — sha256 `921dbdd4a2a5…`
+- [39] `CONFIG_SNAPSHOT.manifest.json` — 375 lines — mtime 2025-09-20 10:27:12 — sha256 `a4f041fdc34d…`
 - [40] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
 - [41] `docker-compose.yml` — 25 lines — mtime 2025-09-19 20:21:09 — sha256 `937416bb3b64…`
 - [42] `Dockerfile` — 35 lines — mtime 2025-09-19 20:21:09 — sha256 `4ab5260777a2…`
@@ -3041,19 +3041,20 @@ if __name__ == "__main__":
 ```
 
 ## [28] app/main.py
-- Last modified: **2025-09-20 10:26:45**
-- Lines: **419**
-- SHA-256: `42db1da818fed3a20230ad6b8efac911fddfcd7123893cca5f7f2e71e752932d`
+- Last modified: **2025-09-20 11:04:35**
+- Lines: **478**
+- SHA-256: `23fef10b03525fbf7d19d318e8eb5e06310749e70ac6b48ed4c4bf8e4b69a1d7`
 
 ```python
 # app/main.py
 from __future__ import annotations
 
 import asyncio
-import inspect
 import os
 import time
 import uuid
+import random
+import inspect
 from typing import Any, Dict, Optional
 
 from fastapi import FastAPI, Request, HTTPException, Response
@@ -3083,6 +3084,59 @@ except Exception:
 # =============================================================================
 APP_VERSION = os.getenv("APP_VERSION", "2025-09-18")
 
+# Resiliência (timeouts/retries)
+PROVIDER_TIMEOUT_S: float = float(os.getenv("PROVIDER_TIMEOUT_S", "10"))
+PROVIDER_MAX_RETRIES: int = int(os.getenv("PROVIDER_MAX_RETRIES", "0"))
+
+# =============================================================================
+# Circuit Breaker simples (local ao arquivo para não quebrar nada)
+# =============================================================================
+class CircuitBreaker:
+    def __init__(self, fail_threshold: int = 5, reset_seconds: float = 30.0):
+        self.fail_threshold = fail_threshold
+        self.reset_seconds = reset_seconds
+        self.failures = 0
+        self.state: str = "closed"  # closed | half_open | open
+        self._opened_at: Optional[float] = None
+
+    def allow_request(self) -> bool:
+        if self.state == "open":
+            if self._opened_at is None:
+                return False
+            if (time.monotonic() - self._opened_at) >= self.reset_seconds:
+                # janela de teste
+                self.state = "half_open"
+                return True
+            return False
+        return True  # closed ou half_open
+
+    def record_success(self) -> None:
+        self.failures = 0
+        self.state = "closed"
+        self._opened_at = None
+
+    def record_failure(self) -> None:
+        self.failures += 1
+        if self.state in ("closed", "half_open") and self.failures >= self.fail_threshold:
+            self.state = "open"
+            self._opened_at = time.monotonic()
+
+def compute_backoff(attempt: int, base: float = 0.2, factor: float = 2.0, jitter: float = 0.1) -> float:
+    """Exponential backoff com jitter. attempt começa em 1."""
+    expo = base * (factor ** max(0, attempt - 1))
+    jitter_val = random.uniform(-jitter, jitter) * expo
+    return max(0.0, expo + jitter_val)
+
+# Um breaker por provider
+_CB: Dict[str, CircuitBreaker] = {
+    "openai": CircuitBreaker(),
+    "gemini": CircuitBreaker(),
+    "echo": CircuitBreaker(),
+}
+
+# =============================================================================
+# App
+# =============================================================================
 app = FastAPI(title="Integração_Gem_GPT", version=APP_VERSION)
 
 # =============================================================================
@@ -3111,7 +3165,6 @@ _METRICS: Dict[str, int] = {
     "ask_circuit_opens_openai": 0,
     "ask_circuit_opens_gemini": 0,
     "ask_retries_total": 0,
-
 }
 
 def _inc(key: str) -> None:
@@ -3191,23 +3244,20 @@ def gemini_configured() -> bool:
     except Exception:
         return bool(os.getenv("GEMINI_API_KEY"))
 
-    #Wrapper compatível com monkeypatch dos testes. NÃO passa kwargs como 'model',
-    #para evitar TypeError quando os testes substituem ask_*.
-    #Também atualiza métricas de sucesso/erro e provider_error_*.
-    
-
+# =============================================================================
+# Provider wrapper com CB/timeout/retry (sem passar kwargs como 'model')
+# =============================================================================
 async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
     cb = _CB.get(name)
     if cb and not cb.allow_request():
         _inc(f"ask_provider_error_{name}")
-        # mantém sem 5xx aqui (vamos propagar como erro do provider)
         raise RuntimeError(f"{name} circuit_open")
 
     async def _call_once() -> Any:
         if name == "openai":
-            return await ask_openai(prompt, model=DEFAULT_MODEL_OPENAI)
+            return await ask_openai(prompt)
         if name == "gemini":
-            return await ask_gemini(prompt, model=DEFAULT_MODEL_GEMINI)
+            return await ask_gemini(prompt)
         if name == "echo":
             await asyncio.sleep(0.001)
             return prompt
@@ -3223,12 +3273,12 @@ async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
             if cb:
                 cb.record_success()
             return {"provider": name, "answer": txt}
-        except asyncio.TimeoutError as e:
+        except asyncio.TimeoutError:
             last_exc = TimeoutError(f"{name} timeout after {PROVIDER_TIMEOUT_S}s")
         except Exception as e:
             last_exc = e
 
-        # falha
+        # falha -> contabiliza no CB
         if cb:
             prev_state = cb.state
             cb.record_failure()
@@ -3247,7 +3297,6 @@ async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
         if isinstance(last_exc, TimeoutError):
             raise last_exc
         raise RuntimeError(f"{name} error: {str(last_exc)}") from last_exc
-
 
 
 # =============================================================================
@@ -3283,8 +3332,13 @@ async def metrics() -> PlainTextResponse:
     Formato Prometheus:
       ask_requests_total{provider="echo",status="success"} <n>
       ask_provider_errors{provider="openai"} <n>
+      ask_circuit_open{provider="openai"} 0|1
+      ask_circuit_opens_total{provider="openai"} <n>
+      ask_retries_total <n>
     """
     lines = []
+
+    # pedidos por provider/status
     lines.append('# HELP ask_requests_total Número de requisições /ask por provider e status')
     lines.append('# TYPE ask_requests_total counter')
     for prov in ("echo", "openai", "gemini"):
@@ -3292,27 +3346,36 @@ async def metrics() -> PlainTextResponse:
             key = f"ask_requests_{status}_{prov}"
             val = _METRICS.get(key, 0)
             lines.append(f'ask_requests_total{{provider="{prov}",status="{status}"}} {val}')
+
+    # erros por provider
     lines.append('# HELP ask_provider_errors Número de erros por provider')
     lines.append('# TYPE ask_provider_errors counter')
     for prov in ("openai", "gemini", "echo"):
         key = f"ask_provider_error_{prov}"
         val = _METRICS.get(key, 0)
         lines.append(f'ask_provider_errors{{provider="{prov}"}} {val}')
+
+    # estado atual do CB (gauge 0/1)
+    lines.append('# HELP ask_circuit_open Estado do circuito por provider (0=closed/half_open, 1=open)')
+    lines.append('# TYPE ask_circuit_open gauge')
+    for prov in ("openai", "gemini"):
+        state = _CB[prov].state
+        lines.append(f'ask_circuit_open{{provider="{prov}"}} {1 if state=="open" else 0}')
+
+    # total de aberturas
+    lines.append('# HELP ask_circuit_opens_total Número de aberturas de circuito')
+    lines.append('# TYPE ask_circuit_opens_total counter')
+    for prov in ("openai", "gemini"):
+        key = f"ask_circuit_opens_{prov}"
+        val = _METRICS.get(key, 0)
+        lines.append(f'ask_circuit_opens_total{{provider="{prov}"}} {val}')
+
+    # retries globais
+    lines.append('# HELP ask_retries_total Número de tentativas extras (retries)')
+    lines.append('# TYPE ask_retries_total counter')
+    lines.append(f'ask_retries_total {_METRICS.get("ask_retries_total", 0)}')
+
     return PlainTextResponse("\n".join(lines) + "\n")
-
-# HELP ask_circuit_open Estado do circuito por provider (0=closed/half_open, 1=open)
-# TYPE ask_circuit_open gauge
-ask_circuit_open{provider="openai"} {1 if _CB["openai"].state=="open" else 0}
-ask_circuit_open{provider="gemini"} {1 if _CB["gemini"].state=="open" else 0}
-
-# HELP ask_circuit_opens_total Número de aberturas de circuito
-# TYPE ask_circuit_opens_total counter
-ask_circuit_opens_total{provider="openai"} {_METRICS.get("ask_circuit_opens_openai",0)}
-ask_circuit_opens_total{provider="gemini"} {_METRICS.get("ask_circuit_opens_gemini",0)}
-
-# HELP ask_retries_total Número de tentativas extras (retries)
-# TYPE ask_retries_total counter
-ask_retries_total {_METRICS.get("ask_retries_total",0)}
 
 
 # =============================================================================
@@ -3329,13 +3392,11 @@ async def ask_post(payload: AskPayload, provider: str = "auto"):
 
     have_openai = openai_configured()
     have_gemini = gemini_configured()
-
     provider = (provider or "auto").lower()
 
     # ---- Provider explícito ----
     if provider == "openai":
         if not have_openai:
-            # IMPORTANTE: incrementar ambos (provider_error e request_error)
             _inc("ask_provider_error_openai")
             _metrics_record("openai", False)
             return JSONResponse(status_code=503, content={"detail": "openai_api_key não configurada"})
@@ -3343,7 +3404,6 @@ async def ask_post(payload: AskPayload, provider: str = "auto"):
             r = await _provider_call("openai", prompt)
             return {"provider": r["provider"], "answer": r["answer"]}
         except Exception as e:
-            # erro real do provider explicitamente selecionado -> 502
             return JSONResponse(status_code=502, content={"detail": str(e)})
 
     if provider == "gemini":
@@ -3368,10 +3428,8 @@ async def ask_post(payload: AskPayload, provider: str = "auto"):
     if provider == "auto":
         # ambos off => 503 com detalhe do GEMINI (conforme testes esperavam)
         if not have_openai and not have_gemini:
-            _inc("ask_provider_error_openai")
-            _metrics_record("openai", False)
-            _inc("ask_provider_error_gemini")
-            _metrics_record("gemini", False)
+            _inc("ask_provider_error_openai"); _metrics_record("openai", False)
+            _inc("ask_provider_error_gemini"); _metrics_record("gemini", False)
             return JSONResponse(status_code=503, content={"detail": "gemini_api_key não configurada"})
 
         # tenta openai -> gemini
@@ -3392,6 +3450,7 @@ async def ask_post(payload: AskPayload, provider: str = "auto"):
 
     # inválido
     return JSONResponse(status_code=400, content={"detail": "Parâmetros inválidos: provider=auto|openai|gemini|echo"})
+
 
 # =============================================================================
 # /duel
@@ -4218,16 +4277,16 @@ def retry(
 ```
 
 ## [39] CONFIG_SNAPSHOT.manifest.json
-- Last modified: **2025-09-20 01:00:05**
-- Lines: **363**
-- SHA-256: `921dbdd4a2a57d422c52db76115838409d651e1a1ebfd366b6c7fbfee31fff89`
+- Last modified: **2025-09-20 10:27:12**
+- Lines: **375**
+- SHA-256: `a4f041fdc34d636abb800331ee07e7d2a6ca461cb5d592831dd746826e46972e`
 
 ```json
 {
-  "generated_at": "2025-09-20 01:00:05 ",
+  "generated_at": "2025-09-20 10:27:12 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
-  "file_count": 59,
-  "total_lines": 4795,
+  "file_count": 61,
+  "total_lines": 5290,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -4357,6 +4416,12 @@ def retry(
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
     },
     {
+      "path": "app/Backup_main.py",
+      "mtime": "2025-09-20 00:06:17",
+      "lines": 367,
+      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+    },
+    {
       "path": "app/cache.py",
       "mtime": "2025-09-19 20:21:09",
       "lines": 34,
@@ -4388,9 +4453,9 @@ def retry(
     },
     {
       "path": "app/main.py",
-      "mtime": "2025-09-20 00:06:17",
-      "lines": 367,
-      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+      "mtime": "2025-09-20 10:26:45",
+      "lines": 419,
+      "sha256": "42db1da818fed3a20230ad6b8efac911fddfcd7123893cca5f7f2e71e752932d"
     },
     {
       "path": "app/metrics.py",
@@ -4418,6 +4483,12 @@ def retry(
     },
     {
       "path": "app/resilience/__init__.py",
+      "mtime": "2025-09-20 10:17:01",
+      "lines": 70,
+      "sha256": "b4c4b9d36b3c8bd59f4abc95840b860fc1d47044bec5f6cd9f20fc2524cbe588"
+    },
+    {
+      "path": "app/resilience/backup__init__.py",
       "mtime": "2025-09-20 01:00:05",
       "lines": 11,
       "sha256": "fda692c5d7f3c6d5d3c37f0d5667f8407562541d86e341bce56484cea8b85b4d"
@@ -4448,9 +4519,9 @@ def retry(
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-20 00:59:53",
-      "lines": 357,
-      "sha256": "9e93d81e74ceb96058d82dff912b4cd163e73cbad3bc43d3a05b2cc0b2ed5b47"
+      "mtime": "2025-09-20 01:00:05",
+      "lines": 363,
+      "sha256": "921dbdd4a2a57d422c52db76115838409d651e1a1ebfd366b6c7fbfee31fff89"
     },
     {
       "path": "cy.yml",

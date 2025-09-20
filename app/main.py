@@ -60,6 +60,10 @@ _METRICS: Dict[str, int] = {
     "ask_provider_error_openai": 0,
     "ask_provider_error_gemini": 0,
     "ask_provider_error_echo": 0,
+    "ask_circuit_opens_openai": 0,
+    "ask_circuit_opens_gemini": 0,
+    "ask_retries_total": 0,
+
 }
 
 def _inc(key: str) -> None:
@@ -139,31 +143,64 @@ def gemini_configured() -> bool:
     except Exception:
         return bool(os.getenv("GEMINI_API_KEY"))
 
-async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
-    """
-    Wrapper compatível com monkeypatch dos testes. NÃO passa kwargs como 'model',
-    para evitar TypeError quando os testes substituem ask_*.
-    Também atualiza métricas de sucesso/erro e provider_error_*.
-    """
-    try:
-        if name == "openai":
-            raw = await ask_openai(prompt)
-        elif name == "gemini":
-            raw = await ask_gemini(prompt)
-        elif name == "echo":
-            await asyncio.sleep(0.001)
-            raw = prompt
-        else:
-            raise ValueError(f"provider desconhecido: {name}")
+    #Wrapper compatível com monkeypatch dos testes. NÃO passa kwargs como 'model',
+    #para evitar TypeError quando os testes substituem ask_*.
+    #Também atualiza métricas de sucesso/erro e provider_error_*.
+    
 
-        txt = _to_text(raw).strip()
-        _metrics_record(name, True)
-        return {"provider": name, "answer": txt}
-    except Exception as e:
+async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
+    cb = _CB.get(name)
+    if cb and not cb.allow_request():
+        _inc(f"ask_provider_error_{name}")
+        # mantém sem 5xx aqui (vamos propagar como erro do provider)
+        raise RuntimeError(f"{name} circuit_open")
+
+    async def _call_once() -> Any:
+        if name == "openai":
+            return await ask_openai(prompt, model=DEFAULT_MODEL_OPENAI)
+        if name == "gemini":
+            return await ask_gemini(prompt, model=DEFAULT_MODEL_GEMINI)
+        if name == "echo":
+            await asyncio.sleep(0.001)
+            return prompt
+        raise ValueError(f"provider desconhecido: {name}")
+
+    last_exc: Optional[Exception] = None
+
+    for attempt in range(1, PROVIDER_MAX_RETRIES + 2):  # 1 try + N retries
+        try:
+            raw = await asyncio.wait_for(_call_once(), timeout=PROVIDER_TIMEOUT_S)
+            txt = _to_text(raw).strip()
+            _metrics_record(name, True)
+            if cb:
+                cb.record_success()
+            return {"provider": name, "answer": txt}
+        except asyncio.TimeoutError as e:
+            last_exc = TimeoutError(f"{name} timeout after {PROVIDER_TIMEOUT_S}s")
+        except Exception as e:
+            last_exc = e
+
+        # falha
+        if cb:
+            prev_state = cb.state
+            cb.record_failure()
+            if cb.state == "open" and prev_state != "open":
+                _inc(f"ask_circuit_opens_{name}")
+
+        # decide retry
+        if attempt <= PROVIDER_MAX_RETRIES:
+            _inc("ask_retries_total")
+            await asyncio.sleep(compute_backoff(attempt))
+            continue
+
+        # esgotou
         _inc(f"ask_provider_error_{name}")
         _metrics_record(name, False)
-        # Para /ask?provider=gemini no teste de "Rate limit", o detail precisa conter o texto.
-        raise RuntimeError(str(e)) from e
+        if isinstance(last_exc, TimeoutError):
+            raise last_exc
+        raise RuntimeError(f"{name} error: {str(last_exc)}") from last_exc
+
+
 
 # =============================================================================
 # Rotas básicas
@@ -214,6 +251,21 @@ async def metrics() -> PlainTextResponse:
         val = _METRICS.get(key, 0)
         lines.append(f'ask_provider_errors{{provider="{prov}"}} {val}')
     return PlainTextResponse("\n".join(lines) + "\n")
+
+# HELP ask_circuit_open Estado do circuito por provider (0=closed/half_open, 1=open)
+# TYPE ask_circuit_open gauge
+ask_circuit_open{provider="openai"} {1 if _CB["openai"].state=="open" else 0}
+ask_circuit_open{provider="gemini"} {1 if _CB["gemini"].state=="open" else 0}
+
+# HELP ask_circuit_opens_total Número de aberturas de circuito
+# TYPE ask_circuit_opens_total counter
+ask_circuit_opens_total{provider="openai"} {_METRICS.get("ask_circuit_opens_openai",0)}
+ask_circuit_opens_total{provider="gemini"} {_METRICS.get("ask_circuit_opens_gemini",0)}
+
+# HELP ask_retries_total Número de tentativas extras (retries)
+# TYPE ask_retries_total counter
+ask_retries_total {_METRICS.get("ask_retries_total",0)}
+
 
 # =============================================================================
 # /ask

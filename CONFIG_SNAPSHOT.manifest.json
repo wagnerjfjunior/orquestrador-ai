@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-09-20 00:59:53 ",
+  "generated_at": "2025-09-20 01:00:05 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
-  "file_count": 58,
-  "total_lines": 4784,
+  "file_count": 59,
+  "total_lines": 4795,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -192,6 +192,12 @@
       "sha256": "96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532"
     },
     {
+      "path": "app/resilience/__init__.py",
+      "mtime": "2025-09-20 01:00:05",
+      "lines": 11,
+      "sha256": "fda692c5d7f3c6d5d3c37f0d5667f8407562541d86e341bce56484cea8b85b4d"
+    },
+    {
       "path": "app/retry.py",
       "mtime": "2025-09-19 20:21:09",
       "lines": 42,
@@ -217,9 +223,9 @@
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-20 00:57:29",
+      "mtime": "2025-09-20 00:59:53",
       "lines": 357,
-      "sha256": "0e16b52dcde04efe5ca207b3d50f3ccb1d143e0c5979e394dad55034dc3d02c3"
+      "sha256": "9e93d81e74ceb96058d82dff912b4cd163e73cbad3bc43d3a05b2cc0b2ed5b47"
     },
     {
       "path": "cy.yml",

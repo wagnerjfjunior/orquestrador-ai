@@ -1,12 +1,12 @@
 # CONFIG SNAPSHOT
 
-- Generated at: **2025-09-20 00:59:53 **
+- Generated at: **2025-09-20 01:00:05 **
 
 - Root: `/Users/wagnerjfjunior/orquestrador-ai`
 
-- Files: **58**
+- Files: **59**
 
-- Total config lines: **4784**
+- Total config lines: **4795**
 
 
 ---
@@ -44,33 +44,34 @@
 - [29] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
 - [30] `app/openai_client.py` — 98 lines — mtime 2025-09-19 20:21:09 — sha256 `355119a65b23…`
 - [31] `app/refine.py` — 108 lines — mtime 2025-09-19 20:21:09 — sha256 `96a3ef2b9bd0…`
-- [32] `app/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
-- [33] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 20:21:09 — sha256 `7105937ac375…`
-- [34] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
-- [35] `app/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
-- [36] `CONFIG_SNAPSHOT.manifest.json` — 357 lines — mtime 2025-09-20 00:57:29 — sha256 `0e16b52dcde0…`
-- [37] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
-- [38] `docker-compose.yml` — 25 lines — mtime 2025-09-19 20:21:09 — sha256 `937416bb3b64…`
-- [39] `Dockerfile` — 35 lines — mtime 2025-09-19 20:21:09 — sha256 `4ab5260777a2…`
-- [40] `Makefile` — 37 lines — mtime 2025-09-19 20:21:09 — sha256 `d3bb861aa5ec…`
-- [41] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
-- [42] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
-- [43] `ruff.toml` — 19 lines — mtime 2025-09-19 20:21:09 — sha256 `13e62274b996…`
-- [44] `scripts/env_check.py` — 13 lines — mtime 2025-09-19 20:21:09 — sha256 `78000965530a…`
-- [45] `tests/test_ask_providers.py` — 71 lines — mtime 2025-09-19 20:21:09 — sha256 `c46e4fb6e9cb…`
-- [46] `tests/test_basic.py` — 22 lines — mtime 2025-09-19 20:21:09 — sha256 `552f7a87700f…`
-- [47] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
-- [48] `tests/test_duel_openai_only.py` — 36 lines — mtime 2025-09-19 20:21:09 — sha256 `daabf14d47d9…`
-- [49] `tests/test_fallback.py` — 57 lines — mtime 2025-09-19 20:21:09 — sha256 `8635780c76ce…`
-- [50] `tests/test_judge.py` — 45 lines — mtime 2025-09-19 20:21:09 — sha256 `faf5e4c0061f…`
-- [51] `tests/test_metrics.py` — 21 lines — mtime 2025-09-19 20:21:09 — sha256 `856e3ec90817…`
-- [52] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-19 20:21:09 — sha256 `850ce9f5c170…`
-- [53] `tests/test_observability.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `53d2b047fd81…`
-- [54] `tests/test_openai_client.py` — 52 lines — mtime 2025-09-19 20:21:09 — sha256 `672c43b1e2b6…`
-- [55] `tests/test_request_id.py` — 20 lines — mtime 2025-09-19 20:21:09 — sha256 `2ebc4c965dc3…`
-- [56] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
-- [57] `tools/guard_update.py` — 134 lines — mtime 2025-09-19 20:21:09 — sha256 `ad8e6b859128…`
-- [58] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-19 20:21:09 — sha256 `6407d9d7f76f…`
+- [32] `app/resilience/__init__.py` — 11 lines — mtime 2025-09-20 01:00:05 — sha256 `fda692c5d7f3…`
+- [33] `app/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
+- [34] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 20:21:09 — sha256 `7105937ac375…`
+- [35] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
+- [36] `app/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
+- [37] `CONFIG_SNAPSHOT.manifest.json` — 357 lines — mtime 2025-09-20 00:59:53 — sha256 `9e93d81e74ce…`
+- [38] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
+- [39] `docker-compose.yml` — 25 lines — mtime 2025-09-19 20:21:09 — sha256 `937416bb3b64…`
+- [40] `Dockerfile` — 35 lines — mtime 2025-09-19 20:21:09 — sha256 `4ab5260777a2…`
+- [41] `Makefile` — 37 lines — mtime 2025-09-19 20:21:09 — sha256 `d3bb861aa5ec…`
+- [42] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
+- [43] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
+- [44] `ruff.toml` — 19 lines — mtime 2025-09-19 20:21:09 — sha256 `13e62274b996…`
+- [45] `scripts/env_check.py` — 13 lines — mtime 2025-09-19 20:21:09 — sha256 `78000965530a…`
+- [46] `tests/test_ask_providers.py` — 71 lines — mtime 2025-09-19 20:21:09 — sha256 `c46e4fb6e9cb…`
+- [47] `tests/test_basic.py` — 22 lines — mtime 2025-09-19 20:21:09 — sha256 `552f7a87700f…`
+- [48] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
+- [49] `tests/test_duel_openai_only.py` — 36 lines — mtime 2025-09-19 20:21:09 — sha256 `daabf14d47d9…`
+- [50] `tests/test_fallback.py` — 57 lines — mtime 2025-09-19 20:21:09 — sha256 `8635780c76ce…`
+- [51] `tests/test_judge.py` — 45 lines — mtime 2025-09-19 20:21:09 — sha256 `faf5e4c0061f…`
+- [52] `tests/test_metrics.py` — 21 lines — mtime 2025-09-19 20:21:09 — sha256 `856e3ec90817…`
+- [53] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-19 20:21:09 — sha256 `850ce9f5c170…`
+- [54] `tests/test_observability.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `53d2b047fd81…`
+- [55] `tests/test_openai_client.py` — 52 lines — mtime 2025-09-19 20:21:09 — sha256 `672c43b1e2b6…`
+- [56] `tests/test_request_id.py` — 20 lines — mtime 2025-09-19 20:21:09 — sha256 `2ebc4c965dc3…`
+- [57] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
+- [58] `tools/guard_update.py` — 134 lines — mtime 2025-09-19 20:21:09 — sha256 `ad8e6b859128…`
+- [59] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-19 20:21:09 — sha256 `6407d9d7f76f…`
 
 ---
 
@@ -3430,7 +3431,26 @@ Agora que o ficheiro local está corrigido, precisamos de "tirar uma nova fotogr
 """
 ```
 
-## [32] app/retry.py
+## [32] app/resilience/__init__.py
+- Last modified: **2025-09-20 01:00:05**
+- Lines: **11**
+- SHA-256: `fda692c5d7f3c6d5d3c37f0d5667f8407562541d86e341bce56484cea8b85b4d`
+
+```python
+# Sprint 3 – Resiliência
+# Placeholder: interface mínima para circuit breaker e backoff.
+class CircuitBreaker:
+    def __init__(self, fail_threshold: int = 5, reset_seconds: float = 30.0):
+        self.fail_threshold = fail_threshold
+        self.reset_seconds = reset_seconds
+        # implementação virá em commits subsequentes
+
+def compute_backoff(attempt: int, base: float = 0.2, factor: float = 2.0, jitter: float = 0.1) -> float:
+    # implementação virá em commits subsequentes
+    return max(base, base * (factor ** max(0, attempt - 1)))
+```
+
+## [33] app/retry.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b`
@@ -3480,7 +3500,7 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [33] app/semerro.judge.backup.py
+## [34] app/semerro.judge.backup.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **142**
 - SHA-256: `7105937ac375d6adc27c1cd13d9d220b4665e7e4d0ed0735bd9082d8faebc878`
@@ -3630,7 +3650,7 @@ __all__ = [
 ]
 ```
 
-## [34] app/utils/__init__.py
+## [35] app/utils/__init__.py
 - Last modified: **2025-09-13 15:31:19**
 - Lines: **2**
 - SHA-256: `f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f`
@@ -3640,7 +3660,7 @@ __all__ = [
 # Torna 'utils' um pacote Python.
 ```
 
-## [35] app/utils/retry.py
+## [36] app/utils/retry.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c`
@@ -3690,14 +3710,14 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [36] CONFIG_SNAPSHOT.manifest.json
-- Last modified: **2025-09-20 00:57:29**
+## [37] CONFIG_SNAPSHOT.manifest.json
+- Last modified: **2025-09-20 00:59:53**
 - Lines: **357**
-- SHA-256: `0e16b52dcde04efe5ca207b3d50f3ccb1d143e0c5979e394dad55034dc3d02c3`
+- SHA-256: `9e93d81e74ceb96058d82dff912b4cd163e73cbad3bc43d3a05b2cc0b2ed5b47`
 
 ```json
 {
-  "generated_at": "2025-09-20 00:57:29 ",
+  "generated_at": "2025-09-20 00:59:53 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
   "file_count": 58,
   "total_lines": 4784,
@@ -3915,9 +3935,9 @@ def retry(
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-20 00:06:17",
+      "mtime": "2025-09-20 00:57:29",
       "lines": 357,
-      "sha256": "a9828d4a5101ad6e69fb5b52cfbe6d3b452707c9be97aceafdb510ecb8199ca8"
+      "sha256": "0e16b52dcde04efe5ca207b3d50f3ccb1d143e0c5979e394dad55034dc3d02c3"
     },
     {
       "path": "cy.yml",
@@ -4055,7 +4075,7 @@ def retry(
 }
 ```
 
-## [37] cy.yml
+## [38] cy.yml
 - Last modified: **2025-09-13 15:38:40**
 - Lines: **63**
 - SHA-256: `9daf109266413c593e79e83e307681f1bc2533105d6fe072cb680e42068115ee`
@@ -4126,7 +4146,7 @@ jobs:
           pytest -q
 ```
 
-## [38] docker-compose.yml
+## [39] docker-compose.yml
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **25**
 - SHA-256: `937416bb3b64472059414e039e9f9357e577c3fb2814c672a5390b94c7a6580a`
@@ -4159,7 +4179,7 @@ services:
     restart: unless-stopped
 ```
 
-## [39] Dockerfile
+## [40] Dockerfile
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **35**
 - SHA-256: `4ab5260777a26e771ac4822ff165c2a648d23e0e9d061298be35ba0acb62f19d`
@@ -4202,7 +4222,7 @@ HEALTHCHECK --interval=20s --timeout=5s --retries=10 --start-period=10s \
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-## [40] Makefile
+## [41] Makefile
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **37**
 - SHA-256: `d3bb861aa5ece9bffd865de72ae7cb12db5884c5e5eb8c9996bd1f877a804a17`
@@ -4246,7 +4266,7 @@ run-local:
 	 uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
 ```
 
-## [41] pyproject.toml
+## [42] pyproject.toml
 - Last modified: **2025-09-12 23:43:45**
 - Lines: **22**
 - SHA-256: `d8c205569aa1662debd668a45c32f50780aff2e6daf30fe611f3ca155461bf93`
@@ -4276,7 +4296,7 @@ port = 8080
 reload = true
 ```
 
-## [42] render.yaml
+## [43] render.yaml
 - Last modified: **2025-09-13 17:51:23**
 - Lines: **16**
 - SHA-256: `ea92f0fb004c850d21ff2c2e5cca496accdcbda2cc8b7eb11ab9c4f483748420`
@@ -4300,7 +4320,7 @@ services:
         sync: false
 ```
 
-## [43] ruff.toml
+## [44] ruff.toml
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **19**
 - SHA-256: `13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c`
@@ -4327,7 +4347,7 @@ per-file-ignores = { "tests/**" = ["F401", "E501"] }
 known-first-party = ["app"]
 ```
 
-## [44] scripts/env_check.py
+## [45] scripts/env_check.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **13**
 - SHA-256: `78000965530a1ca2c61b1769524a4f0068190c1f7d62a4b5ab63873813dcc159`
@@ -4348,7 +4368,7 @@ for k in required + ["OPENAI_MODEL", "GEMINI_MODEL", "LOG_LEVEL"]:
         print(f"{k}={v[:6]}... (len={len(v)})" if "KEY" in k else f"{k}={v}")
 ```
 
-## [45] tests/test_ask_providers.py
+## [46] tests/test_ask_providers.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **71**
 - SHA-256: `c46e4fb6e9cb402bd467eee5bb009603e0d1eb65394e421301770e25dd08981a`
@@ -4427,7 +4447,7 @@ def test_ask_gemini_provider_error(monkeypatch):
     assert "limit" in r.json()["detail"].lower()
 ```
 
-## [46] tests/test_basic.py
+## [47] tests/test_basic.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **22**
 - SHA-256: `552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a`
@@ -4457,7 +4477,7 @@ def test_ask_echo():
     assert data["answer"] == "ping"
 ```
 
-## [47] tests/test_duel_no_providers.py
+## [48] tests/test_duel_no_providers.py
 - Last modified: **2025-09-14 11:42:30**
 - Lines: **18**
 - SHA-256: `dbbf7419d36344394b3bc7c5a9f406c0847f7b236843b1f01e2b155dad732052`
@@ -4483,7 +4503,7 @@ def test_duel_returns_502_when_no_providers():
     assert "gemini" in body["detail"]["responses"]
 ```
 
-## [48] tests/test_duel_openai_only.py
+## [49] tests/test_duel_openai_only.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **36**
 - SHA-256: `daabf14d47d900829188e01b110cd52087b2b607566e63d9bc63c5b0e08dea79`
@@ -4527,7 +4547,7 @@ def test_duel_openai_only_ok(monkeypatch):
     assert body["verdict"]["winner"] in ("openai", "tie")
 ```
 
-## [49] tests/test_fallback.py
+## [50] tests/test_fallback.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **57**
 - SHA-256: `8635780c76ceab5bf3dee8cc6925fefe03c4138a4701c9be0f7f61c1ccba8f4d`
@@ -4592,7 +4612,7 @@ def test_fallback_todos_falham(monkeypatch):
     assert "gemini_api_key não configurada" in r.json()["detail"].lower()
 ```
 
-## [50] tests/test_judge.py
+## [51] tests/test_judge.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **45**
 - SHA-256: `faf5e4c0061f5a65d0f71f1e144ffdf8693d8353d6fd095459cf8521700da150`
@@ -4645,7 +4665,7 @@ def test_judge_returns_valid_winner_key():
     assert isinstance(verdict["reason"], str) and len(verdict["reason"]) > 0
 ```
 
-## [51] tests/test_metrics.py
+## [52] tests/test_metrics.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **21**
 - SHA-256: `856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784`
@@ -4674,7 +4694,7 @@ def test_metrics_exposes_ask_counters():
     assert 'ask_requests_total{provider="echo",status="success"}' in text, f"Contador não encontrado em /metrics:\n{text}"
 ```
 
-## [52] tests/test_metrics_error_counter.py
+## [53] tests/test_metrics_error_counter.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **38**
 - SHA-256: `850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a`
@@ -4720,7 +4740,7 @@ def test_error_counter_increments_on_openai_503():
     assert after == before + 1, f"Esperava {before}+1, obtive {after}"
 ```
 
-## [53] tests/test_observability.py
+## [54] tests/test_observability.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **34**
 - SHA-256: `53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145`
@@ -4762,7 +4782,7 @@ def test_x_request_id_propagation_on_ready():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [54] tests/test_openai_client.py
+## [55] tests/test_openai_client.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **52**
 - SHA-256: `672c43b1e2b6b573e190b75f88338f9d03a7ea2175e51229a2cdef1b8ab5bdc6`
@@ -4821,7 +4841,7 @@ async def test_ask_openai_mock(monkeypatch):
     assert result["usage"]["total_tokens"] == 15
 ```
 
-## [55] tests/test_request_id.py
+## [56] tests/test_request_id.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **20**
 - SHA-256: `2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452`
@@ -4849,7 +4869,7 @@ def test_request_id_is_propagated_from_request_to_response():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [56] tests/test_request_id_header.py
+## [57] tests/test_request_id_header.py
 - Last modified: **2025-09-14 11:44:44**
 - Lines: **16**
 - SHA-256: `f96698342a6fa9152826a1d9e66d5acba5590c19ed5735b0137ddc68bc89db2b`
@@ -4873,7 +4893,7 @@ def test_request_id_is_propagated_from_request_to_response():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [57] tools/guard_update.py
+## [58] tools/guard_update.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **134**
 - SHA-256: `ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738`
@@ -5014,7 +5034,7 @@ if __name__ == "__main__":
         raise
 ```
 
-## [58] tools/snapshot_configs.py
+## [59] tools/snapshot_configs.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **290**
 - SHA-256: `6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2`

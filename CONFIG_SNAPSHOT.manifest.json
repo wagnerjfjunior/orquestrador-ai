@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-09-20 00:57:29 ",
+  "generated_at": "2025-09-20 11:09:22 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
-  "file_count": 58,
-  "total_lines": 4784,
+  "file_count": 61,
+  "total_lines": 5361,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -132,6 +132,12 @@
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
     },
     {
+      "path": "app/Backup_main.py",
+      "mtime": "2025-09-20 00:06:17",
+      "lines": 367,
+      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+    },
+    {
       "path": "app/cache.py",
       "mtime": "2025-09-19 20:21:09",
       "lines": 34,
@@ -163,9 +169,9 @@
     },
     {
       "path": "app/main.py",
-      "mtime": "2025-09-20 00:06:17",
-      "lines": 367,
-      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+      "mtime": "2025-09-20 11:04:35",
+      "lines": 478,
+      "sha256": "23fef10b03525fbf7d19d318e8eb5e06310749e70ac6b48ed4c4bf8e4b69a1d7"
     },
     {
       "path": "app/metrics.py",
@@ -190,6 +196,18 @@
       "mtime": "2025-09-19 20:21:09",
       "lines": 108,
       "sha256": "96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532"
+    },
+    {
+      "path": "app/resilience/__init__.py",
+      "mtime": "2025-09-20 10:17:01",
+      "lines": 70,
+      "sha256": "b4c4b9d36b3c8bd59f4abc95840b860fc1d47044bec5f6cd9f20fc2524cbe588"
+    },
+    {
+      "path": "app/resilience/backup__init__.py",
+      "mtime": "2025-09-20 01:00:05",
+      "lines": 11,
+      "sha256": "fda692c5d7f3c6d5d3c37f0d5667f8407562541d86e341bce56484cea8b85b4d"
     },
     {
       "path": "app/retry.py",
@@ -217,9 +235,9 @@
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-20 00:06:17",
-      "lines": 357,
-      "sha256": "a9828d4a5101ad6e69fb5b52cfbe6d3b452707c9be97aceafdb510ecb8199ca8"
+      "mtime": "2025-09-20 10:27:12",
+      "lines": 375,
+      "sha256": "a4f041fdc34d636abb800331ee07e7d2a6ca461cb5d592831dd746826e46972e"
     },
     {
       "path": "cy.yml",

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-09-19 20:09:50 ",
+  "generated_at": "2025-09-19 23:38:32 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
   "file_count": 58,
-  "total_lines": 4784,
+  "total_lines": 4866,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -13,13 +13,13 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "mtime": "2025-09-13 19:22:11",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 39,
       "sha256": "1741b400f7258048fbd5d71c4f9ddbd48860a00fe2da21a7f8b8232db8055ec5"
     },
     {
       "path": ".github/workflows/snapshot.yml",
-      "mtime": "2025-09-14 12:15:11",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 21,
       "sha256": "73f13efc74257069dcb4e3a8680af67d50367be462658b750527ff9dc7ddf703"
     },
@@ -37,139 +37,139 @@
     },
     {
       "path": "app/Backup/__init__.py",
-      "mtime": "2025-09-13 15:30:17",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 2,
       "sha256": "f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f"
     },
     {
       "path": "app/Backup/cache.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 34,
       "sha256": "0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475"
     },
     {
       "path": "app/Backup/config.py",
-      "mtime": "2025-09-14 22:32:07",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 55,
       "sha256": "22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411"
     },
     {
       "path": "app/Backup/gemini_client.py",
-      "mtime": "2025-09-16 15:07:23",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 151,
       "sha256": "c975f06e623095504043590f72a56543d641603abdaacd0ba939f6f1f08acad8"
     },
     {
       "path": "app/Backup/gemini_client_2.py",
-      "mtime": "2025-09-17 22:22:34",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 212,
       "sha256": "821db00a11060035201bc150bd54867b11d9bbfc4a8a2927f8cc7b6c3b549b25"
     },
     {
       "path": "app/Backup/judge2.py",
-      "mtime": "2025-09-16 22:23:00",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 275,
       "sha256": "211c7fae7fd7d1057178f985452b9539f8f124a64d7840ee58256b4d5863dc40"
     },
     {
       "path": "app/Backup/judge_demo.py",
-      "mtime": "2025-09-16 22:47:58",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 50,
       "sha256": "8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4"
     },
     {
       "path": "app/Backup/main2.py",
-      "mtime": "2025-09-17 00:04:54",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 352,
       "sha256": "dd74323913eddd255fc2ed7c68da5a2c3d091b8c0433e7245c815ad678ceaf55"
     },
     {
       "path": "app/Backup/metrics.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 44,
       "sha256": "672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c"
     },
     {
       "path": "app/Backup/observability.py",
-      "mtime": "2025-09-14 11:32:26",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 111,
       "sha256": "5a5528e1c8ab181c8bdc64133f5ebf08f502ee930d15dc116eabe9ed7e8fb297"
     },
     {
       "path": "app/Backup/openai_client.py",
-      "mtime": "2025-09-16 19:33:40",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 126,
       "sha256": "4c38d9b76bc20fe675a7c15c7eca0de4e60fffa41a3f03f354bb172c82234ecb"
     },
     {
       "path": "app/Backup/openai_client_2.py",
-      "mtime": "2025-09-17 22:21:11",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 207,
       "sha256": "48418182a29c4c6a57ffbce6f4b34ec9da6b965ab2324f1b50a965733cfaa625"
     },
     {
       "path": "app/Backup/refine.py",
-      "mtime": "2025-09-14 22:46:57",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 108,
       "sha256": "96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532"
     },
     {
       "path": "app/Backup/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b"
     },
     {
       "path": "app/Backup/utils/__init__.py",
-      "mtime": "2025-09-13 15:31:19",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 2,
       "sha256": "f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f"
     },
     {
       "path": "app/Backup/utils/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
     },
     {
       "path": "app/cache.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 34,
       "sha256": "0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475"
     },
     {
       "path": "app/config.py",
-      "mtime": "2025-09-14 22:32:07",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 55,
       "sha256": "22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411"
     },
     {
       "path": "app/gemini_client.py",
-      "mtime": "2025-09-18 00:36:21",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 137,
       "sha256": "c99c87dee7b09b51d1c81ba3a96070adcb31b58366c907980f9972724ccb5ff8"
     },
     {
       "path": "app/judge.py",
-      "mtime": "2025-09-19 18:35:47",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 197,
       "sha256": "e77e53a63d74fd215fdaee89ede2847f09198dcd85185787b419850d4bf2fd50"
     },
     {
       "path": "app/judge_demo.py",
-      "mtime": "2025-09-16 22:47:58",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 50,
       "sha256": "8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4"
     },
     {
       "path": "app/main.py",
-      "mtime": "2025-09-19 20:07:06",
-      "lines": 367,
-      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+      "mtime": "2025-09-19 23:25:22",
+      "lines": 449,
+      "sha256": "90830283dd0ced26164638f0345651609b4914b14188d78c7b48481f7e91da43"
     },
     {
       "path": "app/metrics.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 44,
       "sha256": "672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c"
     },
@@ -181,25 +181,25 @@
     },
     {
       "path": "app/openai_client.py",
-      "mtime": "2025-09-18 00:38:13",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 98,
       "sha256": "355119a65b23160b60deadc66b0cb10984b420483a564896a396ac6abf2f7a8e"
     },
     {
       "path": "app/refine.py",
-      "mtime": "2025-09-14 22:46:57",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 108,
       "sha256": "96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532"
     },
     {
       "path": "app/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b"
     },
     {
       "path": "app/semerro.judge.backup.py",
-      "mtime": "2025-09-19 00:40:30",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 142,
       "sha256": "7105937ac375d6adc27c1cd13d9d220b4665e7e4d0ed0735bd9082d8faebc878"
     },
@@ -211,15 +211,15 @@
     },
     {
       "path": "app/utils/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-19 18:22:10",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 357,
-      "sha256": "71293e82f4bd1317874685cf35057c52dff2f2f85e8bceb6b7ae1f8042be3e61"
+      "sha256": "a9828d4a5101ad6e69fb5b52cfbe6d3b452707c9be97aceafdb510ecb8199ca8"
     },
     {
       "path": "cy.yml",
@@ -229,19 +229,19 @@
     },
     {
       "path": "docker-compose.yml",
-      "mtime": "2025-09-18 22:33:13",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 25,
       "sha256": "937416bb3b64472059414e039e9f9357e577c3fb2814c672a5390b94c7a6580a"
     },
     {
       "path": "Dockerfile",
-      "mtime": "2025-09-18 22:32:38",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 35,
       "sha256": "4ab5260777a26e771ac4822ff165c2a648d23e0e9d061298be35ba0acb62f19d"
     },
     {
       "path": "Makefile",
-      "mtime": "2025-09-18 14:11:18",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 37,
       "sha256": "d3bb861aa5ece9bffd865de72ae7cb12db5884c5e5eb8c9996bd1f877a804a17"
     },
@@ -259,25 +259,25 @@
     },
     {
       "path": "ruff.toml",
-      "mtime": "2025-09-13 18:38:03",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 19,
       "sha256": "13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c"
     },
     {
       "path": "scripts/env_check.py",
-      "mtime": "2025-09-18 14:14:54",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 13,
       "sha256": "78000965530a1ca2c61b1769524a4f0068190c1f7d62a4b5ab63873813dcc159"
     },
     {
       "path": "tests/test_ask_providers.py",
-      "mtime": "2025-09-14 16:23:19",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 71,
       "sha256": "c46e4fb6e9cb402bd467eee5bb009603e0d1eb65394e421301770e25dd08981a"
     },
     {
       "path": "tests/test_basic.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 22,
       "sha256": "552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a"
     },
@@ -289,49 +289,49 @@
     },
     {
       "path": "tests/test_duel_openai_only.py",
-      "mtime": "2025-09-14 16:24:10",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 36,
       "sha256": "daabf14d47d900829188e01b110cd52087b2b607566e63d9bc63c5b0e08dea79"
     },
     {
       "path": "tests/test_fallback.py",
-      "mtime": "2025-09-14 16:31:51",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 57,
       "sha256": "8635780c76ceab5bf3dee8cc6925fefe03c4138a4701c9be0f7f61c1ccba8f4d"
     },
     {
       "path": "tests/test_judge.py",
-      "mtime": "2025-09-16 22:49:15",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 45,
       "sha256": "faf5e4c0061f5a65d0f71f1e144ffdf8693d8353d6fd095459cf8521700da150"
     },
     {
       "path": "tests/test_metrics.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 21,
       "sha256": "856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784"
     },
     {
       "path": "tests/test_metrics_error_counter.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 38,
       "sha256": "850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a"
     },
     {
       "path": "tests/test_observability.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 34,
       "sha256": "53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145"
     },
     {
       "path": "tests/test_openai_client.py",
-      "mtime": "2025-09-14 16:58:04",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 52,
       "sha256": "672c43b1e2b6b573e190b75f88338f9d03a7ea2175e51229a2cdef1b8ab5bdc6"
     },
     {
       "path": "tests/test_request_id.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 20,
       "sha256": "2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452"
     },
@@ -343,13 +343,13 @@
     },
     {
       "path": "tools/guard_update.py",
-      "mtime": "2025-09-14 12:41:05",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 134,
       "sha256": "ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738"
     },
     {
       "path": "tools/snapshot_configs.py",
-      "mtime": "2025-09-14 12:04:40",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 290,
       "sha256": "6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2"
     }

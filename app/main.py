@@ -43,9 +43,33 @@ app = FastAPI(title="Integração_Gem_GPT", version=APP_VERSION)
 @app.middleware("http")
 async def request_id_middleware(request: Request, call_next):
     req_id = request.headers.get("X-Request-ID") or request.headers.get("x-request-id") or uuid.uuid4().hex
-    response = await call_next(request)
+    start = time.perf_counter()
+    try:
+        response = await call_next(request)
+    finally:
+        elapsed_ms = (time.perf_counter() - start) * 1000.0
+        # métrica por rota (usa path literal, estável para nossos testes)
+        route = request.url.path
+        _http_metrics_record(route, elapsed_ms)
+        # log estruturado (se ligado)
+        if OBS_JSON_LOGS:
+            try:
+                log_event = {
+                    "ts": int(time.time()),
+                    "level": "INFO",
+                    "msg": "http_request",
+                    "method": request.method,
+                    "path": route,
+                    "status": getattr(response, "status_code", None),
+                    "latency_ms": round(elapsed_ms, 2),
+                    "request_id": req_id,
+                }
+                logger.info(json.dumps(log_event, ensure_ascii=False))
+            except Exception:
+                pass
     response.headers["X-Request-ID"] = req_id
     return response
+
 
 # =============================================================================
 # Métricas (Prometheus-like)
@@ -60,6 +84,10 @@ _METRICS: Dict[str, int] = {
     "ask_provider_error_openai": 0,
     "ask_provider_error_gemini": 0,
     "ask_provider_error_echo": 0,
+    "ask_provider_timeout_openai": 0,
+    "ask_provider_timeout_gemini": 0,
+    "ask_provider_timeout_echo": 0,
+
 }
 
 def _inc(key: str) -> None:
@@ -68,6 +96,19 @@ def _inc(key: str) -> None:
 def _metrics_record(provider: str, ok: bool) -> None:
     key = f'ask_requests_{"success" if ok else "error"}_{provider}'
     _inc(key)
+
+# Métricas HTTP (por rota)
+_HTTP_METRICS = {
+    "http_requests_total": {},               # route -> count
+    "http_request_latency_ms_sum": {},       # route -> sum
+    "http_request_latency_ms_count": {},     # route -> count
+}
+
+def _http_metrics_record(route: str, latency_ms: float):
+    r = route or "unknown"
+    _HTTP_METRICS["http_requests_total"][r] = _HTTP_METRICS["http_requests_total"].get(r, 0) + 1
+    _HTTP_METRICS["http_request_latency_ms_sum"][r] = _HTTP_METRICS["http_request_latency_ms_sum"].get(r, 0.0) + float(latency_ms)
+    _HTTP_METRICS["http_request_latency_ms_count"][r] = _HTTP_METRICS["http_request_latency_ms_count"].get(r, 0) + 1
 
 # =============================================================================
 # Helpers
@@ -214,6 +255,30 @@ async def metrics() -> PlainTextResponse:
         val = _METRICS.get(key, 0)
         lines.append(f'ask_provider_errors{{provider="{prov}"}} {val}')
     return PlainTextResponse("\n".join(lines) + "\n")
+
+        # ---- Sprint 2: HTTP metrics ----
+    lines.append('# HELP http_requests_total Número de requisições HTTP por rota')
+    lines.append('# TYPE http_requests_total counter')
+    for route, val in _HTTP_METRICS["http_requests_total"].items():
+        lines.append(f'http_requests_total{{route="{route}"}} {val}')
+
+    lines.append('# HELP http_request_latency_ms_sum Soma das latências (ms) por rota')
+    lines.append('# TYPE http_request_latency_ms_sum counter')
+    for route, val in _HTTP_METRICS["http_request_latency_ms_sum"].items():
+        lines.append(f'http_request_latency_ms_sum{{route="{route}"}} {val}')
+
+    lines.append('# HELP http_request_latency_ms_count Contagem de amostras de latência por rota')
+    lines.append('# TYPE http_request_latency_ms_count counter')
+    for route, val in _HTTP_METRICS["http_request_latency_ms_count"].items():
+        lines.append(f'http_request_latency_ms_count{{route="{route}"}} {val}')
+
+    lines.append('# HELP ask_provider_timeouts Número de timeouts por provider')
+    lines.append('# TYPE ask_provider_timeouts counter')
+    for prov in ("openai", "gemini", "echo"):
+        key = f"ask_provider_timeout_{prov}"
+        val = _METRICS.get(key, 0)
+        lines.append(f'ask_provider_timeouts{{provider="{prov}"}} {val}')
+
 
 # =============================================================================
 # /ask
@@ -365,3 +430,20 @@ async def duel_post(payload: DuelPayload):
         "verdict": {"winner": norm_winner, "reason": reason},
     }
     return JSONResponse(body)
+
+
+    # --- Sprint 2: Observability ---
+import logging, json
+
+def _env_bool(name: str, default: bool = True) -> bool:
+    v = os.getenv(name)
+    if v is None:
+        return default
+    return str(v).strip().lower() not in {"0", "false", "no", "off"}
+
+OBS_JSON_LOGS = _env_bool("OBS_JSON_LOGS", True)
+
+if OBS_JSON_LOGS:
+    logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("orquestrador")
+

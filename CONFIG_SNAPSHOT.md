@@ -1,12 +1,12 @@
 # CONFIG SNAPSHOT
 
-- Generated at: **2025-09-20 00:57:29 **
+- Generated at: **2025-09-20 11:09:22 **
 
 - Root: `/Users/wagnerjfjunior/orquestrador-ai`
 
-- Files: **58**
+- Files: **61**
 
-- Total config lines: **4784**
+- Total config lines: **5361**
 
 
 ---
@@ -34,43 +34,46 @@
 - [19] `app/Backup/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
 - [20] `app/Backup/utils/__init__.py` — 2 lines — mtime 2025-09-19 20:21:09 — sha256 `f0fb5e1d3cbe…`
 - [21] `app/Backup/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
-- [22] `app/cache.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `0a8edfe8a856…`
-- [23] `app/config.py` — 55 lines — mtime 2025-09-19 20:21:09 — sha256 `22a4fba6490e…`
-- [24] `app/gemini_client.py` — 137 lines — mtime 2025-09-19 20:21:09 — sha256 `c99c87dee7b0…`
-- [25] `app/judge.py` — 197 lines — mtime 2025-09-19 20:21:09 — sha256 `e77e53a63d74…`
-- [26] `app/judge_demo.py` — 50 lines — mtime 2025-09-19 20:21:09 — sha256 `842672934882…`
-- [27] `app/main.py` — 367 lines — mtime 2025-09-20 00:06:17 — sha256 `33396ef57801…`
-- [28] `app/metrics.py` — 44 lines — mtime 2025-09-19 20:21:09 — sha256 `672d96010d9c…`
-- [29] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
-- [30] `app/openai_client.py` — 98 lines — mtime 2025-09-19 20:21:09 — sha256 `355119a65b23…`
-- [31] `app/refine.py` — 108 lines — mtime 2025-09-19 20:21:09 — sha256 `96a3ef2b9bd0…`
-- [32] `app/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
-- [33] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 20:21:09 — sha256 `7105937ac375…`
-- [34] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
-- [35] `app/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
-- [36] `CONFIG_SNAPSHOT.manifest.json` — 357 lines — mtime 2025-09-20 00:06:17 — sha256 `a9828d4a5101…`
-- [37] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
-- [38] `docker-compose.yml` — 25 lines — mtime 2025-09-19 20:21:09 — sha256 `937416bb3b64…`
-- [39] `Dockerfile` — 35 lines — mtime 2025-09-19 20:21:09 — sha256 `4ab5260777a2…`
-- [40] `Makefile` — 37 lines — mtime 2025-09-19 20:21:09 — sha256 `d3bb861aa5ec…`
-- [41] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
-- [42] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
-- [43] `ruff.toml` — 19 lines — mtime 2025-09-19 20:21:09 — sha256 `13e62274b996…`
-- [44] `scripts/env_check.py` — 13 lines — mtime 2025-09-19 20:21:09 — sha256 `78000965530a…`
-- [45] `tests/test_ask_providers.py` — 71 lines — mtime 2025-09-19 20:21:09 — sha256 `c46e4fb6e9cb…`
-- [46] `tests/test_basic.py` — 22 lines — mtime 2025-09-19 20:21:09 — sha256 `552f7a87700f…`
-- [47] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
-- [48] `tests/test_duel_openai_only.py` — 36 lines — mtime 2025-09-19 20:21:09 — sha256 `daabf14d47d9…`
-- [49] `tests/test_fallback.py` — 57 lines — mtime 2025-09-19 20:21:09 — sha256 `8635780c76ce…`
-- [50] `tests/test_judge.py` — 45 lines — mtime 2025-09-19 20:21:09 — sha256 `faf5e4c0061f…`
-- [51] `tests/test_metrics.py` — 21 lines — mtime 2025-09-19 20:21:09 — sha256 `856e3ec90817…`
-- [52] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-19 20:21:09 — sha256 `850ce9f5c170…`
-- [53] `tests/test_observability.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `53d2b047fd81…`
-- [54] `tests/test_openai_client.py` — 52 lines — mtime 2025-09-19 20:21:09 — sha256 `672c43b1e2b6…`
-- [55] `tests/test_request_id.py` — 20 lines — mtime 2025-09-19 20:21:09 — sha256 `2ebc4c965dc3…`
-- [56] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
-- [57] `tools/guard_update.py` — 134 lines — mtime 2025-09-19 20:21:09 — sha256 `ad8e6b859128…`
-- [58] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-19 20:21:09 — sha256 `6407d9d7f76f…`
+- [22] `app/Backup_main.py` — 367 lines — mtime 2025-09-20 00:06:17 — sha256 `33396ef57801…`
+- [23] `app/cache.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `0a8edfe8a856…`
+- [24] `app/config.py` — 55 lines — mtime 2025-09-19 20:21:09 — sha256 `22a4fba6490e…`
+- [25] `app/gemini_client.py` — 137 lines — mtime 2025-09-19 20:21:09 — sha256 `c99c87dee7b0…`
+- [26] `app/judge.py` — 197 lines — mtime 2025-09-19 20:21:09 — sha256 `e77e53a63d74…`
+- [27] `app/judge_demo.py` — 50 lines — mtime 2025-09-19 20:21:09 — sha256 `842672934882…`
+- [28] `app/main.py` — 478 lines — mtime 2025-09-20 11:04:35 — sha256 `23fef10b0352…`
+- [29] `app/metrics.py` — 44 lines — mtime 2025-09-19 20:21:09 — sha256 `672d96010d9c…`
+- [30] `app/observability.py` — 111 lines — mtime 2025-09-14 11:32:26 — sha256 `5a5528e1c8ab…`
+- [31] `app/openai_client.py` — 98 lines — mtime 2025-09-19 20:21:09 — sha256 `355119a65b23…`
+- [32] `app/refine.py` — 108 lines — mtime 2025-09-19 20:21:09 — sha256 `96a3ef2b9bd0…`
+- [33] `app/resilience/__init__.py` — 70 lines — mtime 2025-09-20 10:17:01 — sha256 `b4c4b9d36b3c…`
+- [34] `app/resilience/backup__init__.py` — 11 lines — mtime 2025-09-20 01:00:05 — sha256 `fda692c5d7f3…`
+- [35] `app/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `f7539c2a2673…`
+- [36] `app/semerro.judge.backup.py` — 142 lines — mtime 2025-09-19 20:21:09 — sha256 `7105937ac375…`
+- [37] `app/utils/__init__.py` — 2 lines — mtime 2025-09-13 15:31:19 — sha256 `f0fb5e1d3cbe…`
+- [38] `app/utils/retry.py` — 42 lines — mtime 2025-09-19 20:21:09 — sha256 `d22081dab42b…`
+- [39] `CONFIG_SNAPSHOT.manifest.json` — 375 lines — mtime 2025-09-20 10:27:12 — sha256 `a4f041fdc34d…`
+- [40] `cy.yml` — 63 lines — mtime 2025-09-13 15:38:40 — sha256 `9daf10926641…`
+- [41] `docker-compose.yml` — 25 lines — mtime 2025-09-19 20:21:09 — sha256 `937416bb3b64…`
+- [42] `Dockerfile` — 35 lines — mtime 2025-09-19 20:21:09 — sha256 `4ab5260777a2…`
+- [43] `Makefile` — 37 lines — mtime 2025-09-19 20:21:09 — sha256 `d3bb861aa5ec…`
+- [44] `pyproject.toml` — 22 lines — mtime 2025-09-12 23:43:45 — sha256 `d8c205569aa1…`
+- [45] `render.yaml` — 16 lines — mtime 2025-09-13 17:51:23 — sha256 `ea92f0fb004c…`
+- [46] `ruff.toml` — 19 lines — mtime 2025-09-19 20:21:09 — sha256 `13e62274b996…`
+- [47] `scripts/env_check.py` — 13 lines — mtime 2025-09-19 20:21:09 — sha256 `78000965530a…`
+- [48] `tests/test_ask_providers.py` — 71 lines — mtime 2025-09-19 20:21:09 — sha256 `c46e4fb6e9cb…`
+- [49] `tests/test_basic.py` — 22 lines — mtime 2025-09-19 20:21:09 — sha256 `552f7a87700f…`
+- [50] `tests/test_duel_no_providers.py` — 18 lines — mtime 2025-09-14 11:42:30 — sha256 `dbbf7419d363…`
+- [51] `tests/test_duel_openai_only.py` — 36 lines — mtime 2025-09-19 20:21:09 — sha256 `daabf14d47d9…`
+- [52] `tests/test_fallback.py` — 57 lines — mtime 2025-09-19 20:21:09 — sha256 `8635780c76ce…`
+- [53] `tests/test_judge.py` — 45 lines — mtime 2025-09-19 20:21:09 — sha256 `faf5e4c0061f…`
+- [54] `tests/test_metrics.py` — 21 lines — mtime 2025-09-19 20:21:09 — sha256 `856e3ec90817…`
+- [55] `tests/test_metrics_error_counter.py` — 38 lines — mtime 2025-09-19 20:21:09 — sha256 `850ce9f5c170…`
+- [56] `tests/test_observability.py` — 34 lines — mtime 2025-09-19 20:21:09 — sha256 `53d2b047fd81…`
+- [57] `tests/test_openai_client.py` — 52 lines — mtime 2025-09-19 20:21:09 — sha256 `672c43b1e2b6…`
+- [58] `tests/test_request_id.py` — 20 lines — mtime 2025-09-19 20:21:09 — sha256 `2ebc4c965dc3…`
+- [59] `tests/test_request_id_header.py` — 16 lines — mtime 2025-09-14 11:44:44 — sha256 `f96698342a6f…`
+- [60] `tools/guard_update.py` — 134 lines — mtime 2025-09-19 20:21:09 — sha256 `ad8e6b859128…`
+- [61] `tools/snapshot_configs.py` — 290 lines — mtime 2025-09-19 20:21:09 — sha256 `6407d9d7f76f…`
 
 ---
 
@@ -2150,519 +2153,7 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [22] app/cache.py
-- Last modified: **2025-09-19 20:21:09**
-- Lines: **34**
-- SHA-256: `0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475`
-
-```python
-from typing import Optional
-
-import redis
-
-from app.config import settings
-
-_redis_client: Optional[redis.Redis] = None
-
-def get_client() -> Optional[redis.Redis]:
-    global _redis_client
-    if _redis_client:
-        return _redis_client
-    if not settings.redis_url:
-        return None
-    _redis_client = redis.from_url(settings.redis_url, decode_responses=True)
-    return _redis_client
-
-def cache_get(key: str) -> Optional[str]:
-    client = get_client()
-    if not client:
-        return None
-    try:
-        return client.get(key)
-    except Exception:
-        return None
-
-def cache_set(key: str, value: str, ttl_seconds: int = 300) -> None:
-    client = get_client()
-    if not client:
-        return
-    try:
-        client.setex(key, ttl_seconds, value)
-    except Exception:
-        pass
-```
-
-## [23] app/config.py
-- Last modified: **2025-09-19 20:21:09**
-- Lines: **55**
-- SHA-256: `22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411`
-
-```python
-# =============================================================================
-# File: app/config.py
-# Version: 2025-09-14 22:45:00 -03 (America/Sao_Paulo)
-# Changes:
-# - Adicionadas as variáveis de configuração para as novas estratégias de duelo.
-# - Adicionado MAX_CALLS_PER_REQUEST como um guardrail de custo e performance.
-# - A versão da App foi incrementada para 0.2.0.
-# =============================================================================
-from functools import lru_cache
-from typing import List, Optional
-
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
-
-
-class Settings(BaseSettings):
-    """
-    Configurações centralizadas do orquestrador-ai.
-    """
-    # App
-    APP_NAME: str = Field(default="orquestrador-ai")
-    APP_VERSION: str = Field(default="0.2.0") # Versão incrementada
-    LOG_LEVEL: str = Field(default="INFO")
-
-    # Providers
-    OPENAI_API_KEY: Optional[str] = Field(default=None)
-    OPENAI_MODEL: str = Field(default="gpt-4o-mini")
-    GEMINI_API_KEY: Optional[str] = Field(default=None)
-    GEMINI_MODEL: str = Field(default="gemini-1.5-flash")
-
-    # Orquestração (NOVAS CONFIGURAÇÕES DA SPRINT)
-    ALLOWED_STRATEGIES: List[str] = Field(
-        default_factory=lambda: ["heuristic", "crossvote", "refine_once_crossvote"]
-    )
-    DEFAULT_STRATEGY: str = Field(default="heuristic")
-    MAX_CALLS_PER_REQUEST: int = Field(default=6, description="Limite de segurança para chamadas de IA num único pedido.")
-
-    # Timeouts (segundos)
-    PROVIDER_TIMEOUT: float = Field(default=25.0)
-
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-        case_sensitive=True,
-        extra="ignore",
-    )
-
-
-@lru_cache(maxsize=1)
-def get_settings() -> Settings:
-    return Settings()
-
-
-settings = get_settings()
-```
-
-## [24] app/gemini_client.py
-- Last modified: **2025-09-19 20:21:09**
-- Lines: **137**
-- SHA-256: `c99c87dee7b09b51d1c81ba3a96070adcb31b58366c907980f9972724ccb5ff8`
-
-```python
-# ==============================
-# app/gemini_client.py
-# Propósito:
-# - Cliente Gemini (Google Generative AI)
-# - Compatível com os testes: precisa retornar dict completo
-#   {"provider":"gemini","model":<modelo>,"answer":<texto>,"usage":{}}
-# - Expor: is_configured(), ask_gemini(), judge()
-#
-# Alterações nesta revisão:
-# - ask_gemini retorna dict completo (não só {"answer": ...})
-# - Mantido judge() síncrono como o judge.py espera
-# ==============================
-from __future__ import annotations
-
-import os
-import asyncio
-from typing import Dict, Any, Optional
-
-import google.generativeai as genai
-
-
-# --------------------------------------------
-# Config
-# --------------------------------------------
-_GEMINI_API_KEY: Optional[str] = os.getenv("GEMINI_API_KEY") or None
-_DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
-
-if _GEMINI_API_KEY:
-    genai.configure(api_key=_GEMINI_API_KEY)
-
-
-def is_configured() -> bool:
-    """Retorna True se a GEMINI_API_KEY estiver disponível."""
-    return bool(_GEMINI_API_KEY)
-
-
-# --------------------------------------------
-# Helpers (sync) para chamar a API do Gemini
-# --------------------------------------------
-def _gemini_generate_sync(
-    prompt: str,
-    *,
-    model: str = _DEFAULT_MODEL,
-    temperature: float = 0.2,
-) -> str:
-    mdl = genai.GenerativeModel(model)
-    resp = mdl.generate_content(
-        prompt,
-        generation_config={"temperature": temperature},
-    )
-    text = getattr(resp, "text", None)
-    if not text and hasattr(resp, "candidates") and resp.candidates:
-        text = getattr(resp.candidates[0], "content", None)
-        if hasattr(text, "parts") and text.parts:
-            text = "".join(getattr(p, "text", "") for p in text.parts)
-        elif text is None:
-            text = ""
-    return (text or "").strip()
-
-
-def _gemini_generate_with_system_sync(
-    system: str,
-    user: str,
-    *,
-    model: str = _DEFAULT_MODEL,
-    temperature: float = 0.0,
-) -> str:
-    composed = (
-        f"[SYSTEM]\n{system.strip()}\n\n"
-        f"[USER]\n{user.strip()}\n"
-        "IMPORTANTE: Responda ESTRITAMENTE com um ÚNICO objeto JSON válido (RFC 8259) "
-        "sem markdown e sem texto fora do JSON."
-    )
-    mdl = genai.GenerativeModel(model)
-    resp = mdl.generate_content(
-        composed,
-        generation_config={"temperature": temperature},
-    )
-    text = getattr(resp, "text", None)
-    return (text or "").strip()
-
-
-# --------------------------------------------
-# API Async usada pelo app
-# --------------------------------------------
-async def ask_gemini(
-    prompt: str,
-    *,
-    model: str = _DEFAULT_MODEL,
-    temperature: float = 0.2,
-    timeout: float = 25.0,
-) -> Dict[str, Any]:
-    """
-    Gera uma resposta com o Gemini e retorna no formato esperado:
-      { "provider":"gemini", "model":..., "answer":..., "usage":{} }
-    """
-    if not is_configured():
-        raise RuntimeError("GEMINI_API_KEY não configurada")
-
-    try:
-        text = await asyncio.wait_for(
-            asyncio.to_thread(_gemini_generate_sync, prompt, model=model, temperature=temperature),
-            timeout=timeout,
-        )
-        return {
-            "provider": "gemini",
-            "model": model,
-            "answer": text,
-            "usage": {},
-        }
-    except asyncio.TimeoutError as te:
-        raise RuntimeError("Timeout ao chamar Gemini.") from te
-    except Exception:
-        raise
-
-
-# --------------------------------------------
-# Função 'judge' usada pelo módulo judge.py
-# --------------------------------------------
-def judge(
-    system: str,
-    user: str,
-    *,
-    force_json: bool = True,
-    temperature: float = 0.0,
-    timeout: float = 20.0,
-) -> str:
-    if not is_configured():
-        raise RuntimeError("GEMINI_API_KEY não configurada")
-    return _gemini_generate_with_system_sync(
-        system=system,
-        user=user,
-        model=_DEFAULT_MODEL,
-        temperature=temperature,
-    )
-# Alias para compatibilidade com o orquestrador:
-ask = ask_gemini
-```
-
-## [25] app/judge.py
-- Last modified: **2025-09-19 20:21:09**
-- Lines: **197**
-- SHA-256: `e77e53a63d74fd215fdaee89ede2847f09198dcd85185787b419850d4bf2fd50`
-
-```python
-
-
-
-
-
-
-
-
-# app/judge.py
-from __future__ import annotations
-from typing import Dict, List, Tuple
-
-# ---------------------------------------------------------------------
-# Normalização e tokenização
-# ---------------------------------------------------------------------
-def _normalize(text: str) -> str:
-    if not text:
-        return ""
-    # minúsculas
-    t = text.lower()
-    # espaços uniformes
-    t = " ".join(t.split())
-    return t
-
-def _tokens(text: str) -> List[str]:
-    t = _normalize(text)
-    return t.split() if t else []
-
-# ---------------------------------------------------------------------
-# N-grams e similaridade de Jaccard
-# ---------------------------------------------------------------------
-def _ngram_set(tokens: List[str], n: int = 3) -> set:
-    if n <= 1:
-        return set(tokens)
-    if not tokens or len(tokens) < n:
-        return set()
-    return set(tuple(tokens[i:i+n]) for i in range(len(tokens) - n + 1))
-
-def jaccard(a: str, b: str, n: int = 3) -> float:
-    ta, tb = _tokens(a), _tokens(b)
-    A, B = _ngram_set(ta, n), _ngram_set(tb, n)
-    if not A and not B:
-        return 1.0
-    if not A or not B:
-        return 0.0
-    inter = len(A & B)
-    union = len(A | B)
-    return inter / union if union else 0.0
-
-# ---------------------------------------------------------------------
-# Heurística de “voto” (usada em heuristic/crossvote)
-# ---------------------------------------------------------------------
-def choose_winner_len(a: str, b: str) -> str:
-    """
-    Critério simples e determinístico: vence a resposta mais longa.
-    Empate favorece 'openai' para estabilidade.
-    """
-    la, lb = len(a or ""), len(b or "")
-    if la >= lb:
-        return "openai"
-    return "gemini"
-
-# ---------------------------------------------------------------------
-# Fusão colaborativa (collab)
-# ---------------------------------------------------------------------
-def _split_paragraphs(s: str) -> List[str]:
-    if not s:
-        return []
-    parts = [p.strip() for p in s.strip().split("\n\n")]
-    return [p for p in parts if p]
-
-def collab_fuse(source_answers: Dict[str, str]) -> str:
-    """
-    Junta parágrafos das fontes (openai/gemini), removendo duplicatas
-    via Jaccard n-grams e adicionando um rodapé com as fontes usadas.
-    """
-    # Colete todos os parágrafos, anotando a origem
-    paras: List[Tuple[str, str]] = []
-    for prov, text in (source_answers or {}).items():
-        for p in _split_paragraphs(text or ""):
-            if p:
-                paras.append((prov, p))
-
-    # Remoção de duplicatas aproximadas (limiar 0.75)
-    fused: List[str] = []
-    kept_idx: List[int] = []
-    for i, (_, p_i) in enumerate(paras):
-        keep = True
-        for j in kept_idx:
-            _, p_j = paras[j]
-            if jaccard(p_i, p_j, n=3) >= 0.75:
-                keep = False
-                break
-        if keep:
-            kept_idx.append(i)
-            fused.append(p_i)
-
-    # Rodapé com fontes utilizadas
-    used = [prov for prov, txt in (source_answers or {}).items() if (txt or "").strip()]
-    if used:
-        fused.append(" ".join(f"[Fonte: {u}]" for u in used))
-
-    return "\n\n".join(fused).strip()
-
-# ---------------------------------------------------------------------
-# Estimativa de contribuição por fonte
-# ---------------------------------------------------------------------
-def contribution_ratio(final_answer: str, sources: Dict[str, str]) -> Dict[str, float]:
-    """
-    Para cada parágrafo do final, mede a maior similaridade (Jaccard de n-grams)
-    com algum parágrafo de cada fonte. A média por fonte é normalizada para somar 1.0.
-    """
-    final_paras = _split_paragraphs(final_answer)
-    if not final_paras or not sources:
-        return {k: 0.0 for k in (sources or {}).keys()}
-
-    sims: Dict[str, float] = {k: 0.0 for k in sources.keys()}
-
-    for k, v in sources.items():
-        src_paras = _split_paragraphs(v or "")
-        if not src_paras:
-            sims[k] = 0.0
-            continue
-        total = 0.0
-        for fp in final_paras:
-            best = 0.0
-            for sp in src_paras:
-                best = max(best, jaccard(fp, sp, n=3))
-            total += best
-        sims[k] = total / max(1, len(final_paras))
-
-    s = sum(sims.values())
-    if s <= 0:
-        # sem qualquer sobreposição -> distribuir uniformemente
-        n = max(1, len(sims))
-        return {k: round(1.0 / n, 4) for k in sims.keys()}
-    return {k: round(v / s, 4) for k, v in sims.items()}
-
-
-__all__ = [
-    "jaccard",
-    "choose_winner_len",
-    "collab_fuse",
-    "contribution_ratio",
-    "judge_answers",
-]
-
-# --- append-only: judge_answers (compat com os testes) ---
-
-def judge_answers(*args):
-    """
-    Compat:
-      - judge_answers(openai, gemini)
-      - judge_answers(prompt, openai, gemini)
-
-    Retorna: {"winner": "A"|"B"|"tie", "reason": "..."}
-    """
-    if len(args) == 2:
-        openai_answer, gemini_answer = args
-    elif len(args) == 3:
-        _prompt, openai_answer, gemini_answer = args
-    else:
-        raise TypeError("judge_answers expects (openai, gemini) or (prompt, openai, gemini)")
-
-    oa = (openai_answer or "").strip()
-    ga = (gemini_answer or "").strip()
-
-    if oa and not ga:
-        return {"winner": "A", "reason": "Only OpenAI answer present."}
-    if ga and not oa:
-        return {"winner": "B", "reason": "Only Gemini answer present."}
-    if not oa and not ga:
-        return {"winner": "tie", "reason": "Both answers are empty."}
-
-    def _score(t: str) -> float:
-        base = min(len(t), 400) / 400.0
-        bonus = 0.05 if (t.endswith(".") or t.endswith("!") or t.endswith("?")) else 0.0
-        s = base + bonus
-        return 0.0 if s < 0 else (1.0 if s > 1.0 else s)
-
-    so = _score(oa)
-    sg = _score(ga)
-
-    if abs(so - sg) <= 0.02:
-        if len(oa) == len(ga):
-            return {"winner": "tie", "reason": "Tie by score and length."}
-        return (
-            {"winner": "A", "reason": "Scores close; OpenAI slightly longer."}
-            if len(oa) > len(ga)
-            else {"winner": "B", "reason": "Scores close; Gemini slightly longer."}
-        )
-
-    return (
-        {"winner": "A", "reason": "Heuristic favored OpenAI answer."}
-        if so > sg
-        else {"winner": "B", "reason": "Heuristic favored Gemini answer."}
-    )
-```
-
-## [26] app/judge_demo.py
-- Last modified: **2025-09-19 20:21:09**
-- Lines: **50**
-- SHA-256: `8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4`
-
-```python
-# =============================================================================
-# File: app/judge_demo.py
-# Purpose: Demo rápido em linha de comando para validar app/judge.py
-# Run:
-#   python -m app.judge_demo
-# =============================================================================
-
-from app.judge import contribution_ratio, judge_answers
-
-PROMPT = "Explique o conceito de Entropia em Termodinâmica de forma simples."
-
-OPENAI_ANS = """A entropia é um conceito fundamental na termodinâmica que mede a desordem
-ou a aleatoriedade de um sistema. Em termos simples, podemos pensar na entropia
-como uma forma de quantificar o quanto a energia em um sistema está dispersa ou
-distribuída. A segunda lei afirma que a entropia total de um sistema isolado
-tende a aumentar ao longo do tempo, indicando a direção natural dos processos.
-"""
-
-GEMINI_ANS = """Imagine uma sala arrumada (baixa entropia) e, depois de brincar,
-uma sala bagunçada (alta entropia). Em termodinâmica, a entropia mede o grau
-de desordem. Em sistemas isolados, a entropia tende a aumentar com o tempo,
-conforme a Segunda Lei da Termodinâmica. Para reduzir a bagunça, é preciso
-gastar energia em outro lugar.
-"""
-
-FINAL_FUSED = """Entropia é uma medida de quanta “bagunça” existe no sistema e de quão
-espalhada está a energia. A Segunda Lei diz que, em sistemas isolados, a entropia
-tende a aumentar, indicando a direção natural dos processos. Exemplos cotidianos
-incluem um quarto que bagunça com o tempo e o calor que flui do quente para o frio.
-"""
-
-def main():
-    print("=== DEMO JUDGE / CONTRIBUTION ===")
-    print("Prompt:", PROMPT, "\n")
-
-    sources = {"openai": OPENAI_ANS, "gemini": GEMINI_ANS}
-    ratios = contribution_ratio(FINAL_FUSED, sources)
-
-    print("Final fused answer:\n", FINAL_FUSED, "\n")
-    print("Contributions (should sum ~ 1.0):")
-    for name, frac in ratios.items():
-        print(f"  - {name:6s}: {frac:.3f}")
-    print()
-
-    verdict = judge_answers(OPENAI_ANS, GEMINI_ANS)
-    print("Heuristic judge (A=openai, B=gemini):")
-    print(" ", verdict)
-
-if __name__ == "__main__":
-    main()
-```
-
-## [27] app/main.py
+## [22] app/Backup_main.py
 - Last modified: **2025-09-20 00:06:17**
 - Lines: **367**
 - SHA-256: `33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329`
@@ -3037,7 +2528,1005 @@ async def duel_post(payload: DuelPayload):
     return JSONResponse(body)
 ```
 
-## [28] app/metrics.py
+## [23] app/cache.py
+- Last modified: **2025-09-19 20:21:09**
+- Lines: **34**
+- SHA-256: `0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475`
+
+```python
+from typing import Optional
+
+import redis
+
+from app.config import settings
+
+_redis_client: Optional[redis.Redis] = None
+
+def get_client() -> Optional[redis.Redis]:
+    global _redis_client
+    if _redis_client:
+        return _redis_client
+    if not settings.redis_url:
+        return None
+    _redis_client = redis.from_url(settings.redis_url, decode_responses=True)
+    return _redis_client
+
+def cache_get(key: str) -> Optional[str]:
+    client = get_client()
+    if not client:
+        return None
+    try:
+        return client.get(key)
+    except Exception:
+        return None
+
+def cache_set(key: str, value: str, ttl_seconds: int = 300) -> None:
+    client = get_client()
+    if not client:
+        return
+    try:
+        client.setex(key, ttl_seconds, value)
+    except Exception:
+        pass
+```
+
+## [24] app/config.py
+- Last modified: **2025-09-19 20:21:09**
+- Lines: **55**
+- SHA-256: `22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411`
+
+```python
+# =============================================================================
+# File: app/config.py
+# Version: 2025-09-14 22:45:00 -03 (America/Sao_Paulo)
+# Changes:
+# - Adicionadas as variáveis de configuração para as novas estratégias de duelo.
+# - Adicionado MAX_CALLS_PER_REQUEST como um guardrail de custo e performance.
+# - A versão da App foi incrementada para 0.2.0.
+# =============================================================================
+from functools import lru_cache
+from typing import List, Optional
+
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    """
+    Configurações centralizadas do orquestrador-ai.
+    """
+    # App
+    APP_NAME: str = Field(default="orquestrador-ai")
+    APP_VERSION: str = Field(default="0.2.0") # Versão incrementada
+    LOG_LEVEL: str = Field(default="INFO")
+
+    # Providers
+    OPENAI_API_KEY: Optional[str] = Field(default=None)
+    OPENAI_MODEL: str = Field(default="gpt-4o-mini")
+    GEMINI_API_KEY: Optional[str] = Field(default=None)
+    GEMINI_MODEL: str = Field(default="gemini-1.5-flash")
+
+    # Orquestração (NOVAS CONFIGURAÇÕES DA SPRINT)
+    ALLOWED_STRATEGIES: List[str] = Field(
+        default_factory=lambda: ["heuristic", "crossvote", "refine_once_crossvote"]
+    )
+    DEFAULT_STRATEGY: str = Field(default="heuristic")
+    MAX_CALLS_PER_REQUEST: int = Field(default=6, description="Limite de segurança para chamadas de IA num único pedido.")
+
+    # Timeouts (segundos)
+    PROVIDER_TIMEOUT: float = Field(default=25.0)
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore",
+    )
+
+
+@lru_cache(maxsize=1)
+def get_settings() -> Settings:
+    return Settings()
+
+
+settings = get_settings()
+```
+
+## [25] app/gemini_client.py
+- Last modified: **2025-09-19 20:21:09**
+- Lines: **137**
+- SHA-256: `c99c87dee7b09b51d1c81ba3a96070adcb31b58366c907980f9972724ccb5ff8`
+
+```python
+# ==============================
+# app/gemini_client.py
+# Propósito:
+# - Cliente Gemini (Google Generative AI)
+# - Compatível com os testes: precisa retornar dict completo
+#   {"provider":"gemini","model":<modelo>,"answer":<texto>,"usage":{}}
+# - Expor: is_configured(), ask_gemini(), judge()
+#
+# Alterações nesta revisão:
+# - ask_gemini retorna dict completo (não só {"answer": ...})
+# - Mantido judge() síncrono como o judge.py espera
+# ==============================
+from __future__ import annotations
+
+import os
+import asyncio
+from typing import Dict, Any, Optional
+
+import google.generativeai as genai
+
+
+# --------------------------------------------
+# Config
+# --------------------------------------------
+_GEMINI_API_KEY: Optional[str] = os.getenv("GEMINI_API_KEY") or None
+_DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+
+if _GEMINI_API_KEY:
+    genai.configure(api_key=_GEMINI_API_KEY)
+
+
+def is_configured() -> bool:
+    """Retorna True se a GEMINI_API_KEY estiver disponível."""
+    return bool(_GEMINI_API_KEY)
+
+
+# --------------------------------------------
+# Helpers (sync) para chamar a API do Gemini
+# --------------------------------------------
+def _gemini_generate_sync(
+    prompt: str,
+    *,
+    model: str = _DEFAULT_MODEL,
+    temperature: float = 0.2,
+) -> str:
+    mdl = genai.GenerativeModel(model)
+    resp = mdl.generate_content(
+        prompt,
+        generation_config={"temperature": temperature},
+    )
+    text = getattr(resp, "text", None)
+    if not text and hasattr(resp, "candidates") and resp.candidates:
+        text = getattr(resp.candidates[0], "content", None)
+        if hasattr(text, "parts") and text.parts:
+            text = "".join(getattr(p, "text", "") for p in text.parts)
+        elif text is None:
+            text = ""
+    return (text or "").strip()
+
+
+def _gemini_generate_with_system_sync(
+    system: str,
+    user: str,
+    *,
+    model: str = _DEFAULT_MODEL,
+    temperature: float = 0.0,
+) -> str:
+    composed = (
+        f"[SYSTEM]\n{system.strip()}\n\n"
+        f"[USER]\n{user.strip()}\n"
+        "IMPORTANTE: Responda ESTRITAMENTE com um ÚNICO objeto JSON válido (RFC 8259) "
+        "sem markdown e sem texto fora do JSON."
+    )
+    mdl = genai.GenerativeModel(model)
+    resp = mdl.generate_content(
+        composed,
+        generation_config={"temperature": temperature},
+    )
+    text = getattr(resp, "text", None)
+    return (text or "").strip()
+
+
+# --------------------------------------------
+# API Async usada pelo app
+# --------------------------------------------
+async def ask_gemini(
+    prompt: str,
+    *,
+    model: str = _DEFAULT_MODEL,
+    temperature: float = 0.2,
+    timeout: float = 25.0,
+) -> Dict[str, Any]:
+    """
+    Gera uma resposta com o Gemini e retorna no formato esperado:
+      { "provider":"gemini", "model":..., "answer":..., "usage":{} }
+    """
+    if not is_configured():
+        raise RuntimeError("GEMINI_API_KEY não configurada")
+
+    try:
+        text = await asyncio.wait_for(
+            asyncio.to_thread(_gemini_generate_sync, prompt, model=model, temperature=temperature),
+            timeout=timeout,
+        )
+        return {
+            "provider": "gemini",
+            "model": model,
+            "answer": text,
+            "usage": {},
+        }
+    except asyncio.TimeoutError as te:
+        raise RuntimeError("Timeout ao chamar Gemini.") from te
+    except Exception:
+        raise
+
+
+# --------------------------------------------
+# Função 'judge' usada pelo módulo judge.py
+# --------------------------------------------
+def judge(
+    system: str,
+    user: str,
+    *,
+    force_json: bool = True,
+    temperature: float = 0.0,
+    timeout: float = 20.0,
+) -> str:
+    if not is_configured():
+        raise RuntimeError("GEMINI_API_KEY não configurada")
+    return _gemini_generate_with_system_sync(
+        system=system,
+        user=user,
+        model=_DEFAULT_MODEL,
+        temperature=temperature,
+    )
+# Alias para compatibilidade com o orquestrador:
+ask = ask_gemini
+```
+
+## [26] app/judge.py
+- Last modified: **2025-09-19 20:21:09**
+- Lines: **197**
+- SHA-256: `e77e53a63d74fd215fdaee89ede2847f09198dcd85185787b419850d4bf2fd50`
+
+```python
+
+
+
+
+
+
+
+
+# app/judge.py
+from __future__ import annotations
+from typing import Dict, List, Tuple
+
+# ---------------------------------------------------------------------
+# Normalização e tokenização
+# ---------------------------------------------------------------------
+def _normalize(text: str) -> str:
+    if not text:
+        return ""
+    # minúsculas
+    t = text.lower()
+    # espaços uniformes
+    t = " ".join(t.split())
+    return t
+
+def _tokens(text: str) -> List[str]:
+    t = _normalize(text)
+    return t.split() if t else []
+
+# ---------------------------------------------------------------------
+# N-grams e similaridade de Jaccard
+# ---------------------------------------------------------------------
+def _ngram_set(tokens: List[str], n: int = 3) -> set:
+    if n <= 1:
+        return set(tokens)
+    if not tokens or len(tokens) < n:
+        return set()
+    return set(tuple(tokens[i:i+n]) for i in range(len(tokens) - n + 1))
+
+def jaccard(a: str, b: str, n: int = 3) -> float:
+    ta, tb = _tokens(a), _tokens(b)
+    A, B = _ngram_set(ta, n), _ngram_set(tb, n)
+    if not A and not B:
+        return 1.0
+    if not A or not B:
+        return 0.0
+    inter = len(A & B)
+    union = len(A | B)
+    return inter / union if union else 0.0
+
+# ---------------------------------------------------------------------
+# Heurística de “voto” (usada em heuristic/crossvote)
+# ---------------------------------------------------------------------
+def choose_winner_len(a: str, b: str) -> str:
+    """
+    Critério simples e determinístico: vence a resposta mais longa.
+    Empate favorece 'openai' para estabilidade.
+    """
+    la, lb = len(a or ""), len(b or "")
+    if la >= lb:
+        return "openai"
+    return "gemini"
+
+# ---------------------------------------------------------------------
+# Fusão colaborativa (collab)
+# ---------------------------------------------------------------------
+def _split_paragraphs(s: str) -> List[str]:
+    if not s:
+        return []
+    parts = [p.strip() for p in s.strip().split("\n\n")]
+    return [p for p in parts if p]
+
+def collab_fuse(source_answers: Dict[str, str]) -> str:
+    """
+    Junta parágrafos das fontes (openai/gemini), removendo duplicatas
+    via Jaccard n-grams e adicionando um rodapé com as fontes usadas.
+    """
+    # Colete todos os parágrafos, anotando a origem
+    paras: List[Tuple[str, str]] = []
+    for prov, text in (source_answers or {}).items():
+        for p in _split_paragraphs(text or ""):
+            if p:
+                paras.append((prov, p))
+
+    # Remoção de duplicatas aproximadas (limiar 0.75)
+    fused: List[str] = []
+    kept_idx: List[int] = []
+    for i, (_, p_i) in enumerate(paras):
+        keep = True
+        for j in kept_idx:
+            _, p_j = paras[j]
+            if jaccard(p_i, p_j, n=3) >= 0.75:
+                keep = False
+                break
+        if keep:
+            kept_idx.append(i)
+            fused.append(p_i)
+
+    # Rodapé com fontes utilizadas
+    used = [prov for prov, txt in (source_answers or {}).items() if (txt or "").strip()]
+    if used:
+        fused.append(" ".join(f"[Fonte: {u}]" for u in used))
+
+    return "\n\n".join(fused).strip()
+
+# ---------------------------------------------------------------------
+# Estimativa de contribuição por fonte
+# ---------------------------------------------------------------------
+def contribution_ratio(final_answer: str, sources: Dict[str, str]) -> Dict[str, float]:
+    """
+    Para cada parágrafo do final, mede a maior similaridade (Jaccard de n-grams)
+    com algum parágrafo de cada fonte. A média por fonte é normalizada para somar 1.0.
+    """
+    final_paras = _split_paragraphs(final_answer)
+    if not final_paras or not sources:
+        return {k: 0.0 for k in (sources or {}).keys()}
+
+    sims: Dict[str, float] = {k: 0.0 for k in sources.keys()}
+
+    for k, v in sources.items():
+        src_paras = _split_paragraphs(v or "")
+        if not src_paras:
+            sims[k] = 0.0
+            continue
+        total = 0.0
+        for fp in final_paras:
+            best = 0.0
+            for sp in src_paras:
+                best = max(best, jaccard(fp, sp, n=3))
+            total += best
+        sims[k] = total / max(1, len(final_paras))
+
+    s = sum(sims.values())
+    if s <= 0:
+        # sem qualquer sobreposição -> distribuir uniformemente
+        n = max(1, len(sims))
+        return {k: round(1.0 / n, 4) for k in sims.keys()}
+    return {k: round(v / s, 4) for k, v in sims.items()}
+
+
+__all__ = [
+    "jaccard",
+    "choose_winner_len",
+    "collab_fuse",
+    "contribution_ratio",
+    "judge_answers",
+]
+
+# --- append-only: judge_answers (compat com os testes) ---
+
+def judge_answers(*args):
+    """
+    Compat:
+      - judge_answers(openai, gemini)
+      - judge_answers(prompt, openai, gemini)
+
+    Retorna: {"winner": "A"|"B"|"tie", "reason": "..."}
+    """
+    if len(args) == 2:
+        openai_answer, gemini_answer = args
+    elif len(args) == 3:
+        _prompt, openai_answer, gemini_answer = args
+    else:
+        raise TypeError("judge_answers expects (openai, gemini) or (prompt, openai, gemini)")
+
+    oa = (openai_answer or "").strip()
+    ga = (gemini_answer or "").strip()
+
+    if oa and not ga:
+        return {"winner": "A", "reason": "Only OpenAI answer present."}
+    if ga and not oa:
+        return {"winner": "B", "reason": "Only Gemini answer present."}
+    if not oa and not ga:
+        return {"winner": "tie", "reason": "Both answers are empty."}
+
+    def _score(t: str) -> float:
+        base = min(len(t), 400) / 400.0
+        bonus = 0.05 if (t.endswith(".") or t.endswith("!") or t.endswith("?")) else 0.0
+        s = base + bonus
+        return 0.0 if s < 0 else (1.0 if s > 1.0 else s)
+
+    so = _score(oa)
+    sg = _score(ga)
+
+    if abs(so - sg) <= 0.02:
+        if len(oa) == len(ga):
+            return {"winner": "tie", "reason": "Tie by score and length."}
+        return (
+            {"winner": "A", "reason": "Scores close; OpenAI slightly longer."}
+            if len(oa) > len(ga)
+            else {"winner": "B", "reason": "Scores close; Gemini slightly longer."}
+        )
+
+    return (
+        {"winner": "A", "reason": "Heuristic favored OpenAI answer."}
+        if so > sg
+        else {"winner": "B", "reason": "Heuristic favored Gemini answer."}
+    )
+```
+
+## [27] app/judge_demo.py
+- Last modified: **2025-09-19 20:21:09**
+- Lines: **50**
+- SHA-256: `8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4`
+
+```python
+# =============================================================================
+# File: app/judge_demo.py
+# Purpose: Demo rápido em linha de comando para validar app/judge.py
+# Run:
+#   python -m app.judge_demo
+# =============================================================================
+
+from app.judge import contribution_ratio, judge_answers
+
+PROMPT = "Explique o conceito de Entropia em Termodinâmica de forma simples."
+
+OPENAI_ANS = """A entropia é um conceito fundamental na termodinâmica que mede a desordem
+ou a aleatoriedade de um sistema. Em termos simples, podemos pensar na entropia
+como uma forma de quantificar o quanto a energia em um sistema está dispersa ou
+distribuída. A segunda lei afirma que a entropia total de um sistema isolado
+tende a aumentar ao longo do tempo, indicando a direção natural dos processos.
+"""
+
+GEMINI_ANS = """Imagine uma sala arrumada (baixa entropia) e, depois de brincar,
+uma sala bagunçada (alta entropia). Em termodinâmica, a entropia mede o grau
+de desordem. Em sistemas isolados, a entropia tende a aumentar com o tempo,
+conforme a Segunda Lei da Termodinâmica. Para reduzir a bagunça, é preciso
+gastar energia em outro lugar.
+"""
+
+FINAL_FUSED = """Entropia é uma medida de quanta “bagunça” existe no sistema e de quão
+espalhada está a energia. A Segunda Lei diz que, em sistemas isolados, a entropia
+tende a aumentar, indicando a direção natural dos processos. Exemplos cotidianos
+incluem um quarto que bagunça com o tempo e o calor que flui do quente para o frio.
+"""
+
+def main():
+    print("=== DEMO JUDGE / CONTRIBUTION ===")
+    print("Prompt:", PROMPT, "\n")
+
+    sources = {"openai": OPENAI_ANS, "gemini": GEMINI_ANS}
+    ratios = contribution_ratio(FINAL_FUSED, sources)
+
+    print("Final fused answer:\n", FINAL_FUSED, "\n")
+    print("Contributions (should sum ~ 1.0):")
+    for name, frac in ratios.items():
+        print(f"  - {name:6s}: {frac:.3f}")
+    print()
+
+    verdict = judge_answers(OPENAI_ANS, GEMINI_ANS)
+    print("Heuristic judge (A=openai, B=gemini):")
+    print(" ", verdict)
+
+if __name__ == "__main__":
+    main()
+```
+
+## [28] app/main.py
+- Last modified: **2025-09-20 11:04:35**
+- Lines: **478**
+- SHA-256: `23fef10b03525fbf7d19d318e8eb5e06310749e70ac6b48ed4c4bf8e4b69a1d7`
+
+```python
+# app/main.py
+from __future__ import annotations
+
+import asyncio
+import os
+import time
+import uuid
+import random
+import inspect
+from typing import Any, Dict, Optional
+
+from fastapi import FastAPI, Request, HTTPException, Response
+from fastapi.responses import JSONResponse, PlainTextResponse
+from pydantic import BaseModel
+
+# ---- Clients locais (mantém compat com sua base) ----
+from .openai_client import ask as ask_openai, is_configured as openai_is_configured
+from .gemini_client import ask as ask_gemini, is_configured as gemini_is_configured
+
+# Opcional: utilidades do judge (apenas reexport para tests que importam do main)
+try:
+    from .judge import judge_answers as judge_answers  # os testes monkeypatcham app.main.judge_answers
+except Exception:
+    # Fallback simples caso o módulo não exponha judge_answers
+    async def judge_answers(prompt: str, a: str, b: str) -> Dict[str, str]:  # type: ignore
+        la, lb = len(a or ""), len(b or "")
+        if la == lb == 0:
+            return {"winner": "tie", "reason": "both empty"}
+        if la >= lb:
+            return {"winner": "a", "reason": "len(a) >= len(b)"}
+        return {"winner": "b", "reason": "len(b) > len(a)"}
+
+
+# =============================================================================
+# Config
+# =============================================================================
+APP_VERSION = os.getenv("APP_VERSION", "2025-09-18")
+
+# Resiliência (timeouts/retries)
+PROVIDER_TIMEOUT_S: float = float(os.getenv("PROVIDER_TIMEOUT_S", "10"))
+PROVIDER_MAX_RETRIES: int = int(os.getenv("PROVIDER_MAX_RETRIES", "0"))
+
+# =============================================================================
+# Circuit Breaker simples (local ao arquivo para não quebrar nada)
+# =============================================================================
+class CircuitBreaker:
+    def __init__(self, fail_threshold: int = 5, reset_seconds: float = 30.0):
+        self.fail_threshold = fail_threshold
+        self.reset_seconds = reset_seconds
+        self.failures = 0
+        self.state: str = "closed"  # closed | half_open | open
+        self._opened_at: Optional[float] = None
+
+    def allow_request(self) -> bool:
+        if self.state == "open":
+            if self._opened_at is None:
+                return False
+            if (time.monotonic() - self._opened_at) >= self.reset_seconds:
+                # janela de teste
+                self.state = "half_open"
+                return True
+            return False
+        return True  # closed ou half_open
+
+    def record_success(self) -> None:
+        self.failures = 0
+        self.state = "closed"
+        self._opened_at = None
+
+    def record_failure(self) -> None:
+        self.failures += 1
+        if self.state in ("closed", "half_open") and self.failures >= self.fail_threshold:
+            self.state = "open"
+            self._opened_at = time.monotonic()
+
+def compute_backoff(attempt: int, base: float = 0.2, factor: float = 2.0, jitter: float = 0.1) -> float:
+    """Exponential backoff com jitter. attempt começa em 1."""
+    expo = base * (factor ** max(0, attempt - 1))
+    jitter_val = random.uniform(-jitter, jitter) * expo
+    return max(0.0, expo + jitter_val)
+
+# Um breaker por provider
+_CB: Dict[str, CircuitBreaker] = {
+    "openai": CircuitBreaker(),
+    "gemini": CircuitBreaker(),
+    "echo": CircuitBreaker(),
+}
+
+# =============================================================================
+# App
+# =============================================================================
+app = FastAPI(title="Integração_Gem_GPT", version=APP_VERSION)
+
+# =============================================================================
+# Middleware: X-Request-ID
+# =============================================================================
+@app.middleware("http")
+async def request_id_middleware(request: Request, call_next):
+    req_id = request.headers.get("X-Request-ID") or request.headers.get("x-request-id") or uuid.uuid4().hex
+    response = await call_next(request)
+    response.headers["X-Request-ID"] = req_id
+    return response
+
+# =============================================================================
+# Métricas (Prometheus-like)
+# =============================================================================
+_METRICS: Dict[str, int] = {
+    "ask_requests_success_echo": 0,
+    "ask_requests_success_openai": 0,
+    "ask_requests_success_gemini": 0,
+    "ask_requests_error_echo": 0,
+    "ask_requests_error_openai": 0,
+    "ask_requests_error_gemini": 0,
+    "ask_provider_error_openai": 0,
+    "ask_provider_error_gemini": 0,
+    "ask_provider_error_echo": 0,
+    "ask_circuit_opens_openai": 0,
+    "ask_circuit_opens_gemini": 0,
+    "ask_retries_total": 0,
+}
+
+def _inc(key: str) -> None:
+    _METRICS[key] = _METRICS.get(key, 0) + 1
+
+def _metrics_record(provider: str, ok: bool) -> None:
+    key = f'ask_requests_{"success" if ok else "error"}_{provider}'
+    _inc(key)
+
+# =============================================================================
+# Helpers
+# =============================================================================
+def _to_text(maybe: Any) -> str:
+    """
+    Converte respostas de clients (string OU dict) em texto.
+    Suporta:
+      - OpenAI chat/completions: dict["choices"][0]["message"]["content"]
+      - OpenAI legacy: dict["choices"][0]["text"]
+      - Gemini: dict["candidates"][0]["content"]["parts"][0]["text"]
+      - Campos comuns: "answer", "text", "content"
+    """
+    if maybe is None:
+        return ""
+    if isinstance(maybe, str):
+        return maybe
+
+    if isinstance(maybe, dict):
+        # campos "answer"/"text"/"content"
+        for k in ("answer", "text", "content"):
+            v = maybe.get(k)
+            if isinstance(v, str) and v.strip():
+                return v
+
+        # OpenAI Chat
+        try:
+            choices = maybe.get("choices")
+            if isinstance(choices, list) and choices:
+                ch0 = choices[0] or {}
+                msg = ch0.get("message") or {}
+                c = msg.get("content")
+                if isinstance(c, str) and c.strip():
+                    return c
+                t = ch0.get("text")
+                if isinstance(t, str) and t.strip():
+                    return t
+        except Exception:
+            pass
+
+        # Gemini
+        try:
+            cands = maybe.get("candidates")
+            if isinstance(cands, list) and cands:
+                content = (cands[0] or {}).get("content") or {}
+                parts = content.get("parts")
+                if isinstance(parts, list) and parts:
+                    t = parts[0].get("text")
+                    if isinstance(t, str) and t.strip():
+                        return t
+        except Exception:
+            pass
+
+        # fallback
+        return str(maybe)
+
+    return str(maybe)
+
+# Compat: testes chamam app.main.openai_configured / gemini_configured
+def openai_configured() -> bool:
+    try:
+        return bool(openai_is_configured())
+    except Exception:
+        return bool(os.getenv("OPENAI_API_KEY"))
+
+def gemini_configured() -> bool:
+    try:
+        return bool(gemini_is_configured())
+    except Exception:
+        return bool(os.getenv("GEMINI_API_KEY"))
+
+# =============================================================================
+# Provider wrapper com CB/timeout/retry (sem passar kwargs como 'model')
+# =============================================================================
+async def _provider_call(name: str, prompt: str) -> Dict[str, Any]:
+    cb = _CB.get(name)
+    if cb and not cb.allow_request():
+        _inc(f"ask_provider_error_{name}")
+        raise RuntimeError(f"{name} circuit_open")
+
+    async def _call_once() -> Any:
+        if name == "openai":
+            return await ask_openai(prompt)
+        if name == "gemini":
+            return await ask_gemini(prompt)
+        if name == "echo":
+            await asyncio.sleep(0.001)
+            return prompt
+        raise ValueError(f"provider desconhecido: {name}")
+
+    last_exc: Optional[Exception] = None
+
+    for attempt in range(1, PROVIDER_MAX_RETRIES + 2):  # 1 try + N retries
+        try:
+            raw = await asyncio.wait_for(_call_once(), timeout=PROVIDER_TIMEOUT_S)
+            txt = _to_text(raw).strip()
+            _metrics_record(name, True)
+            if cb:
+                cb.record_success()
+            return {"provider": name, "answer": txt}
+        except asyncio.TimeoutError:
+            last_exc = TimeoutError(f"{name} timeout after {PROVIDER_TIMEOUT_S}s")
+        except Exception as e:
+            last_exc = e
+
+        # falha -> contabiliza no CB
+        if cb:
+            prev_state = cb.state
+            cb.record_failure()
+            if cb.state == "open" and prev_state != "open":
+                _inc(f"ask_circuit_opens_{name}")
+
+        # decide retry
+        if attempt <= PROVIDER_MAX_RETRIES:
+            _inc("ask_retries_total")
+            await asyncio.sleep(compute_backoff(attempt))
+            continue
+
+        # esgotou
+        _inc(f"ask_provider_error_{name}")
+        _metrics_record(name, False)
+        if isinstance(last_exc, TimeoutError):
+            raise last_exc
+        raise RuntimeError(f"{name} error: {str(last_exc)}") from last_exc
+
+
+# =============================================================================
+# Rotas básicas
+# =============================================================================
+@app.get("/")
+def root():
+    return {"status": "live"}
+
+@app.get("/ready")
+def ready(request: Request, response: Response):
+    rid = request.headers.get("x-request-id") or request.headers.get("X-Request-ID")
+    if rid:
+        response.headers["x-request-id"] = rid
+    return {"status": "ready"}
+
+@app.get("/health")
+def health() -> Dict[str, Any]:
+    return {
+        "status": "ok",
+        "version": APP_VERSION,
+        "ts": int(time.time()),
+        "providers": {
+            "openai_configured": openai_configured(),
+            "gemini_configured": gemini_configured(),
+        },
+        "metrics": _METRICS,
+    }
+
+@app.get("/metrics")
+async def metrics() -> PlainTextResponse:
+    """
+    Formato Prometheus:
+      ask_requests_total{provider="echo",status="success"} <n>
+      ask_provider_errors{provider="openai"} <n>
+      ask_circuit_open{provider="openai"} 0|1
+      ask_circuit_opens_total{provider="openai"} <n>
+      ask_retries_total <n>
+    """
+    lines = []
+
+    # pedidos por provider/status
+    lines.append('# HELP ask_requests_total Número de requisições /ask por provider e status')
+    lines.append('# TYPE ask_requests_total counter')
+    for prov in ("echo", "openai", "gemini"):
+        for status in ("success", "error"):
+            key = f"ask_requests_{status}_{prov}"
+            val = _METRICS.get(key, 0)
+            lines.append(f'ask_requests_total{{provider="{prov}",status="{status}"}} {val}')
+
+    # erros por provider
+    lines.append('# HELP ask_provider_errors Número de erros por provider')
+    lines.append('# TYPE ask_provider_errors counter')
+    for prov in ("openai", "gemini", "echo"):
+        key = f"ask_provider_error_{prov}"
+        val = _METRICS.get(key, 0)
+        lines.append(f'ask_provider_errors{{provider="{prov}"}} {val}')
+
+    # estado atual do CB (gauge 0/1)
+    lines.append('# HELP ask_circuit_open Estado do circuito por provider (0=closed/half_open, 1=open)')
+    lines.append('# TYPE ask_circuit_open gauge')
+    for prov in ("openai", "gemini"):
+        state = _CB[prov].state
+        lines.append(f'ask_circuit_open{{provider="{prov}"}} {1 if state=="open" else 0}')
+
+    # total de aberturas
+    lines.append('# HELP ask_circuit_opens_total Número de aberturas de circuito')
+    lines.append('# TYPE ask_circuit_opens_total counter')
+    for prov in ("openai", "gemini"):
+        key = f"ask_circuit_opens_{prov}"
+        val = _METRICS.get(key, 0)
+        lines.append(f'ask_circuit_opens_total{{provider="{prov}"}} {val}')
+
+    # retries globais
+    lines.append('# HELP ask_retries_total Número de tentativas extras (retries)')
+    lines.append('# TYPE ask_retries_total counter')
+    lines.append(f'ask_retries_total {_METRICS.get("ask_retries_total", 0)}')
+
+    return PlainTextResponse("\n".join(lines) + "\n")
+
+
+# =============================================================================
+# /ask
+# =============================================================================
+class AskPayload(BaseModel):
+    prompt: str
+
+@app.post("/ask")
+async def ask_post(payload: AskPayload, provider: str = "auto"):
+    prompt = (payload.prompt or "").strip()
+    if not prompt:
+        raise HTTPException(status_code=400, detail="Missing 'prompt'.")
+
+    have_openai = openai_configured()
+    have_gemini = gemini_configured()
+    provider = (provider or "auto").lower()
+
+    # ---- Provider explícito ----
+    if provider == "openai":
+        if not have_openai:
+            _inc("ask_provider_error_openai")
+            _metrics_record("openai", False)
+            return JSONResponse(status_code=503, content={"detail": "openai_api_key não configurada"})
+        try:
+            r = await _provider_call("openai", prompt)
+            return {"provider": r["provider"], "answer": r["answer"]}
+        except Exception as e:
+            return JSONResponse(status_code=502, content={"detail": str(e)})
+
+    if provider == "gemini":
+        if not have_gemini:
+            _inc("ask_provider_error_gemini")
+            _metrics_record("gemini", False)
+            return JSONResponse(status_code=503, content={"detail": "gemini_api_key não configurada"})
+        try:
+            r = await _provider_call("gemini", prompt)
+            return {"provider": r["provider"], "answer": r["answer"]}
+        except Exception as e:
+            return JSONResponse(status_code=502, content={"detail": str(e)})
+
+    if provider == "echo":
+        try:
+            r = await _provider_call("echo", prompt)
+            return {"provider": r["provider"], "answer": r["answer"]}
+        except Exception as e:
+            return JSONResponse(status_code=502, content={"detail": str(e)})
+
+    # ---- Provider auto (fallback) ----
+    if provider == "auto":
+        # ambos off => 503 com detalhe do GEMINI (conforme testes esperavam)
+        if not have_openai and not have_gemini:
+            _inc("ask_provider_error_openai"); _metrics_record("openai", False)
+            _inc("ask_provider_error_gemini"); _metrics_record("gemini", False)
+            return JSONResponse(status_code=503, content={"detail": "gemini_api_key não configurada"})
+
+        # tenta openai -> gemini
+        if have_openai:
+            try:
+                r = await _provider_call("openai", prompt)
+                return {"provider": r["provider"], "answer": r["answer"]}
+            except Exception:
+                pass
+        if have_gemini:
+            try:
+                r = await _provider_call("gemini", prompt)
+                return {"provider": r["provider"], "answer": r["answer"]}
+            except Exception as e:
+                return JSONResponse(status_code=503, content={"detail": str(e)})
+
+        return JSONResponse(status_code=503, content={"detail": "Nenhum provider disponível."})
+
+    # inválido
+    return JSONResponse(status_code=400, content={"detail": "Parâmetros inválidos: provider=auto|openai|gemini|echo"})
+
+
+# =============================================================================
+# /duel
+# =============================================================================
+class DuelPayload(BaseModel):
+    prompt: str
+
+@app.post("/duel")
+async def duel_post(payload: DuelPayload):
+    prompt = (payload.prompt or "").strip()
+    if not prompt:
+        raise HTTPException(status_code=400, detail="Missing 'prompt'.")
+
+    a_on = openai_configured()
+    g_on = gemini_configured()
+
+    # Nenhum provider disponível -> 502 com corpo detalhado
+    if not a_on and not g_on:
+        detail = {
+            "mode": "duel",
+            "responses": {
+                "openai": {"ok": False, "answer": None},
+                "gemini": {"ok": False, "answer": None},
+            },
+            "verdict": {"winner": "none", "reason": "no providers"},
+        }
+        return JSONResponse(status_code=502, content={"detail": detail})
+
+    # Executa provedores disponíveis (usa _provider_call, que os testes monkeypatcham)
+    a_ans, g_ans = None, None
+
+    if a_on:
+        try:
+            r = await _provider_call("openai", prompt)
+            a_ans = r.get("answer") or ""
+        except Exception:
+            a_ans = None
+
+    if g_on:
+        try:
+            r = await _provider_call("gemini", prompt)
+            g_ans = r.get("answer") or ""
+        except Exception:
+            g_ans = None
+
+    # Chama judge_answers (pode ser async/sync; testes monkeypatcham)
+    if inspect.iscoroutinefunction(judge_answers):
+        ver = await judge_answers(prompt, a_ans or "", g_ans or "")  # type: ignore
+    else:
+        ver = judge_answers(prompt, a_ans or "", g_ans or "")  # type: ignore
+
+    raw_winner = (ver or {}).get("winner")
+    # normaliza "a"/"b" -> "openai"/"gemini"
+    winner_map = {
+        "a": "openai", "A": "openai",
+        "b": "gemini", "B": "gemini",
+        "openai": "openai", "gemini": "gemini",
+        "tie": "tie", "none": "none",
+    }
+    norm_winner = winner_map.get(str(raw_winner), "tie")
+    reason = (ver or {}).get("reason", "")
+
+    body = {
+        "mode": "duel",
+        "responses": {
+            "openai": {"ok": bool(a_ans), "answer": a_ans},
+            "gemini": {"ok": bool(g_ans), "answer": g_ans},
+        },
+        "winner": norm_winner,
+        "reason": reason,
+        "verdict": {"winner": norm_winner, "reason": reason},
+    }
+    return JSONResponse(body)
+```
+
+## [29] app/metrics.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **44**
 - SHA-256: `672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c`
@@ -3089,7 +3578,7 @@ def record_ask(provider: str, status: str, duration_ms: Optional[float] = None) 
         ASK_LATENCY_SECONDS.labels(provider=p, status=s).observe(duration_ms / 1000.0)
 ```
 
-## [29] app/observability.py
+## [30] app/observability.py
 - Last modified: **2025-09-14 11:32:26**
 - Lines: **111**
 - SHA-256: `5a5528e1c8ab181c8bdc64133f5ebf08f502ee930d15dc116eabe9ed7e8fb297`
@@ -3208,7 +3697,7 @@ class RequestIDMiddleware(BaseHTTPMiddleware):
 __all__ = ["logger", "TraceMiddleware", "RequestIDMiddleware"]
 ```
 
-## [30] app/openai_client.py
+## [31] app/openai_client.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **98**
 - SHA-256: `355119a65b23160b60deadc66b0cb10984b420483a564896a396ac6abf2f7a8e`
@@ -3314,7 +3803,7 @@ async def ask(prompt: str, *, model: Optional[str] = None):
 ask = ask_openai
 ```
 
-## [31] app/refine.py
+## [32] app/refine.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **108**
 - SHA-256: `96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532`
@@ -3430,7 +3919,104 @@ Agora que o ficheiro local está corrigido, precisamos de "tirar uma nova fotogr
 """
 ```
 
-## [32] app/retry.py
+## [33] app/resilience/__init__.py
+- Last modified: **2025-09-20 10:17:01**
+- Lines: **70**
+- SHA-256: `b4c4b9d36b3c8bd59f4abc95840b860fc1d47044bec5f6cd9f20fc2524cbe588`
+
+```python
+# Sprint 3 – Resiliência
+
+import random
+import time
+from typing import Literal
+
+CircuitState = Literal["closed", "open", "half_open"]
+
+class CircuitBreaker:
+    """
+    CB por provider:
+      - closed: tudo passa
+      - open: bloqueia até passar reset_seconds
+      - half_open: deixa 1 tentativa; sucesso -> closed, falha -> open
+    """
+    def __init__(self, fail_threshold: int = 5, reset_seconds: float = 30.0):
+        self.fail_threshold = max(1, fail_threshold)
+        self.reset_seconds = max(1.0, float(reset_seconds))
+
+        self._state: CircuitState = "closed"
+        self._fail_count = 0
+        self._opened_at = 0.0
+
+    @property
+    def state(self) -> CircuitState:
+        if self._state == "open" and (time.time() - self._opened_at) >= self.reset_seconds:
+            # janela de tentativa
+            self._state = "half_open"
+        return self._state
+
+    def allow_request(self) -> bool:
+        st = self.state
+        if st == "open":
+            return False
+        # closed/half_open liberam; half_open será avaliado pelo resultado
+        return True
+
+    def record_success(self) -> None:
+        # sucesso fecha e zera contador
+        self._state = "closed"
+        self._fail_count = 0
+        self._opened_at = 0.0
+
+    def record_failure(self) -> None:
+        # falha: incrementa; em half_open volta a "open" e reinicia janela
+        self._fail_count += 1
+        if self._state == "half_open":
+            self._open_circuit()
+            return
+        if self._fail_count >= self.fail_threshold:
+            self._open_circuit()
+
+    def _open_circuit(self) -> None:
+        self._state = "open"
+        self._opened_at = time.time()
+
+def compute_backoff(attempt: int, base: float = 0.2, factor: float = 2.0, jitter: float = 0.1) -> float:
+    """
+    Exponential backoff com jitter proporcional:
+      attempt=1 -> base
+      attempt=2 -> base*factor
+      ...
+      jitter aplica +/- (jitter * valor_base)
+    """
+    attempt = max(1, int(attempt))
+    delay = base * (factor ** (attempt - 1))
+    if jitter > 0:
+      delta = delay * jitter
+      delay = random.uniform(max(0.0, delay - delta), delay + delta)
+    return max(0.0, delay)
+```
+
+## [34] app/resilience/backup__init__.py
+- Last modified: **2025-09-20 01:00:05**
+- Lines: **11**
+- SHA-256: `fda692c5d7f3c6d5d3c37f0d5667f8407562541d86e341bce56484cea8b85b4d`
+
+```python
+# Sprint 3 – Resiliência
+# Placeholder: interface mínima para circuit breaker e backoff.
+class CircuitBreaker:
+    def __init__(self, fail_threshold: int = 5, reset_seconds: float = 30.0):
+        self.fail_threshold = fail_threshold
+        self.reset_seconds = reset_seconds
+        # implementação virá em commits subsequentes
+
+def compute_backoff(attempt: int, base: float = 0.2, factor: float = 2.0, jitter: float = 0.1) -> float:
+    # implementação virá em commits subsequentes
+    return max(base, base * (factor ** max(0, attempt - 1)))
+```
+
+## [35] app/retry.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b`
@@ -3480,7 +4066,7 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [33] app/semerro.judge.backup.py
+## [36] app/semerro.judge.backup.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **142**
 - SHA-256: `7105937ac375d6adc27c1cd13d9d220b4665e7e4d0ed0735bd9082d8faebc878`
@@ -3630,7 +4216,7 @@ __all__ = [
 ]
 ```
 
-## [34] app/utils/__init__.py
+## [37] app/utils/__init__.py
 - Last modified: **2025-09-13 15:31:19**
 - Lines: **2**
 - SHA-256: `f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f`
@@ -3640,7 +4226,7 @@ __all__ = [
 # Torna 'utils' um pacote Python.
 ```
 
-## [35] app/utils/retry.py
+## [38] app/utils/retry.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **42**
 - SHA-256: `d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c`
@@ -3690,17 +4276,17 @@ def retry(
             delay_sec = delay_sec * 2 if delay_sec > 0 else 0.0
 ```
 
-## [36] CONFIG_SNAPSHOT.manifest.json
-- Last modified: **2025-09-20 00:06:17**
-- Lines: **357**
-- SHA-256: `a9828d4a5101ad6e69fb5b52cfbe6d3b452707c9be97aceafdb510ecb8199ca8`
+## [39] CONFIG_SNAPSHOT.manifest.json
+- Last modified: **2025-09-20 10:27:12**
+- Lines: **375**
+- SHA-256: `a4f041fdc34d636abb800331ee07e7d2a6ca461cb5d592831dd746826e46972e`
 
 ```json
 {
-  "generated_at": "2025-09-19 20:09:50 ",
+  "generated_at": "2025-09-20 10:27:12 ",
   "root": "/Users/wagnerjfjunior/orquestrador-ai",
-  "file_count": 58,
-  "total_lines": 4784,
+  "file_count": 61,
+  "total_lines": 5290,
   "hash_algorithm": "sha256",
   "files": [
     {
@@ -3711,13 +4297,13 @@ def retry(
     },
     {
       "path": ".github/workflows/ci.yml",
-      "mtime": "2025-09-13 19:22:11",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 39,
       "sha256": "1741b400f7258048fbd5d71c4f9ddbd48860a00fe2da21a7f8b8232db8055ec5"
     },
     {
       "path": ".github/workflows/snapshot.yml",
-      "mtime": "2025-09-14 12:15:11",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 21,
       "sha256": "73f13efc74257069dcb4e3a8680af67d50367be462658b750527ff9dc7ddf703"
     },
@@ -3735,139 +4321,145 @@ def retry(
     },
     {
       "path": "app/Backup/__init__.py",
-      "mtime": "2025-09-13 15:30:17",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 2,
       "sha256": "f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f"
     },
     {
       "path": "app/Backup/cache.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 34,
       "sha256": "0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475"
     },
     {
       "path": "app/Backup/config.py",
-      "mtime": "2025-09-14 22:32:07",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 55,
       "sha256": "22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411"
     },
     {
       "path": "app/Backup/gemini_client.py",
-      "mtime": "2025-09-16 15:07:23",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 151,
       "sha256": "c975f06e623095504043590f72a56543d641603abdaacd0ba939f6f1f08acad8"
     },
     {
       "path": "app/Backup/gemini_client_2.py",
-      "mtime": "2025-09-17 22:22:34",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 212,
       "sha256": "821db00a11060035201bc150bd54867b11d9bbfc4a8a2927f8cc7b6c3b549b25"
     },
     {
       "path": "app/Backup/judge2.py",
-      "mtime": "2025-09-16 22:23:00",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 275,
       "sha256": "211c7fae7fd7d1057178f985452b9539f8f124a64d7840ee58256b4d5863dc40"
     },
     {
       "path": "app/Backup/judge_demo.py",
-      "mtime": "2025-09-16 22:47:58",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 50,
       "sha256": "8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4"
     },
     {
       "path": "app/Backup/main2.py",
-      "mtime": "2025-09-17 00:04:54",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 352,
       "sha256": "dd74323913eddd255fc2ed7c68da5a2c3d091b8c0433e7245c815ad678ceaf55"
     },
     {
       "path": "app/Backup/metrics.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 44,
       "sha256": "672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c"
     },
     {
       "path": "app/Backup/observability.py",
-      "mtime": "2025-09-14 11:32:26",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 111,
       "sha256": "5a5528e1c8ab181c8bdc64133f5ebf08f502ee930d15dc116eabe9ed7e8fb297"
     },
     {
       "path": "app/Backup/openai_client.py",
-      "mtime": "2025-09-16 19:33:40",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 126,
       "sha256": "4c38d9b76bc20fe675a7c15c7eca0de4e60fffa41a3f03f354bb172c82234ecb"
     },
     {
       "path": "app/Backup/openai_client_2.py",
-      "mtime": "2025-09-17 22:21:11",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 207,
       "sha256": "48418182a29c4c6a57ffbce6f4b34ec9da6b965ab2324f1b50a965733cfaa625"
     },
     {
       "path": "app/Backup/refine.py",
-      "mtime": "2025-09-14 22:46:57",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 108,
       "sha256": "96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532"
     },
     {
       "path": "app/Backup/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b"
     },
     {
       "path": "app/Backup/utils/__init__.py",
-      "mtime": "2025-09-13 15:31:19",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 2,
       "sha256": "f0fb5e1d3cbe63ad8149256a91c4b7228cbedfca932ffc0d9cb6086adee6c92f"
     },
     {
       "path": "app/Backup/utils/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
     },
     {
+      "path": "app/Backup_main.py",
+      "mtime": "2025-09-20 00:06:17",
+      "lines": 367,
+      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+    },
+    {
       "path": "app/cache.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 34,
       "sha256": "0a8edfe8a8567cffede09acee6554ec4f2dd543d756219a714b54ae786f2a475"
     },
     {
       "path": "app/config.py",
-      "mtime": "2025-09-14 22:32:07",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 55,
       "sha256": "22a4fba6490e003ac80b76637c15b11e1d3f33bff49ce92ca3af85d65752d411"
     },
     {
       "path": "app/gemini_client.py",
-      "mtime": "2025-09-18 00:36:21",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 137,
       "sha256": "c99c87dee7b09b51d1c81ba3a96070adcb31b58366c907980f9972724ccb5ff8"
     },
     {
       "path": "app/judge.py",
-      "mtime": "2025-09-19 18:35:47",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 197,
       "sha256": "e77e53a63d74fd215fdaee89ede2847f09198dcd85185787b419850d4bf2fd50"
     },
     {
       "path": "app/judge_demo.py",
-      "mtime": "2025-09-16 22:47:58",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 50,
       "sha256": "8426729348825bde4df306979890a4ceecf6d3929115cda2ac0324a0bd7df2e4"
     },
     {
       "path": "app/main.py",
-      "mtime": "2025-09-19 20:07:06",
-      "lines": 367,
-      "sha256": "33396ef578016a9d186e0cb3f5a88af97c7aca521c484a58b20dc8edeb168329"
+      "mtime": "2025-09-20 10:26:45",
+      "lines": 419,
+      "sha256": "42db1da818fed3a20230ad6b8efac911fddfcd7123893cca5f7f2e71e752932d"
     },
     {
       "path": "app/metrics.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 44,
       "sha256": "672d96010d9c1976479acbd424570f61827b8e97636e8e1089dfed729ac9ba8c"
     },
@@ -3879,25 +4471,37 @@ def retry(
     },
     {
       "path": "app/openai_client.py",
-      "mtime": "2025-09-18 00:38:13",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 98,
       "sha256": "355119a65b23160b60deadc66b0cb10984b420483a564896a396ac6abf2f7a8e"
     },
     {
       "path": "app/refine.py",
-      "mtime": "2025-09-14 22:46:57",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 108,
       "sha256": "96a3ef2b9bd0501d38ea051c85888978e447e9efa964c482d39359f4a7262532"
     },
     {
+      "path": "app/resilience/__init__.py",
+      "mtime": "2025-09-20 10:17:01",
+      "lines": 70,
+      "sha256": "b4c4b9d36b3c8bd59f4abc95840b860fc1d47044bec5f6cd9f20fc2524cbe588"
+    },
+    {
+      "path": "app/resilience/backup__init__.py",
+      "mtime": "2025-09-20 01:00:05",
+      "lines": 11,
+      "sha256": "fda692c5d7f3c6d5d3c37f0d5667f8407562541d86e341bce56484cea8b85b4d"
+    },
+    {
       "path": "app/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "f7539c2a26731371f8fb49dccb0d0a05cd996742ba73131cdf641e7334591a5b"
     },
     {
       "path": "app/semerro.judge.backup.py",
-      "mtime": "2025-09-19 00:40:30",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 142,
       "sha256": "7105937ac375d6adc27c1cd13d9d220b4665e7e4d0ed0735bd9082d8faebc878"
     },
@@ -3909,15 +4513,15 @@ def retry(
     },
     {
       "path": "app/utils/retry.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 42,
       "sha256": "d22081dab42b13ce05a5ee87d5aa66ac14ed40dc07c55221d46d39b353cdfd9c"
     },
     {
       "path": "CONFIG_SNAPSHOT.manifest.json",
-      "mtime": "2025-09-19 18:22:10",
-      "lines": 357,
-      "sha256": "71293e82f4bd1317874685cf35057c52dff2f2f85e8bceb6b7ae1f8042be3e61"
+      "mtime": "2025-09-20 01:00:05",
+      "lines": 363,
+      "sha256": "921dbdd4a2a57d422c52db76115838409d651e1a1ebfd366b6c7fbfee31fff89"
     },
     {
       "path": "cy.yml",
@@ -3927,19 +4531,19 @@ def retry(
     },
     {
       "path": "docker-compose.yml",
-      "mtime": "2025-09-18 22:33:13",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 25,
       "sha256": "937416bb3b64472059414e039e9f9357e577c3fb2814c672a5390b94c7a6580a"
     },
     {
       "path": "Dockerfile",
-      "mtime": "2025-09-18 22:32:38",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 35,
       "sha256": "4ab5260777a26e771ac4822ff165c2a648d23e0e9d061298be35ba0acb62f19d"
     },
     {
       "path": "Makefile",
-      "mtime": "2025-09-18 14:11:18",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 37,
       "sha256": "d3bb861aa5ece9bffd865de72ae7cb12db5884c5e5eb8c9996bd1f877a804a17"
     },
@@ -3957,25 +4561,25 @@ def retry(
     },
     {
       "path": "ruff.toml",
-      "mtime": "2025-09-13 18:38:03",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 19,
       "sha256": "13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c"
     },
     {
       "path": "scripts/env_check.py",
-      "mtime": "2025-09-18 14:14:54",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 13,
       "sha256": "78000965530a1ca2c61b1769524a4f0068190c1f7d62a4b5ab63873813dcc159"
     },
     {
       "path": "tests/test_ask_providers.py",
-      "mtime": "2025-09-14 16:23:19",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 71,
       "sha256": "c46e4fb6e9cb402bd467eee5bb009603e0d1eb65394e421301770e25dd08981a"
     },
     {
       "path": "tests/test_basic.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 22,
       "sha256": "552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a"
     },
@@ -3987,49 +4591,49 @@ def retry(
     },
     {
       "path": "tests/test_duel_openai_only.py",
-      "mtime": "2025-09-14 16:24:10",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 36,
       "sha256": "daabf14d47d900829188e01b110cd52087b2b607566e63d9bc63c5b0e08dea79"
     },
     {
       "path": "tests/test_fallback.py",
-      "mtime": "2025-09-14 16:31:51",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 57,
       "sha256": "8635780c76ceab5bf3dee8cc6925fefe03c4138a4701c9be0f7f61c1ccba8f4d"
     },
     {
       "path": "tests/test_judge.py",
-      "mtime": "2025-09-16 22:49:15",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 45,
       "sha256": "faf5e4c0061f5a65d0f71f1e144ffdf8693d8353d6fd095459cf8521700da150"
     },
     {
       "path": "tests/test_metrics.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 21,
       "sha256": "856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784"
     },
     {
       "path": "tests/test_metrics_error_counter.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 38,
       "sha256": "850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a"
     },
     {
       "path": "tests/test_observability.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 34,
       "sha256": "53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145"
     },
     {
       "path": "tests/test_openai_client.py",
-      "mtime": "2025-09-14 16:58:04",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 52,
       "sha256": "672c43b1e2b6b573e190b75f88338f9d03a7ea2175e51229a2cdef1b8ab5bdc6"
     },
     {
       "path": "tests/test_request_id.py",
-      "mtime": "2025-09-13 18:33:31",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 20,
       "sha256": "2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452"
     },
@@ -4041,13 +4645,13 @@ def retry(
     },
     {
       "path": "tools/guard_update.py",
-      "mtime": "2025-09-14 12:41:05",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 134,
       "sha256": "ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738"
     },
     {
       "path": "tools/snapshot_configs.py",
-      "mtime": "2025-09-14 12:04:40",
+      "mtime": "2025-09-19 20:21:09",
       "lines": 290,
       "sha256": "6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2"
     }
@@ -4055,7 +4659,7 @@ def retry(
 }
 ```
 
-## [37] cy.yml
+## [40] cy.yml
 - Last modified: **2025-09-13 15:38:40**
 - Lines: **63**
 - SHA-256: `9daf109266413c593e79e83e307681f1bc2533105d6fe072cb680e42068115ee`
@@ -4126,7 +4730,7 @@ jobs:
           pytest -q
 ```
 
-## [38] docker-compose.yml
+## [41] docker-compose.yml
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **25**
 - SHA-256: `937416bb3b64472059414e039e9f9357e577c3fb2814c672a5390b94c7a6580a`
@@ -4159,7 +4763,7 @@ services:
     restart: unless-stopped
 ```
 
-## [39] Dockerfile
+## [42] Dockerfile
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **35**
 - SHA-256: `4ab5260777a26e771ac4822ff165c2a648d23e0e9d061298be35ba0acb62f19d`
@@ -4202,7 +4806,7 @@ HEALTHCHECK --interval=20s --timeout=5s --retries=10 --start-period=10s \
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-## [40] Makefile
+## [43] Makefile
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **37**
 - SHA-256: `d3bb861aa5ece9bffd865de72ae7cb12db5884c5e5eb8c9996bd1f877a804a17`
@@ -4246,7 +4850,7 @@ run-local:
 	 uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
 ```
 
-## [41] pyproject.toml
+## [44] pyproject.toml
 - Last modified: **2025-09-12 23:43:45**
 - Lines: **22**
 - SHA-256: `d8c205569aa1662debd668a45c32f50780aff2e6daf30fe611f3ca155461bf93`
@@ -4276,7 +4880,7 @@ port = 8080
 reload = true
 ```
 
-## [42] render.yaml
+## [45] render.yaml
 - Last modified: **2025-09-13 17:51:23**
 - Lines: **16**
 - SHA-256: `ea92f0fb004c850d21ff2c2e5cca496accdcbda2cc8b7eb11ab9c4f483748420`
@@ -4300,7 +4904,7 @@ services:
         sync: false
 ```
 
-## [43] ruff.toml
+## [46] ruff.toml
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **19**
 - SHA-256: `13e62274b99610f74f7908bf2ad18652901bc828ff3425552f32f31504c6ed0c`
@@ -4327,7 +4931,7 @@ per-file-ignores = { "tests/**" = ["F401", "E501"] }
 known-first-party = ["app"]
 ```
 
-## [44] scripts/env_check.py
+## [47] scripts/env_check.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **13**
 - SHA-256: `78000965530a1ca2c61b1769524a4f0068190c1f7d62a4b5ab63873813dcc159`
@@ -4348,7 +4952,7 @@ for k in required + ["OPENAI_MODEL", "GEMINI_MODEL", "LOG_LEVEL"]:
         print(f"{k}={v[:6]}... (len={len(v)})" if "KEY" in k else f"{k}={v}")
 ```
 
-## [45] tests/test_ask_providers.py
+## [48] tests/test_ask_providers.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **71**
 - SHA-256: `c46e4fb6e9cb402bd467eee5bb009603e0d1eb65394e421301770e25dd08981a`
@@ -4427,7 +5031,7 @@ def test_ask_gemini_provider_error(monkeypatch):
     assert "limit" in r.json()["detail"].lower()
 ```
 
-## [46] tests/test_basic.py
+## [49] tests/test_basic.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **22**
 - SHA-256: `552f7a87700f92408da2d70adde4e8a9f7ac467594a502ede50e3e0ebe75ec9a`
@@ -4457,7 +5061,7 @@ def test_ask_echo():
     assert data["answer"] == "ping"
 ```
 
-## [47] tests/test_duel_no_providers.py
+## [50] tests/test_duel_no_providers.py
 - Last modified: **2025-09-14 11:42:30**
 - Lines: **18**
 - SHA-256: `dbbf7419d36344394b3bc7c5a9f406c0847f7b236843b1f01e2b155dad732052`
@@ -4483,7 +5087,7 @@ def test_duel_returns_502_when_no_providers():
     assert "gemini" in body["detail"]["responses"]
 ```
 
-## [48] tests/test_duel_openai_only.py
+## [51] tests/test_duel_openai_only.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **36**
 - SHA-256: `daabf14d47d900829188e01b110cd52087b2b607566e63d9bc63c5b0e08dea79`
@@ -4527,7 +5131,7 @@ def test_duel_openai_only_ok(monkeypatch):
     assert body["verdict"]["winner"] in ("openai", "tie")
 ```
 
-## [49] tests/test_fallback.py
+## [52] tests/test_fallback.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **57**
 - SHA-256: `8635780c76ceab5bf3dee8cc6925fefe03c4138a4701c9be0f7f61c1ccba8f4d`
@@ -4592,7 +5196,7 @@ def test_fallback_todos_falham(monkeypatch):
     assert "gemini_api_key não configurada" in r.json()["detail"].lower()
 ```
 
-## [50] tests/test_judge.py
+## [53] tests/test_judge.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **45**
 - SHA-256: `faf5e4c0061f5a65d0f71f1e144ffdf8693d8353d6fd095459cf8521700da150`
@@ -4645,7 +5249,7 @@ def test_judge_returns_valid_winner_key():
     assert isinstance(verdict["reason"], str) and len(verdict["reason"]) > 0
 ```
 
-## [51] tests/test_metrics.py
+## [54] tests/test_metrics.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **21**
 - SHA-256: `856e3ec90817539595c20dfa86ad6eaf05a449d356fc23214aa655621d470784`
@@ -4674,7 +5278,7 @@ def test_metrics_exposes_ask_counters():
     assert 'ask_requests_total{provider="echo",status="success"}' in text, f"Contador não encontrado em /metrics:\n{text}"
 ```
 
-## [52] tests/test_metrics_error_counter.py
+## [55] tests/test_metrics_error_counter.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **38**
 - SHA-256: `850ce9f5c170c26e823a27370a8b2374b6f755dc6ba6af0740ac3da54b92c58a`
@@ -4720,7 +5324,7 @@ def test_error_counter_increments_on_openai_503():
     assert after == before + 1, f"Esperava {before}+1, obtive {after}"
 ```
 
-## [53] tests/test_observability.py
+## [56] tests/test_observability.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **34**
 - SHA-256: `53d2b047fd810fb276cdb3d760cc915c7f70e908c6a5dc9dbe730d7a21d0b145`
@@ -4762,7 +5366,7 @@ def test_x_request_id_propagation_on_ready():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [54] tests/test_openai_client.py
+## [57] tests/test_openai_client.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **52**
 - SHA-256: `672c43b1e2b6b573e190b75f88338f9d03a7ea2175e51229a2cdef1b8ab5bdc6`
@@ -4821,7 +5425,7 @@ async def test_ask_openai_mock(monkeypatch):
     assert result["usage"]["total_tokens"] == 15
 ```
 
-## [55] tests/test_request_id.py
+## [58] tests/test_request_id.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **20**
 - SHA-256: `2ebc4c965dc3223c112ce5d370ddd116ed9389db792237d8c1574becffef2452`
@@ -4849,7 +5453,7 @@ def test_request_id_is_propagated_from_request_to_response():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [56] tests/test_request_id_header.py
+## [59] tests/test_request_id_header.py
 - Last modified: **2025-09-14 11:44:44**
 - Lines: **16**
 - SHA-256: `f96698342a6fa9152826a1d9e66d5acba5590c19ed5735b0137ddc68bc89db2b`
@@ -4873,7 +5477,7 @@ def test_request_id_is_propagated_from_request_to_response():
     assert r.headers.get("X-Request-ID") == custom
 ```
 
-## [57] tools/guard_update.py
+## [60] tools/guard_update.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **134**
 - SHA-256: `ad8e6b85912848227fe0d097e22e08ed8813334959883fd6709ff969f350b738`
@@ -5014,7 +5618,7 @@ if __name__ == "__main__":
         raise
 ```
 
-## [58] tools/snapshot_configs.py
+## [61] tools/snapshot_configs.py
 - Last modified: **2025-09-19 20:21:09**
 - Lines: **290**
 - SHA-256: `6407d9d7f76f4bdf2e7626bb17061d46e5b91620495b879e277f48dba4aba0c2`
